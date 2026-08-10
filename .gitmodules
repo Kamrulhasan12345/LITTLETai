@@ -1,4 +1,4 @@
 [submodule "llama.cpp/src"]
 	path = llama.cpp/src
-	url = git@github.com:Kamrulhasan12345/llama.cpp.git
+	url = https://github.com/Kamrulhasan12345/llama.cpp.git
 	branch = littletai
