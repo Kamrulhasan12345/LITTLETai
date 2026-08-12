@@ -1,0 +1,1954 @@
+[
+  {
+    "config": "tg_t2_A55",
+    "mode": "counters:a55",
+    "threads": 2,
+    "mask": "0x03",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1381081.02,
+    "t_end": 1381305.38,
+    "tps": [
+      5.96754,
+      5.9819,
+      5.97199,
+      5.99378,
+      5.99126,
+      5.65411,
+      5.97081,
+      5.99164,
+      5.9802,
+      5.9834
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 40700.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t2_A55.a55",
+      "attempt_id": "4f291791a08f4056a2d30c50c3c3f704",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 224.36,
+      "bench_samples_ts": [
+        5.96754,
+        5.9819,
+        5.97199,
+        5.99378,
+        5.99126,
+        5.65411,
+        5.97081,
+        5.99164,
+        5.9802,
+        5.9834
+      ],
+      "bench_samples_ns": [
+        21449369540,
+        21397868924,
+        21433400309,
+        21355457232,
+        21364461540,
+        22638411771,
+        21437623001,
+        21363085232,
+        21403964617,
+        21392501771
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "76",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 167729315791,
+          "instructions:u": 93227660832,
+          "raw-cortex-a55-stall-backend-ilock:u": 37300674535,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 7371660522
+        },
+        "cpu1": {
+          "cpu-cycles:u": 171254066926,
+          "instructions:u": 91333404620,
+          "raw-cortex-a55-stall-backend-ilock:u": 38797738354,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 8651215945
+        },
+        "cpu7": {
+          "cpu-cycles:u": 8009458,
+          "instructions:u": 9366577,
+          "raw-cortex-a55-stall-backend-ilock:u": 57823,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 1475
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu            count  event_name                                # count / runtime\n  0    167,729,315,791  cpu-cycles:u                              # 0.778777 GHz \n  1    171,254,066,926  cpu-cycles:u                              # 0.777473 GHz \n  7          8,009,458  cpu-cycles:u                              # 0.300388 GHz \n  0     93,227,660,832  instructions:u                            # 432.862 M/sec\n  1     91,333,404,620  instructions:u                            # 414.643 M/sec\n  7          9,366,577  instructions:u                            # 351.286 M/sec\n  0     37,300,674,535  raw-cortex-a55-stall-backend-ilock:u      # 173.189 M/sec\n  1     38,797,738,354  raw-cortex-a55-stall-backend-ilock:u      # 176.137 M/sec\n  7             57,823  raw-cortex-a55-stall-backend-ilock:u      # 2.169 M/sec  \n  0      7,371,660,522  raw-cortex-a55-stall-backend-ld-cache:u   # 34.227 M/sec \n  1      8,651,215,945  raw-cortex-a55-stall-backend-ld-cache:u   # 39.275 M/sec \n  7              1,475  raw-cortex-a55-stall-backend-ld-cache:u   # 55.319 K/sec \n\nTotal test time: 222.962183 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1381081.02,
+        "end_boottime": 1381305.38
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t2_A55.a55.json"
+    }
+  },
+  {
+    "config": "tg_t2_A75",
+    "mode": "counters:a55",
+    "threads": 2,
+    "mask": "0xC0",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380155.77,
+    "t_end": 1380270.61,
+    "tps": [
+      11.6831,
+      11.6848,
+      11.7151,
+      11.6307,
+      11.7253,
+      11.6729,
+      11.6561,
+      11.5945,
+      11.7095,
+      11.7368
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 39400.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t2_A75.a55",
+      "attempt_id": "07560da76a8a4d5f9164d4363d2bf428",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 114.84,
+      "bench_samples_ts": [
+        11.6831,
+        11.6848,
+        11.7151,
+        11.6307,
+        11.7253,
+        11.6729,
+        11.6561,
+        11.5945,
+        11.7095,
+        11.7368
+      ],
+      "bench_samples_ns": [
+        10955974846,
+        10954436386,
+        10926088308,
+        11005313232,
+        10916562847,
+        10965568616,
+        10981339001,
+        11039721770,
+        10931297539,
+        10905852231
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "77",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu6": {
+          "cpu-cycles:u": 90706471114,
+          "instructions:u": 88955835160,
+          "raw-cortex-a55-stall-backend-ilock:u": 174720342,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 635151
+        },
+        "cpu7": {
+          "cpu-cycles:u": 89647242798,
+          "instructions:u": 93594939603,
+          "raw-cortex-a55-stall-backend-ilock:u": 160939280,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 542015
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  6    90,706,471,114  cpu-cycles:u                              # 0.806833 GHz \n  7    89,647,242,798  cpu-cycles:u                              # 0.818114 GHz \n  6    88,955,835,160  instructions:u                            # 791.261 M/sec\n  7    93,594,939,603  instructions:u                            # 854.141 M/sec\n  6       174,720,342  raw-cortex-a55-stall-backend-ilock:u      # 1.554 M/sec  \n  7       160,939,280  raw-cortex-a55-stall-backend-ilock:u      # 1.469 M/sec  \n  6           635,151  raw-cortex-a55-stall-backend-ld-cache:u   # 5.650 K/sec  \n  7           542,015  raw-cortex-a55-stall-backend-ld-cache:u   # 4.946 K/sec  \n\nTotal test time: 113.439957 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380155.77,
+        "end_boottime": 1380270.61
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t2_A75.a55.json"
+    }
+  },
+  {
+    "config": "tg_t2_free",
+    "mode": "counters:a55",
+    "threads": 2,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1379683.5,
+    "t_end": 1379800.66,
+    "tps": [
+      11.5314,
+      10.9703,
+      11.6079,
+      11.7069,
+      10.761,
+      11.3584,
+      11.7118,
+      11.3584,
+      11.6235,
+      11.769
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 39100.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t2_free.a55",
+      "attempt_id": "5a5e4854bc594a8ebb2303a5f2aa945b",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 117.16,
+      "bench_samples_ts": [
+        11.5314,
+        10.9703,
+        11.6079,
+        11.7069,
+        10.761,
+        11.3584,
+        11.7118,
+        11.3584,
+        11.6235,
+        11.769
+      ],
+      "bench_samples_ns": [
+        11100100539,
+        11667868924,
+        11026937923,
+        10933683692,
+        11894765232,
+        11269183078,
+        10929137924,
+        11269221231,
+        11012209847,
+        10876007462
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "78",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 501407163,
+          "instructions:u": 275455434,
+          "raw-cortex-a55-stall-backend-ilock:u": 114048519,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 25105112
+        },
+        "cpu1": {
+          "cpu-cycles:u": 641597354,
+          "instructions:u": 355115592,
+          "raw-cortex-a55-stall-backend-ilock:u": 146445901,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 31571488
+        },
+        "cpu2": {
+          "cpu-cycles:u": 805299458,
+          "instructions:u": 428720089,
+          "raw-cortex-a55-stall-backend-ilock:u": 181016322,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 43768661
+        },
+        "cpu3": {
+          "cpu-cycles:u": 626631166,
+          "instructions:u": 346378987,
+          "raw-cortex-a55-stall-backend-ilock:u": 144071715,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 31878929
+        },
+        "cpu4": {
+          "cpu-cycles:u": 888459617,
+          "instructions:u": 490665365,
+          "raw-cortex-a55-stall-backend-ilock:u": 200188469,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 45653187
+        },
+        "cpu5": {
+          "cpu-cycles:u": 1204086492,
+          "instructions:u": 664593019,
+          "raw-cortex-a55-stall-backend-ilock:u": 270947805,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 64812334
+        },
+        "cpu6": {
+          "cpu-cycles:u": 87415791040,
+          "instructions:u": 87178904608,
+          "raw-cortex-a55-stall-backend-ilock:u": 152679795,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 1200408
+        },
+        "cpu7": {
+          "cpu-cycles:u": 91844161258,
+          "instructions:u": 94001121009,
+          "raw-cortex-a55-stall-backend-ilock:u": 161641597,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 1519490
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  0       501,407,163  cpu-cycles:u                              # 0.741047 GHz \n  1       641,597,354  cpu-cycles:u                              # 0.772287 GHz \n  2       805,299,458  cpu-cycles:u                              # 0.773123 GHz \n  3       626,631,166  cpu-cycles:u                              # 0.772980 GHz \n  4       888,459,617  cpu-cycles:u                              # 0.778166 GHz \n  5     1,204,086,492  cpu-cycles:u                              # 0.780808 GHz \n  6    87,415,791,040  cpu-cycles:u                              # 0.816105 GHz \n  7    91,844,161,258  cpu-cycles:u                              # 0.811313 GHz \n  0       275,455,434  instructions:u                            # 407.105 M/sec\n  1       355,115,592  instructions:u                            # 427.451 M/sec\n  2       428,720,089  instructions:u                            # 411.590 M/sec\n  3       346,378,987  instructions:u                            # 427.275 M/sec\n  4       490,665,365  instructions:u                            # 429.754 M/sec\n  5       664,593,019  instructions:u                            # 430.965 M/sec\n  6    87,178,904,608  instructions:u                            # 813.894 M/sec\n  7    94,001,121,009  instructions:u                            # 830.367 M/sec\n  0       114,048,519  raw-cortex-a55-stall-backend-ilock:u      # 168.556 M/sec\n  1       146,445,901  raw-cortex-a55-stall-backend-ilock:u      # 176.276 M/sec\n  2       181,016,322  raw-cortex-a55-stall-backend-ilock:u      # 173.784 M/sec\n  3       144,071,715  raw-cortex-a55-stall-backend-ilock:u      # 177.720 M/sec\n  4       200,188,469  raw-cortex-a55-stall-backend-ilock:u      # 175.337 M/sec\n  5       270,947,805  raw-cortex-a55-stall-backend-ilock:u      # 175.700 M/sec\n  6       152,679,795  raw-cortex-a55-stall-backend-ilock:u      # 1.425 M/sec  \n  7       161,641,597  raw-cortex-a55-stall-backend-ilock:u      # 1.428 M/sec  \n  0        25,105,112  raw-cortex-a55-stall-backend-ld-cache:u   # 37.104 M/sec \n  1        31,571,488  raw-cortex-a55-stall-backend-ld-cache:u   # 38.002 M/sec \n  2        43,768,661  raw-cortex-a55-stall-backend-ld-cache:u   # 42.020 M/sec \n  3        31,878,929  raw-cortex-a55-stall-backend-ld-cache:u   # 39.324 M/sec \n  4        45,653,187  raw-cortex-a55-stall-backend-ld-cache:u   # 39.986 M/sec \n  5        64,812,334  raw-cortex-a55-stall-backend-ld-cache:u   # 42.029 M/sec \n  6         1,200,408  raw-cortex-a55-stall-backend-ld-cache:u   # 11.207 K/sec \n  7         1,519,490  raw-cortex-a55-stall-backend-ld-cache:u   # 13.423 K/sec \n\nTotal test time: 115.828136 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1379683.5,
+        "end_boottime": 1379800.66
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t2_free.a55.json"
+    }
+  },
+  {
+    "config": "tg_t4_free",
+    "mode": "counters:a55",
+    "threads": 4,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380479.44,
+    "t_end": 1380570.86,
+    "tps": [
+      15.4085,
+      14.7256,
+      15.0635,
+      14.5903,
+      14.783,
+      14.7555,
+      15.2105,
+      14.9691,
+      15.233,
+      13.8863
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 39500.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t4_free.a55",
+      "attempt_id": "e95a7ea86647448990dd7d664d2a61af",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 91.42,
+      "bench_samples_ts": [
+        15.4085,
+        14.7256,
+        15.0635,
+        14.5903,
+        14.783,
+        14.7555,
+        15.2105,
+        14.9691,
+        15.233,
+        13.8863
+      ],
+      "bench_samples_ns": [
+        8307110770,
+        8692322770,
+        8497386462,
+        8772963308,
+        8658585846,
+        8674715693,
+        8415218154,
+        8550946231,
+        8402802847,
+        9217724616
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "77",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 8147945414,
+          "instructions:u": 4683121889,
+          "raw-cortex-a55-stall-backend-ilock:u": 1849319333,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 470560735
+        },
+        "cpu1": {
+          "cpu-cycles:u": 7143915985,
+          "instructions:u": 4198218659,
+          "raw-cortex-a55-stall-backend-ilock:u": 1588546465,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 397265221
+        },
+        "cpu2": {
+          "cpu-cycles:u": 12479349794,
+          "instructions:u": 7089562361,
+          "raw-cortex-a55-stall-backend-ilock:u": 2834717762,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 729617101
+        },
+        "cpu3": {
+          "cpu-cycles:u": 30431545298,
+          "instructions:u": 17214751458,
+          "raw-cortex-a55-stall-backend-ilock:u": 6910669522,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 1791246262
+        },
+        "cpu4": {
+          "cpu-cycles:u": 41080050579,
+          "instructions:u": 23947639601,
+          "raw-cortex-a55-stall-backend-ilock:u": 9174293148,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 2248804204
+        },
+        "cpu5": {
+          "cpu-cycles:u": 41024658447,
+          "instructions:u": 23832821904,
+          "raw-cortex-a55-stall-backend-ilock:u": 9123218761,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 2314518973
+        },
+        "cpu6": {
+          "cpu-cycles:u": 68813647718,
+          "instructions:u": 76750002944,
+          "raw-cortex-a55-stall-backend-ilock:u": 104156691,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 386889
+        },
+        "cpu7": {
+          "cpu-cycles:u": 70541657184,
+          "instructions:u": 79192253039,
+          "raw-cortex-a55-stall-backend-ilock:u": 111838631,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 546520
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  0     8,147,945,414  cpu-cycles:u                              # 0.792379 GHz \n  1     7,143,915,985  cpu-cycles:u                              # 0.795292 GHz \n  2    12,479,349,794  cpu-cycles:u                              # 0.796119 GHz \n  3    30,431,545,298  cpu-cycles:u                              # 0.797671 GHz \n  4    41,080,050,579  cpu-cycles:u                              # 0.800087 GHz \n  5    41,024,658,447  cpu-cycles:u                              # 0.799970 GHz \n  6    68,813,647,718  cpu-cycles:u                              # 0.812012 GHz \n  7    70,541,657,184  cpu-cycles:u                              # 0.809828 GHz \n  0     4,683,121,889  instructions:u                            # 455.429 M/sec\n  1     4,198,218,659  instructions:u                            # 467.364 M/sec\n  2     7,089,562,361  instructions:u                            # 452.278 M/sec\n  3    17,214,751,458  instructions:u                            # 451.232 M/sec\n  4    23,947,639,601  instructions:u                            # 466.411 M/sec\n  5    23,832,821,904  instructions:u                            # 464.733 M/sec\n  6    76,750,002,944  instructions:u                            # 905.662 M/sec\n  7    79,192,253,039  instructions:u                            # 909.138 M/sec\n  0     1,849,319,333  raw-cortex-a55-stall-backend-ilock:u      # 179.844 M/sec\n  1     1,588,546,465  raw-cortex-a55-stall-backend-ilock:u      # 176.844 M/sec\n  2     2,834,717,762  raw-cortex-a55-stall-backend-ilock:u      # 180.841 M/sec\n  3     6,910,669,522  raw-cortex-a55-stall-backend-ilock:u      # 181.142 M/sec\n  4     9,174,293,148  raw-cortex-a55-stall-backend-ilock:u      # 178.681 M/sec\n  5     9,123,218,761  raw-cortex-a55-stall-backend-ilock:u      # 177.900 M/sec\n  6       104,156,691  raw-cortex-a55-stall-backend-ilock:u      # 1.229 M/sec  \n  7       111,838,631  raw-cortex-a55-stall-backend-ilock:u      # 1.284 M/sec  \n  0       470,560,735  raw-cortex-a55-stall-backend-ld-cache:u   # 45.762 M/sec \n  1       397,265,221  raw-cortex-a55-stall-backend-ld-cache:u   # 44.225 M/sec \n  2       729,617,101  raw-cortex-a55-stall-backend-ld-cache:u   # 46.546 M/sec \n  3     1,791,246,262  raw-cortex-a55-stall-backend-ld-cache:u   # 46.952 M/sec \n  4     2,248,804,204  raw-cortex-a55-stall-backend-ld-cache:u   # 43.798 M/sec \n  5     2,314,518,973  raw-cortex-a55-stall-backend-ld-cache:u   # 45.132 M/sec \n  6           386,889  raw-cortex-a55-stall-backend-ld-cache:u   # 4.565 K/sec  \n  7           546,520  raw-cortex-a55-stall-backend-ld-cache:u   # 6.274 K/sec  \n\nTotal test time: 90.048259 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380479.44,
+        "end_boottime": 1380570.86
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t4_free.a55.json"
+    }
+  },
+  {
+    "config": "tg_t4_mix",
+    "mode": "counters:a55",
+    "threads": 4,
+    "mask": "0xC3",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380621.5,
+    "t_end": 1380715.24,
+    "tps": [
+      15.3977,
+      15.3249,
+      15.4771,
+      13.2981,
+      14.3156,
+      14.51,
+      13.9641,
+      14.0452,
+      14.364,
+      14.3737
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 40100.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t4_mix.a55",
+      "attempt_id": "a15ba8ce5c46457badf084bc3b335b32",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 93.74,
+      "bench_samples_ts": [
+        15.3977,
+        15.3249,
+        15.4771,
+        13.2981,
+        14.3156,
+        14.51,
+        13.9641,
+        14.0452,
+        14.364,
+        14.3737
+      ],
+      "bench_samples_ns": [
+        8312946770,
+        8352427462,
+        8270293154,
+        9625399462,
+        8941319309,
+        8821503154,
+        9166336616,
+        9113442770,
+        8911180924,
+        8905170077
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "77",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 69728912379,
+          "instructions:u": 38611974453,
+          "raw-cortex-a55-stall-backend-ilock:u": 16150165502,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 4108014728
+        },
+        "cpu1": {
+          "cpu-cycles:u": 70654732828,
+          "instructions:u": 42931178729,
+          "raw-cortex-a55-stall-backend-ilock:u": 15745700885,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 3711976664
+        },
+        "cpu6": {
+          "cpu-cycles:u": 71558695992,
+          "instructions:u": 83981821445,
+          "raw-cortex-a55-stall-backend-ilock:u": 108681960,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 694306
+        },
+        "cpu7": {
+          "cpu-cycles:u": 74213116153,
+          "instructions:u": 86756498431,
+          "raw-cortex-a55-stall-backend-ilock:u": 119571497,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 875960
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  0    69,728,912,379  cpu-cycles:u                              # 0.793392 GHz \n  1    70,654,732,828  cpu-cycles:u                              # 0.800342 GHz \n  6    71,558,695,992  cpu-cycles:u                              # 0.821562 GHz \n  7    74,213,116,153  cpu-cycles:u                              # 0.808794 GHz \n  0    38,611,974,453  instructions:u                            # 439.336 M/sec\n  1    42,931,178,729  instructions:u                            # 486.303 M/sec\n  6    83,981,821,445  instructions:u                            # 964.191 M/sec\n  7    86,756,498,431  instructions:u                            # 945.495 M/sec\n  0    16,150,165,502  raw-cortex-a55-stall-backend-ilock:u      # 183.760 M/sec\n  1    15,745,700,885  raw-cortex-a55-stall-backend-ilock:u      # 178.359 M/sec\n  6       108,681,960  raw-cortex-a55-stall-backend-ilock:u      # 1.248 M/sec  \n  7       119,571,497  raw-cortex-a55-stall-backend-ilock:u      # 1.303 M/sec  \n  0     4,108,014,728  raw-cortex-a55-stall-backend-ld-cache:u   # 46.742 M/sec \n  1     3,711,976,664  raw-cortex-a55-stall-backend-ld-cache:u   # 42.047 M/sec \n  6           694,306  raw-cortex-a55-stall-backend-ld-cache:u   # 7.971 K/sec  \n  7           875,960  raw-cortex-a55-stall-backend-ld-cache:u   # 9.546 K/sec  \n\nTotal test time: 92.333674 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380621.5,
+        "end_boottime": 1380715.24
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t4_mix.a55.json"
+    }
+  },
+  {
+    "config": "tg_t6_A55",
+    "mode": "counters:a55",
+    "threads": 6,
+    "mask": "0x3F",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380321.1,
+    "t_end": 1380428.98,
+    "tps": [
+      12.9302,
+      13.4701,
+      13.0827,
+      13.2258,
+      13.457,
+      13.4625,
+      13.6316,
+      13.484,
+      12.4962,
+      10.6884
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 40700.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t6_A55.a55",
+      "attempt_id": "a69967c0fcf9462b9e9027ea71678c8d",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 107.88,
+      "bench_samples_ts": [
+        12.9302,
+        13.4701,
+        13.0827,
+        13.2258,
+        13.457,
+        13.4625,
+        13.6316,
+        13.484,
+        12.4962,
+        10.6884
+      ],
+      "bench_samples_ns": [
+        9899318847,
+        9502529846,
+        9783883385,
+        9678060308,
+        9511811386,
+        9507895616,
+        9389950769,
+        9492762078,
+        10243119078,
+        11975546078
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "77",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 73548594530,
+          "instructions:u": 46130114927,
+          "raw-cortex-a55-stall-backend-ilock:u": 15528386137,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 7630838058
+        },
+        "cpu1": {
+          "cpu-cycles:u": 72633560833,
+          "instructions:u": 43559048883,
+          "raw-cortex-a55-stall-backend-ilock:u": 14996760109,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 8946716729
+        },
+        "cpu2": {
+          "cpu-cycles:u": 75708749144,
+          "instructions:u": 46256224791,
+          "raw-cortex-a55-stall-backend-ilock:u": 15614998417,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 9559006196
+        },
+        "cpu3": {
+          "cpu-cycles:u": 78468499051,
+          "instructions:u": 42904664438,
+          "raw-cortex-a55-stall-backend-ilock:u": 16585396873,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 11169761954
+        },
+        "cpu4": {
+          "cpu-cycles:u": 77179475611,
+          "instructions:u": 48276741955,
+          "raw-cortex-a55-stall-backend-ilock:u": 16057232058,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 9140548418
+        },
+        "cpu5": {
+          "cpu-cycles:u": 76932464494,
+          "instructions:u": 49157712821,
+          "raw-cortex-a55-stall-backend-ilock:u": 16278641764,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 7999776695
+        },
+        "cpu6": {
+          "cpu-cycles:u": 8116861,
+          "instructions:u": 9366169,
+          "raw-cortex-a55-stall-backend-ilock:u": 76452,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 1499
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  0    73,548,594,530  cpu-cycles:u                              # 0.764965 GHz \n  1    72,633,560,833  cpu-cycles:u                              # 0.768682 GHz \n  2    75,708,749,144  cpu-cycles:u                              # 0.775452 GHz \n  3    78,468,499,051  cpu-cycles:u                              # 0.755486 GHz \n  4    77,179,475,611  cpu-cycles:u                              # 0.778092 GHz \n  5    76,932,464,494  cpu-cycles:u                              # 0.778637 GHz \n  6         8,116,861  cpu-cycles:u                              # 0.298271 GHz \n  0    46,130,114,927  instructions:u                            # 479.791 M/sec\n  1    43,559,048,883  instructions:u                            # 460.986 M/sec\n  2    46,256,224,791  instructions:u                            # 473.783 M/sec\n  3    42,904,664,438  instructions:u                            # 413.081 M/sec\n  4    48,276,741,955  instructions:u                            # 486.706 M/sec\n  5    49,157,712,821  instructions:u                            # 497.527 M/sec\n  6         9,366,169  instructions:u                            # 344.180 M/sec\n  0    15,528,386,137  raw-cortex-a55-stall-backend-ilock:u      # 161.508 M/sec\n  1    14,996,760,109  raw-cortex-a55-stall-backend-ilock:u      # 158.711 M/sec\n  2    15,614,998,417  raw-cortex-a55-stall-backend-ilock:u      # 159.938 M/sec\n  3    16,585,396,873  raw-cortex-a55-stall-backend-ilock:u      # 159.682 M/sec\n  4    16,057,232,058  raw-cortex-a55-stall-backend-ilock:u      # 161.882 M/sec\n  5    16,278,641,764  raw-cortex-a55-stall-backend-ilock:u      # 164.757 M/sec\n  6            76,452  raw-cortex-a55-stall-backend-ilock:u      # 2.809 M/sec  \n  0     7,630,838,058  raw-cortex-a55-stall-backend-ld-cache:u   # 79.367 M/sec \n  1     8,946,716,729  raw-cortex-a55-stall-backend-ld-cache:u   # 94.683 M/sec \n  2     9,559,006,196  raw-cortex-a55-stall-backend-ld-cache:u   # 97.909 M/sec \n  3    11,169,761,954  raw-cortex-a55-stall-backend-ld-cache:u   # 107.541 M/sec\n  4     9,140,548,418  raw-cortex-a55-stall-backend-ld-cache:u   # 92.151 M/sec \n  5     7,999,776,695  raw-cortex-a55-stall-backend-ld-cache:u   # 80.966 M/sec \n  6             1,499  raw-cortex-a55-stall-backend-ld-cache:u   # 55.084 K/sec \n\nTotal test time: 106.434156 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380321.1,
+        "end_boottime": 1380428.98
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t6_A55.a55.json"
+    }
+  },
+  {
+    "config": "tg_t6_free",
+    "mode": "counters:a55",
+    "threads": 6,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1379547.57,
+    "t_end": 1379633.06,
+    "tps": [
+      16.4233,
+      15.9219,
+      15.5058,
+      16.5698,
+      15.3153,
+      15.5999,
+      15.9846,
+      15.7975,
+      16.4573,
+      15.9123
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 39000.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t6_free.a55",
+      "attempt_id": "4bca2df2b19b4eadac3157b1025edbd3",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 85.49,
+      "bench_samples_ts": [
+        16.4233,
+        15.9219,
+        15.5058,
+        16.5698,
+        15.3153,
+        15.5999,
+        15.9846,
+        15.7975,
+        16.4573,
+        15.9123
+      ],
+      "bench_samples_ns": [
+        7793799077,
+        8039249308,
+        8254998462,
+        7724895462,
+        8357632078,
+        8205190462,
+        8007706385,
+        8102557155,
+        7777724385,
+        8044094232
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "78",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 15027924166,
+          "instructions:u": 9167243952,
+          "raw-cortex-a55-stall-backend-ilock:u": 3159986939,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 1676512351
+        },
+        "cpu1": {
+          "cpu-cycles:u": 20739349526,
+          "instructions:u": 12715384239,
+          "raw-cortex-a55-stall-backend-ilock:u": 4346525750,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 2347819937
+        },
+        "cpu2": {
+          "cpu-cycles:u": 51897321242,
+          "instructions:u": 31089244103,
+          "raw-cortex-a55-stall-backend-ilock:u": 10934489210,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 6042963147
+        },
+        "cpu3": {
+          "cpu-cycles:u": 57153652062,
+          "instructions:u": 33536265025,
+          "raw-cortex-a55-stall-backend-ilock:u": 12075222439,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 7303906369
+        },
+        "cpu4": {
+          "cpu-cycles:u": 57972695370,
+          "instructions:u": 35713962689,
+          "raw-cortex-a55-stall-backend-ilock:u": 12115738858,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 7312300344
+        },
+        "cpu5": {
+          "cpu-cycles:u": 49478661818,
+          "instructions:u": 30430341351,
+          "raw-cortex-a55-stall-backend-ilock:u": 10315691234,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 6205232312
+        },
+        "cpu6": {
+          "cpu-cycles:u": 61003173057,
+          "instructions:u": 69135368705,
+          "raw-cortex-a55-stall-backend-ilock:u": 76883851,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 218171
+        },
+        "cpu7": {
+          "cpu-cycles:u": 64550183507,
+          "instructions:u": 75069276847,
+          "raw-cortex-a55-stall-backend-ilock:u": 83717589,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 390240
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  0    15,027,924,166  cpu-cycles:u                              # 0.766770 GHz \n  1    20,739,349,526  cpu-cycles:u                              # 0.775971 GHz \n  2    51,897,321,242  cpu-cycles:u                              # 0.778570 GHz \n  3    57,153,652,062  cpu-cycles:u                              # 0.777912 GHz \n  4    57,972,695,370  cpu-cycles:u                              # 0.780060 GHz \n  5    49,478,661,818  cpu-cycles:u                              # 0.778856 GHz \n  6    61,003,173,057  cpu-cycles:u                              # 0.804876 GHz \n  7    64,550,183,507  cpu-cycles:u                              # 0.794022 GHz \n  0     9,167,243,952  instructions:u                            # 467.740 M/sec\n  1    12,715,384,239  instructions:u                            # 475.751 M/sec\n  2    31,089,244,103  instructions:u                            # 466.405 M/sec\n  3    33,536,265,025  instructions:u                            # 456.459 M/sec\n  4    35,713,962,689  instructions:u                            # 480.554 M/sec\n  5    30,430,341,351  instructions:u                            # 479.012 M/sec\n  6    69,135,368,705  instructions:u                            # 912.173 M/sec\n  7    75,069,276,847  instructions:u                            # 923.415 M/sec\n  0     3,159,986,939  raw-cortex-a55-stall-backend-ilock:u      # 161.232 M/sec\n  1     4,346,525,750  raw-cortex-a55-stall-backend-ilock:u      # 162.627 M/sec\n  2    10,934,489,210  raw-cortex-a55-stall-backend-ilock:u      # 164.041 M/sec\n  3    12,075,222,439  raw-cortex-a55-stall-backend-ilock:u      # 164.355 M/sec\n  4    12,115,738,858  raw-cortex-a55-stall-backend-ilock:u      # 163.025 M/sec\n  5    10,315,691,234  raw-cortex-a55-stall-backend-ilock:u      # 162.382 M/sec\n  6        76,883,851  raw-cortex-a55-stall-backend-ilock:u      # 1.014 M/sec  \n  7        83,717,589  raw-cortex-a55-stall-backend-ilock:u      # 1.030 M/sec  \n  0     1,676,512,351  raw-cortex-a55-stall-backend-ld-cache:u   # 85.541 M/sec \n  1     2,347,819,937  raw-cortex-a55-stall-backend-ld-cache:u   # 87.845 M/sec \n  2     6,042,963,147  raw-cortex-a55-stall-backend-ld-cache:u   # 90.657 M/sec \n  3     7,303,906,369  raw-cortex-a55-stall-backend-ld-cache:u   # 99.413 M/sec \n  4     7,312,300,344  raw-cortex-a55-stall-backend-ld-cache:u   # 98.392 M/sec \n  5     6,205,232,312  raw-cortex-a55-stall-backend-ld-cache:u   # 97.678 M/sec \n  6           218,171  raw-cortex-a55-stall-backend-ld-cache:u   # 2.879 K/sec  \n  7           390,240  raw-cortex-a55-stall-backend-ld-cache:u   # 4.800 K/sec  \n\nTotal test time: 84.149777 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1379547.57,
+        "end_boottime": 1379633.06
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t6_free.a55.json"
+    }
+  },
+  {
+    "config": "tg_t8_free",
+    "mode": "counters:a55",
+    "threads": 8,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380005.91,
+    "t_end": 1380105.34,
+    "tps": [
+      14.8963,
+      13.9583,
+      13.6002,
+      12.8864,
+      12.7927,
+      13.3842,
+      12.8978,
+      14.132,
+      13.605,
+      13.96
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 39300.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t8_free.a55",
+      "attempt_id": "8dd7539e8b044d4aa6bac4caae760528",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 99.43,
+      "bench_samples_ts": [
+        14.8963,
+        13.9583,
+        13.6002,
+        12.8864,
+        12.7927,
+        13.3842,
+        12.8978,
+        14.132,
+        13.605,
+        13.96
+      ],
+      "bench_samples_ns": [
+        8592758770,
+        9170143308,
+        9411636001,
+        9932945155,
+        10005720847,
+        9563479770,
+        9924193616,
+        9057451770,
+        9408276309,
+        9169041539
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "a55",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-cortex-a55-stall-backend-ilock:u",
+        "raw-cortex-a55-stall-backend-ld-cache:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "78",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 66226993298,
+          "instructions:u": 45718906156,
+          "raw-cortex-a55-stall-backend-ilock:u": 13488299538,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 9495464814
+        },
+        "cpu1": {
+          "cpu-cycles:u": 67435194112,
+          "instructions:u": 45968771005,
+          "raw-cortex-a55-stall-backend-ilock:u": 13820448647,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 10378560777
+        },
+        "cpu2": {
+          "cpu-cycles:u": 68800905190,
+          "instructions:u": 44900311650,
+          "raw-cortex-a55-stall-backend-ilock:u": 14539812802,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 11038112868
+        },
+        "cpu3": {
+          "cpu-cycles:u": 68339498224,
+          "instructions:u": 48342437285,
+          "raw-cortex-a55-stall-backend-ilock:u": 13828405026,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 10568872169
+        },
+        "cpu4": {
+          "cpu-cycles:u": 69520401420,
+          "instructions:u": 49564297890,
+          "raw-cortex-a55-stall-backend-ilock:u": 14098548415,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 10623286599
+        },
+        "cpu5": {
+          "cpu-cycles:u": 69760413160,
+          "instructions:u": 48908597375,
+          "raw-cortex-a55-stall-backend-ilock:u": 14123357080,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 10453996377
+        },
+        "cpu6": {
+          "cpu-cycles:u": 68964459328,
+          "instructions:u": 89957602467,
+          "raw-cortex-a55-stall-backend-ilock:u": 64068096,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 248362
+        },
+        "cpu7": {
+          "cpu-cycles:u": 69603119163,
+          "instructions:u": 93296839703,
+          "raw-cortex-a55-stall-backend-ilock:u": 60818709,
+          "raw-cortex-a55-stall-backend-ld-cache:u": 352406
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name                                # count / runtime\n  0    66,226,993,298  cpu-cycles:u                              # 0.741153 GHz \n  1    67,435,194,112  cpu-cycles:u                              # 0.747099 GHz \n  2    68,800,905,190  cpu-cycles:u                              # 0.751364 GHz \n  3    68,339,498,224  cpu-cycles:u                              # 0.747631 GHz \n  4    69,520,401,420  cpu-cycles:u                              # 0.752772 GHz \n  5    69,760,413,160  cpu-cycles:u                              # 0.754292 GHz \n  6    68,964,459,328  cpu-cycles:u                              # 0.784612 GHz \n  7    69,603,119,163  cpu-cycles:u                              # 0.788478 GHz \n  0    45,718,906,156  instructions:u                            # 511.645 M/sec\n  1    45,968,771,005  instructions:u                            # 509.277 M/sec\n  2    44,900,311,650  instructions:u                            # 490.349 M/sec\n  3    48,342,437,285  instructions:u                            # 528.864 M/sec\n  4    49,564,297,890  instructions:u                            # 536.686 M/sec\n  5    48,908,597,375  instructions:u                            # 528.829 M/sec\n  6    89,957,602,467  instructions:u                            # 1.023 G/sec  \n  7    93,296,839,703  instructions:u                            # 1.057 G/sec  \n  0    13,488,299,538  raw-cortex-a55-stall-backend-ilock:u      # 150.949 M/sec\n  1    13,820,448,647  raw-cortex-a55-stall-backend-ilock:u      # 153.114 M/sec\n  2    14,539,812,802  raw-cortex-a55-stall-backend-ilock:u      # 158.787 M/sec\n  3    13,828,405,026  raw-cortex-a55-stall-backend-ilock:u      # 151.282 M/sec\n  4    14,098,548,415  raw-cortex-a55-stall-backend-ilock:u      # 152.660 M/sec\n  5    14,123,357,080  raw-cortex-a55-stall-backend-ilock:u      # 152.710 M/sec\n  6        64,068,096  raw-cortex-a55-stall-backend-ilock:u      # 728.906 K/sec\n  7        60,818,709  raw-cortex-a55-stall-backend-ilock:u      # 688.967 K/sec\n  0     9,495,464,814  raw-cortex-a55-stall-backend-ld-cache:u   # 106.265 M/sec\n  1    10,378,560,777  raw-cortex-a55-stall-backend-ld-cache:u   # 114.982 M/sec\n  2    11,038,112,868  raw-cortex-a55-stall-backend-ld-cache:u   # 120.545 M/sec\n  3    10,568,872,169  raw-cortex-a55-stall-backend-ld-cache:u   # 115.623 M/sec\n  4    10,623,286,599  raw-cortex-a55-stall-backend-ld-cache:u   # 115.030 M/sec\n  5    10,453,996,377  raw-cortex-a55-stall-backend-ld-cache:u   # 113.035 M/sec\n  6           248,362  raw-cortex-a55-stall-backend-ld-cache:u   # 2.826 K/sec  \n  7           352,406  raw-cortex-a55-stall-backend-ld-cache:u   # 3.992 K/sec  \n\nTotal test time: 98.096846 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380005.91,
+        "end_boottime": 1380105.34
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t8_free.a55.json"
+    }
+  },
+  {
+    "config": "tg_t2_A55",
+    "mode": "counters:core",
+    "threads": 2,
+    "mask": "0x03",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1378971.19,
+    "t_end": 1379194.76,
+    "tps": [
+      5.99333,
+      5.98001,
+      5.87715,
+      5.99083,
+      5.98172,
+      6.00481,
+      5.98377,
+      5.99014,
+      5.93024,
+      5.96048
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 40200.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t2_A55.core",
+      "attempt_id": "d36a2811f87e40cea4d228b6e773edd5",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 223.57,
+      "bench_samples_ts": [
+        5.99333,
+        5.98001,
+        5.87715,
+        5.99083,
+        5.98172,
+        6.00481,
+        5.98377,
+        5.99014,
+        5.93024,
+        5.96048
+      ],
+      "bench_samples_ns": [
+        21357091462,
+        21404664078,
+        21779280924,
+        21365996847,
+        21398532924,
+        21316251694,
+        21391199386,
+        21368459155,
+        21584304540,
+        21474774232
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "79",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 167924456457,
+          "instructions:u": 87656133530,
+          "raw-stall-backend:u": 62961634931,
+          "raw-ll-cache-miss-rd:u": 2070723301
+        },
+        "cpu1": {
+          "cpu-cycles:u": 170587306586,
+          "instructions:u": 96278951579,
+          "raw-stall-backend:u": 61874662842,
+          "raw-ll-cache-miss-rd:u": 1943712875
+        },
+        "cpu7": {
+          "cpu-cycles:u": 8097006,
+          "instructions:u": 9366394,
+          "raw-stall-backend:u": 2910195,
+          "raw-ll-cache-miss-rd:u": 31941
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu            count  event_name               # count / runtime\n  0    167,924,456,457  cpu-cycles:u             # 0.774166 GHz \n  1    170,587,306,586  cpu-cycles:u             # 0.783250 GHz \n  7          8,097,006  cpu-cycles:u             # 0.291610 GHz \n  0     87,656,133,530  instructions:u           # 404.113 M/sec\n  1     96,278,951,579  instructions:u           # 442.064 M/sec\n  7          9,366,394  instructions:u           # 337.327 M/sec\n  0     62,961,634,931  raw-stall-backend:u      # 290.266 M/sec\n  1     61,874,662,842  raw-stall-backend:u      # 284.097 M/sec\n  7          2,910,195  raw-stall-backend:u      # 104.809 M/sec\n  0      2,070,723,301  raw-ll-cache-miss-rd:u   # 9.546 M/sec  \n  1      1,943,712,875  raw-ll-cache-miss-rd:u   # 8.925 M/sec  \n  7             31,941  raw-ll-cache-miss-rd:u   # 1.150 M/sec  \n\nTotal test time: 222.167773 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1378971.19,
+        "end_boottime": 1379194.76
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t2_A55.core.json"
+    }
+  },
+  {
+    "config": "tg_t2_A75",
+    "mode": "counters:core",
+    "threads": 2,
+    "mask": "0xC0",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1379245.1,
+    "t_end": 1379358.43,
+    "tps": [
+      11.8355,
+      11.8503,
+      11.8369,
+      11.8699,
+      11.8117,
+      11.8357,
+      11.844,
+      11.8613,
+      11.8302,
+      11.8542
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 38400.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t2_A75.core",
+      "attempt_id": "7971126f0c8b43319a2cc10fa1a23361",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 113.33,
+      "bench_samples_ts": [
+        11.8355,
+        11.8503,
+        11.8369,
+        11.8699,
+        11.8117,
+        11.8357,
+        11.844,
+        11.8613,
+        11.8302,
+        11.8542
+      ],
+      "bench_samples_ns": [
+        10814909923,
+        10801412924,
+        10813634770,
+        10783559693,
+        10836682154,
+        10814715924,
+        10807164000,
+        10791376000,
+        10819777154,
+        10797825231
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "79",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu6": {
+          "cpu-cycles:u": 89293947472,
+          "instructions:u": 92954747382,
+          "raw-stall-backend:u": 54570195629,
+          "raw-ll-cache-miss-rd:u": 5615051247
+        },
+        "cpu7": {
+          "cpu-cycles:u": 90098668348,
+          "instructions:u": 89254710835,
+          "raw-stall-backend:u": 56389166757,
+          "raw-ll-cache-miss-rd:u": 5654334104
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name               # count / runtime\n  6    89,293,947,472  cpu-cycles:u             # 0.821419 GHz \n  7    90,098,668,348  cpu-cycles:u             # 0.816024 GHz \n  6    92,954,747,382  instructions:u           # 855.095 M/sec\n  7    89,254,710,835  instructions:u           # 808.380 M/sec\n  6    54,570,195,629  raw-stall-backend:u      # 501.994 M/sec\n  7    56,389,166,757  raw-stall-backend:u      # 510.717 M/sec\n  6     5,615,051,247  raw-ll-cache-miss-rd:u   # 51.653 M/sec \n  7     5,654,334,104  raw-ll-cache-miss-rd:u   # 51.211 M/sec \n\nTotal test time: 111.931019 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1379245.1,
+        "end_boottime": 1379358.43
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t2_A75.core.json"
+    }
+  },
+  {
+    "config": "tg_t2_free",
+    "mode": "counters:core",
+    "threads": 2,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380765.73,
+    "t_end": 1380882.76,
+    "tps": [
+      11.7014,
+      11.7314,
+      11.6582,
+      11.7539,
+      11.6927,
+      11.6934,
+      10.3337,
+      11.044,
+      11.6551,
+      11.409
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 39400.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t2_free.core",
+      "attempt_id": "32036c3f1b8d48d4800056c84ea72f7a",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 117.03,
+      "bench_samples_ts": [
+        11.7014,
+        11.7314,
+        11.6582,
+        11.7539,
+        11.6927,
+        11.6934,
+        10.3337,
+        11.044,
+        11.6551,
+        11.409
+      ],
+      "bench_samples_ns": [
+        10938878385,
+        10910929616,
+        10979393616,
+        10889992231,
+        10947012231,
+        10946381308,
+        12386679155,
+        11590005924,
+        10982342231,
+        11219208000
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "77",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 389334772,
+          "instructions:u": 215583109,
+          "raw-stall-backend:u": 143103708,
+          "raw-ll-cache-miss-rd:u": 4071287
+        },
+        "cpu1": {
+          "cpu-cycles:u": 355413273,
+          "instructions:u": 196015656,
+          "raw-stall-backend:u": 131915150,
+          "raw-ll-cache-miss-rd:u": 3922741
+        },
+        "cpu2": {
+          "cpu-cycles:u": 686462855,
+          "instructions:u": 408114622,
+          "raw-stall-backend:u": 249366800,
+          "raw-ll-cache-miss-rd:u": 6699136
+        },
+        "cpu3": {
+          "cpu-cycles:u": 444850102,
+          "instructions:u": 243070190,
+          "raw-stall-backend:u": 165611182,
+          "raw-ll-cache-miss-rd:u": 4716775
+        },
+        "cpu4": {
+          "cpu-cycles:u": 774306624,
+          "instructions:u": 426914163,
+          "raw-stall-backend:u": 286969332,
+          "raw-ll-cache-miss-rd:u": 8090305
+        },
+        "cpu5": {
+          "cpu-cycles:u": 850526634,
+          "instructions:u": 468166674,
+          "raw-stall-backend:u": 317101064,
+          "raw-ll-cache-miss-rd:u": 9021246
+        },
+        "cpu6": {
+          "cpu-cycles:u": 87321595081,
+          "instructions:u": 89008376816,
+          "raw-stall-backend:u": 53812775127,
+          "raw-ll-cache-miss-rd:u": 5443041538
+        },
+        "cpu7": {
+          "cpu-cycles:u": 92257058973,
+          "instructions:u": 92909332264,
+          "raw-stall-backend:u": 57018621036,
+          "raw-ll-cache-miss-rd:u": 5602724115
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name               # count / runtime\n  0       389,334,772  cpu-cycles:u             # 0.748993 GHz \n  1       355,413,273  cpu-cycles:u             # 0.767292 GHz \n  2       686,462,855  cpu-cycles:u             # 0.777061 GHz \n  3       444,850,102  cpu-cycles:u             # 0.781483 GHz \n  4       774,306,624  cpu-cycles:u             # 0.781565 GHz \n  5       850,526,634  cpu-cycles:u             # 0.775527 GHz \n  6    87,321,595,081  cpu-cycles:u             # 0.814858 GHz \n  7    92,257,058,973  cpu-cycles:u             # 0.809974 GHz \n  0       215,583,109  instructions:u           # 414.733 M/sec\n  1       196,015,656  instructions:u           # 423.173 M/sec\n  2       408,114,622  instructions:u           # 461.977 M/sec\n  3       243,070,190  instructions:u           # 427.010 M/sec\n  4       426,914,163  instructions:u           # 430.916 M/sec\n  5       468,166,674  instructions:u           # 426.884 M/sec\n  6    89,008,376,816  instructions:u           # 830.599 M/sec\n  7    92,909,332,264  instructions:u           # 815.701 M/sec\n  0       143,103,708  raw-stall-backend:u      # 275.299 M/sec\n  1       131,915,150  raw-stall-backend:u      # 284.788 M/sec\n  2       249,366,800  raw-stall-backend:u      # 282.278 M/sec\n  3       165,611,182  raw-stall-backend:u      # 290.935 M/sec\n  4       286,969,332  raw-stall-backend:u      # 289.659 M/sec\n  5       317,101,064  raw-stall-backend:u      # 289.139 M/sec\n  6    53,812,775,127  raw-stall-backend:u      # 502.164 M/sec\n  7    57,018,621,036  raw-stall-backend:u      # 500.597 M/sec\n  0         4,071,287  raw-ll-cache-miss-rd:u   # 7.832 M/sec  \n  1         3,922,741  raw-ll-cache-miss-rd:u   # 8.469 M/sec  \n  2         6,699,136  raw-ll-cache-miss-rd:u   # 7.583 M/sec  \n  3         4,716,775  raw-ll-cache-miss-rd:u   # 8.286 M/sec  \n  4         8,090,305  raw-ll-cache-miss-rd:u   # 8.166 M/sec  \n  5         9,021,246  raw-ll-cache-miss-rd:u   # 8.226 M/sec  \n  6     5,443,041,538  raw-ll-cache-miss-rd:u   # 50.793 M/sec \n  7     5,602,724,115  raw-ll-cache-miss-rd:u   # 49.189 M/sec \n\nTotal test time: 115.692360 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380765.73,
+        "end_boottime": 1380882.76
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t2_free.core.json"
+    }
+  },
+  {
+    "config": "tg_t4_free",
+    "mode": "counters:core",
+    "threads": 4,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1380933.13,
+    "t_end": 1381030.62,
+    "tps": [
+      14.8722,
+      14.2448,
+      14.5436,
+      15.0113,
+      15.4456,
+      14.5521,
+      12.5234,
+      14.5767,
+      13.2489,
+      12.1122
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 40500.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t4_free.core",
+      "attempt_id": "bdba7536535e48d9a089270293c3e9c5",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 97.49,
+      "bench_samples_ts": [
+        14.8722,
+        14.2448,
+        14.5436,
+        15.0113,
+        15.4456,
+        14.5521,
+        12.5234,
+        14.5767,
+        13.2489,
+        12.1122
+      ],
+      "bench_samples_ns": [
+        8606665232,
+        8985757847,
+        8801133847,
+        8526882077,
+        8287137923,
+        8795981231,
+        10220871693,
+        8781153462,
+        9661193847,
+        10567818231
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "76",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 6460120381,
+          "instructions:u": 3808484239,
+          "raw-stall-backend:u": 2385049687,
+          "raw-ll-cache-miss-rd:u": 67628483
+        },
+        "cpu1": {
+          "cpu-cycles:u": 8585122470,
+          "instructions:u": 5137362845,
+          "raw-stall-backend:u": 3159541294,
+          "raw-ll-cache-miss-rd:u": 88441546
+        },
+        "cpu2": {
+          "cpu-cycles:u": 15931421127,
+          "instructions:u": 9386333244,
+          "raw-stall-backend:u": 5892454094,
+          "raw-ll-cache-miss-rd:u": 167295752
+        },
+        "cpu3": {
+          "cpu-cycles:u": 22820372111,
+          "instructions:u": 13377180651,
+          "raw-stall-backend:u": 8492578112,
+          "raw-ll-cache-miss-rd:u": 238349712
+        },
+        "cpu4": {
+          "cpu-cycles:u": 48947462802,
+          "instructions:u": 28441381152,
+          "raw-stall-backend:u": 18280014253,
+          "raw-ll-cache-miss-rd:u": 516660616
+        },
+        "cpu5": {
+          "cpu-cycles:u": 46287937205,
+          "instructions:u": 28227118033,
+          "raw-stall-backend:u": 16986985937,
+          "raw-ll-cache-miss-rd:u": 469106828
+        },
+        "cpu6": {
+          "cpu-cycles:u": 70647276802,
+          "instructions:u": 82260094318,
+          "raw-stall-backend:u": 40530481025,
+          "raw-ll-cache-miss-rd:u": 2973341888
+        },
+        "cpu7": {
+          "cpu-cycles:u": 72096848430,
+          "instructions:u": 83287975364,
+          "raw-stall-backend:u": 41609814691,
+          "raw-ll-cache-miss-rd:u": 3107963752
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name               # count / runtime\n  0     6,460,120,381  cpu-cycles:u             # 0.775001 GHz \n  1     8,585,122,470  cpu-cycles:u             # 0.789518 GHz \n  2    15,931,421,127  cpu-cycles:u             # 0.794641 GHz \n  3    22,820,372,111  cpu-cycles:u             # 0.795069 GHz \n  4    48,947,462,802  cpu-cycles:u             # 0.790559 GHz \n  5    46,287,937,205  cpu-cycles:u             # 0.796357 GHz \n  6    70,647,276,802  cpu-cycles:u             # 0.802193 GHz \n  7    72,096,848,430  cpu-cycles:u             # 0.813245 GHz \n  0     3,808,484,239  instructions:u           # 456.892 M/sec\n  1     5,137,362,845  instructions:u           # 472.450 M/sec\n  2     9,386,333,244  instructions:u           # 468.179 M/sec\n  3    13,377,180,651  instructions:u           # 466.065 M/sec\n  4    28,441,381,152  instructions:u           # 459.362 M/sec\n  5    28,227,118,033  instructions:u           # 485.631 M/sec\n  6    82,260,094,318  instructions:u           # 934.056 M/sec\n  7    83,287,975,364  instructions:u           # 939.479 M/sec\n  0     2,385,049,687  raw-stall-backend:u      # 286.127 M/sec\n  1     3,159,541,294  raw-stall-backend:u      # 290.562 M/sec\n  2     5,892,454,094  raw-stall-backend:u      # 293.909 M/sec\n  3     8,492,578,112  raw-stall-backend:u      # 295.884 M/sec\n  4    18,280,014,253  raw-stall-backend:u      # 295.244 M/sec\n  5    16,986,985,937  raw-stall-backend:u      # 292.251 M/sec\n  6    40,530,481,025  raw-stall-backend:u      # 460.220 M/sec\n  7    41,609,814,691  raw-stall-backend:u      # 469.354 M/sec\n  0        67,628,483  raw-ll-cache-miss-rd:u   # 8.113 M/sec  \n  1        88,441,546  raw-ll-cache-miss-rd:u   # 8.133 M/sec  \n  2       167,295,752  raw-ll-cache-miss-rd:u   # 8.345 M/sec  \n  3       238,349,712  raw-ll-cache-miss-rd:u   # 8.304 M/sec  \n  4       516,660,616  raw-ll-cache-miss-rd:u   # 8.345 M/sec  \n  5       469,106,828  raw-ll-cache-miss-rd:u   # 8.071 M/sec  \n  6     2,973,341,888  raw-ll-cache-miss-rd:u   # 33.762 M/sec \n  7     3,107,963,752  raw-ll-cache-miss-rd:u   # 35.057 M/sec \n\nTotal test time: 96.174815 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1380933.13,
+        "end_boottime": 1381030.62
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t4_free.core.json"
+    }
+  },
+  {
+    "config": "tg_t4_mix",
+    "mode": "counters:core",
+    "threads": 4,
+    "mask": "0xC3",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1379408.77,
+    "t_end": 1379497.17,
+    "tps": [
+      15.3402,
+      15.2232,
+      15.401,
+      15.458,
+      15.2577,
+      15.5051,
+      15.4102,
+      15.4188,
+      15.4335,
+      15.4327
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 39500.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t4_mix.core",
+      "attempt_id": "5989dbabe63f4c5082e9d0d72c101fa7",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 88.4,
+      "bench_samples_ts": [
+        15.3402,
+        15.2232,
+        15.401,
+        15.458,
+        15.2577,
+        15.5051,
+        15.4102,
+        15.4188,
+        15.4335,
+        15.4327
+      ],
+      "bench_samples_ns": [
+        8344115386,
+        8408230385,
+        8311166770,
+        8280478539,
+        8389231154,
+        8255357462,
+        8306207924,
+        8301539692,
+        8293638231,
+        8294051077
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "79",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 66375716840,
+          "instructions:u": 38228887283,
+          "raw-stall-backend:u": 24339904445,
+          "raw-ll-cache-miss-rd:u": 680678485
+        },
+        "cpu1": {
+          "cpu-cycles:u": 66696621604,
+          "instructions:u": 38432038933,
+          "raw-stall-backend:u": 24527708934,
+          "raw-ll-cache-miss-rd:u": 704702434
+        },
+        "cpu6": {
+          "cpu-cycles:u": 69294668666,
+          "instructions:u": 71661050457,
+          "raw-stall-backend:u": 42513927432,
+          "raw-ll-cache-miss-rd:u": 3171193616
+        },
+        "cpu7": {
+          "cpu-cycles:u": 68157165283,
+          "instructions:u": 75757919347,
+          "raw-stall-backend:u": 40410272246,
+          "raw-ll-cache-miss-rd:u": 3125503116
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name               # count / runtime\n  0    66,375,716,840  cpu-cycles:u             # 0.799368 GHz \n  1    66,696,621,604  cpu-cycles:u             # 0.801516 GHz \n  6    69,294,668,666  cpu-cycles:u             # 0.806896 GHz \n  7    68,157,165,283  cpu-cycles:u             # 0.816582 GHz \n  0    38,228,887,283  instructions:u           # 460.394 M/sec\n  1    38,432,038,933  instructions:u           # 461.851 M/sec\n  6    71,661,050,457  instructions:u           # 834.451 M/sec\n  7    75,757,919,347  instructions:u           # 907.646 M/sec\n  0    24,339,904,445  raw-stall-backend:u      # 293.127 M/sec\n  1    24,527,708,934  raw-stall-backend:u      # 294.758 M/sec\n  6    42,513,927,432  raw-stall-backend:u      # 495.050 M/sec\n  7    40,410,272,246  raw-stall-backend:u      # 484.150 M/sec\n  0       680,678,485  raw-ll-cache-miss-rd:u   # 8.197 M/sec  \n  1       704,702,434  raw-ll-cache-miss-rd:u   # 8.469 M/sec  \n  6     3,171,193,616  raw-ll-cache-miss-rd:u   # 36.927 M/sec \n  7     3,125,503,116  raw-ll-cache-miss-rd:u   # 37.446 M/sec \n\nTotal test time: 87.001571 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1379408.77,
+        "end_boottime": 1379497.17
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t4_mix.core.json"
+    }
+  },
+  {
+    "config": "tg_t6_A55",
+    "mode": "counters:core",
+    "threads": 6,
+    "mask": "0x3F",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1379851.1,
+    "t_end": 1379955.56,
+    "tps": [
+      13.4401,
+      13.4489,
+      13.403,
+      13.4618,
+      13.3979,
+      13.81,
+      13.6249,
+      13.4374,
+      13.5293,
+      12.5482
+    ],
+    "cool_wait_s": 47.9,
+    "entry_temp_mC": 39600.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t6_A55.core",
+      "attempt_id": "68f4b89e49a44fd2b8decd1c6d2a9668",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 104.46,
+      "bench_samples_ts": [
+        13.4401,
+        13.4489,
+        13.403,
+        13.4618,
+        13.3979,
+        13.81,
+        13.6249,
+        13.4374,
+        13.5293,
+        12.5482
+      ],
+      "bench_samples_ns": [
+        9523754693,
+        9517517231,
+        9550110770,
+        9508371385,
+        9553751078,
+        9268629846,
+        9394593154,
+        9525623462,
+        9460933539,
+        10200647078
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "78",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 70394914840,
+          "instructions:u": 42613751413,
+          "raw-stall-backend:u": 27880285548,
+          "raw-ll-cache-miss-rd:u": 564937274
+        },
+        "cpu1": {
+          "cpu-cycles:u": 74769813469,
+          "instructions:u": 45054340333,
+          "raw-stall-backend:u": 30221746706,
+          "raw-ll-cache-miss-rd:u": 550678700
+        },
+        "cpu2": {
+          "cpu-cycles:u": 73808699275,
+          "instructions:u": 43776918819,
+          "raw-stall-backend:u": 30409602583,
+          "raw-ll-cache-miss-rd:u": 573029588
+        },
+        "cpu3": {
+          "cpu-cycles:u": 73316654025,
+          "instructions:u": 43512305316,
+          "raw-stall-backend:u": 30188073886,
+          "raw-ll-cache-miss-rd:u": 566241723
+        },
+        "cpu4": {
+          "cpu-cycles:u": 74167237809,
+          "instructions:u": 44924050786,
+          "raw-stall-backend:u": 30050747297,
+          "raw-ll-cache-miss-rd:u": 570442244
+        },
+        "cpu5": {
+          "cpu-cycles:u": 75942012977,
+          "instructions:u": 42529292970,
+          "raw-stall-backend:u": 31715743595,
+          "raw-ll-cache-miss-rd:u": 605753187
+        },
+        "cpu7": {
+          "cpu-cycles:u": 7957771,
+          "instructions:u": 9366628,
+          "raw-stall-backend:u": 2835860,
+          "raw-ll-cache-miss-rd:u": 30347
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name               # count / runtime\n  0    70,394,914,840  cpu-cycles:u             # 0.767287 GHz \n  1    74,769,813,469  cpu-cycles:u             # 0.769309 GHz \n  2    73,808,699,275  cpu-cycles:u             # 0.772404 GHz \n  3    73,316,654,025  cpu-cycles:u             # 0.774580 GHz \n  4    74,167,237,809  cpu-cycles:u             # 0.778073 GHz \n  5    75,942,012,977  cpu-cycles:u             # 0.767425 GHz \n  7         7,957,771  cpu-cycles:u             # 0.296117 GHz \n  0    42,613,751,413  instructions:u           # 464.479 M/sec\n  1    45,054,340,333  instructions:u           # 463.565 M/sec\n  2    43,776,918,819  instructions:u           # 458.123 M/sec\n  3    43,512,305,316  instructions:u           # 459.701 M/sec\n  4    44,924,050,786  instructions:u           # 471.289 M/sec\n  5    42,529,292,970  instructions:u           # 429.776 M/sec\n  7         9,366,628  instructions:u           # 348.542 M/sec\n  0    27,880,285,548  raw-stall-backend:u      # 303.888 M/sec\n  1    30,221,746,706  raw-stall-backend:u      # 310.952 M/sec\n  2    30,409,602,583  raw-stall-backend:u      # 318.235 M/sec\n  3    30,188,073,886  raw-stall-backend:u      # 318.933 M/sec\n  4    30,050,747,297  raw-stall-backend:u      # 315.256 M/sec\n  5    31,715,743,595  raw-stall-backend:u      # 320.501 M/sec\n  7         2,835,860  raw-stall-backend:u      # 105.525 M/sec\n  0       564,937,274  raw-ll-cache-miss-rd:u   # 6.158 M/sec  \n  1       550,678,700  raw-ll-cache-miss-rd:u   # 5.666 M/sec  \n  2       573,029,588  raw-ll-cache-miss-rd:u   # 5.997 M/sec  \n  3       566,241,723  raw-ll-cache-miss-rd:u   # 5.982 M/sec  \n  4       570,442,244  raw-ll-cache-miss-rd:u   # 5.984 M/sec  \n  5       605,753,187  raw-ll-cache-miss-rd:u   # 6.121 M/sec  \n  7            30,347  raw-ll-cache-miss-rd:u   # 1.129 M/sec  \n\nTotal test time: 103.054667 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1379851.1,
+        "end_boottime": 1379955.56
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t6_A55.core.json"
+    }
+  },
+  {
+    "config": "tg_t6_free",
+    "mode": "counters:core",
+    "threads": 6,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1378816.12,
+    "t_end": 1378920.8,
+    "tps": [
+      10.2535,
+      11.5828,
+      12.499,
+      12.3461,
+      15.5139,
+      16.5287,
+      13.1572,
+      12.8978,
+      11.0215,
+      15.6426
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 38100.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t6_free.core",
+      "attempt_id": "030a7d03a6b94cce98323173e5dfb0d4",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 104.68,
+      "bench_samples_ts": [
+        10.2535,
+        11.5828,
+        12.499,
+        12.3461,
+        15.5139,
+        16.5287,
+        13.1572,
+        12.8978,
+        11.0215,
+        15.6426
+      ],
+      "bench_samples_ns": [
+        12483548232,
+        11050828847,
+        10240814770,
+        10367682692,
+        8250665616,
+        7744109231,
+        9728545847,
+        9924171309,
+        11613661539,
+        8182767385
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "79",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 22364811295,
+          "instructions:u": 15454882826,
+          "raw-stall-backend:u": 8587513974,
+          "raw-ll-cache-miss-rd:u": 147474298
+        },
+        "cpu1": {
+          "cpu-cycles:u": 33414649695,
+          "instructions:u": 22856890161,
+          "raw-stall-backend:u": 12924891103,
+          "raw-ll-cache-miss-rd:u": 225353744
+        },
+        "cpu2": {
+          "cpu-cycles:u": 49998216920,
+          "instructions:u": 34300341520,
+          "raw-stall-backend:u": 19334731552,
+          "raw-ll-cache-miss-rd:u": 331295549
+        },
+        "cpu3": {
+          "cpu-cycles:u": 61582686237,
+          "instructions:u": 42035652245,
+          "raw-stall-backend:u": 24128693968,
+          "raw-ll-cache-miss-rd:u": 402320070
+        },
+        "cpu4": {
+          "cpu-cycles:u": 71111309999,
+          "instructions:u": 49626106839,
+          "raw-stall-backend:u": 27704651102,
+          "raw-ll-cache-miss-rd:u": 444685551
+        },
+        "cpu5": {
+          "cpu-cycles:u": 68012457484,
+          "instructions:u": 48045718926,
+          "raw-stall-backend:u": 26229991451,
+          "raw-ll-cache-miss-rd:u": 425364389
+        },
+        "cpu6": {
+          "cpu-cycles:u": 68096153724,
+          "instructions:u": 87333300778,
+          "raw-stall-backend:u": 36675804644,
+          "raw-ll-cache-miss-rd:u": 2039315937
+        },
+        "cpu7": {
+          "cpu-cycles:u": 67378856024,
+          "instructions:u": 86429670838,
+          "raw-stall-backend:u": 36369517469,
+          "raw-ll-cache-miss-rd:u": 2090788321
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu           count  event_name               # count / runtime\n  0    22,364,811,295  cpu-cycles:u             # 0.724017 GHz \n  1    33,414,649,695  cpu-cycles:u             # 0.756844 GHz \n  2    49,998,216,920  cpu-cycles:u             # 0.768008 GHz \n  3    61,582,686,237  cpu-cycles:u             # 0.773899 GHz \n  4    71,111,309,999  cpu-cycles:u             # 0.777359 GHz \n  5    68,012,457,484  cpu-cycles:u             # 0.776582 GHz \n  6    68,096,153,724  cpu-cycles:u             # 0.797243 GHz \n  7    67,378,856,024  cpu-cycles:u             # 0.806473 GHz \n  0    15,454,882,826  instructions:u           # 500.321 M/sec\n  1    22,856,890,161  instructions:u           # 517.710 M/sec\n  2    34,300,341,520  instructions:u           # 526.878 M/sec\n  3    42,035,652,245  instructions:u           # 528.255 M/sec\n  4    49,626,106,839  instructions:u           # 542.492 M/sec\n  5    48,045,718,926  instructions:u           # 548.597 M/sec\n  6    87,333,300,778  instructions:u           # 1.022 G/sec  \n  7    86,429,670,838  instructions:u           # 1.034 G/sec  \n  0     8,587,513,974  raw-stall-backend:u      # 278.004 M/sec\n  1    12,924,891,103  raw-stall-backend:u      # 292.750 M/sec\n  2    19,334,731,552  raw-stall-backend:u      # 296.995 M/sec\n  3    24,128,693,968  raw-stall-backend:u      # 303.221 M/sec\n  4    27,704,651,102  raw-stall-backend:u      # 302.856 M/sec\n  5    26,229,991,451  raw-stall-backend:u      # 299.500 M/sec\n  6    36,675,804,644  raw-stall-backend:u      # 429.386 M/sec\n  7    36,369,517,469  raw-stall-backend:u      # 435.315 M/sec\n  0       147,474,298  raw-ll-cache-miss-rd:u   # 4.774 M/sec  \n  1       225,353,744  raw-ll-cache-miss-rd:u   # 5.104 M/sec  \n  2       331,295,549  raw-ll-cache-miss-rd:u   # 5.089 M/sec  \n  3       402,320,070  raw-ll-cache-miss-rd:u   # 5.056 M/sec  \n  4       444,685,551  raw-ll-cache-miss-rd:u   # 4.861 M/sec  \n  5       425,364,389  raw-ll-cache-miss-rd:u   # 4.857 M/sec  \n  6     2,039,315,937  raw-ll-cache-miss-rd:u   # 23.876 M/sec \n  7     2,090,788,321  raw-ll-cache-miss-rd:u   # 25.025 M/sec \n\nTotal test time: 103.368793 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1378816.12,
+        "end_boottime": 1378920.8
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t6_free.core.json"
+    }
+  },
+  {
+    "config": "tg_t8_free",
+    "mode": "counters:core",
+    "threads": 8,
+    "mask": "free",
+    "test": "tg",
+    "rep_batch": 0,
+    "t_start": 1378607.01,
+    "t_end": 1378765.73,
+    "tps": [
+      14.4237,
+      10.0551,
+      9.88132,
+      8.71574,
+      4.59876,
+      4.01762,
+      7.55401,
+      13.8337,
+      14.7505,
+      13.0107
+    ],
+    "cool_wait_s": 47.8,
+    "entry_temp_mC": 37200.0,
+    "cool_timeout": false,
+    "extra": {
+      "arm_id": "counters.tg_t8_free.core",
+      "attempt_id": "9ccecfebf4f2470392a3a3a58a379e49",
+      "boot_id": "3d8291e5-728b-4b83-8098-d7c6948ce998",
+      "benchmark": "llama-bench",
+      "wall_s": 158.72,
+      "bench_samples_ts": [
+        14.4237,
+        10.0551,
+        9.88132,
+        8.71574,
+        4.59876,
+        4.01762,
+        7.55401,
+        13.8337,
+        14.7505,
+        13.0107
+      ],
+      "bench_samples_ns": [
+        8874262155,
+        12729921154,
+        12953733154,
+        14686079385,
+        27833589233,
+        31859632310,
+        16944653540,
+        9252790770,
+        8677676615,
+        9838072616
+      ],
+      "samples_are_per_rep": true,
+      "schema_version": 5,
+      "variant": "core",
+      "events": [
+        "cpu-cycles:u",
+        "instructions:u",
+        "raw-stall-backend:u",
+        "raw-ll-cache-miss-rd:u"
+      ],
+      "battery_status_start": "Discharging",
+      "battery_capacity_start": "80",
+      "battery_status_end": "Discharging",
+      "trace_captured": false,
+      "trace_evicted": false,
+      "sampler_samples": 0,
+      "rc": "0",
+      "counters": {
+        "cpu0": {
+          "cpu-cycles:u": 93003725606,
+          "instructions:u": 79863253199,
+          "raw-stall-backend:u": 33503351807,
+          "raw-ll-cache-miss-rd:u": 385133105
+        },
+        "cpu1": {
+          "cpu-cycles:u": 96342103057,
+          "instructions:u": 82410752796,
+          "raw-stall-backend:u": 35182163234,
+          "raw-ll-cache-miss-rd:u": 390998799
+        },
+        "cpu2": {
+          "cpu-cycles:u": 105885344879,
+          "instructions:u": 95074629136,
+          "raw-stall-backend:u": 37635879986,
+          "raw-ll-cache-miss-rd:u": 377084507
+        },
+        "cpu3": {
+          "cpu-cycles:u": 107042319782,
+          "instructions:u": 96161098387,
+          "raw-stall-backend:u": 38098912427,
+          "raw-ll-cache-miss-rd:u": 375749840
+        },
+        "cpu4": {
+          "cpu-cycles:u": 110671877686,
+          "instructions:u": 99438667578,
+          "raw-stall-backend:u": 39356044283,
+          "raw-ll-cache-miss-rd:u": 385164975
+        },
+        "cpu5": {
+          "cpu-cycles:u": 109645519676,
+          "instructions:u": 97903780968,
+          "raw-stall-backend:u": 38930999232,
+          "raw-ll-cache-miss-rd:u": 400642108
+        },
+        "cpu6": {
+          "cpu-cycles:u": 104755695913,
+          "instructions:u": 176592099144,
+          "raw-stall-backend:u": 41049223248,
+          "raw-ll-cache-miss-rd:u": 1546470340
+        },
+        "cpu7": {
+          "cpu-cycles:u": 104108536766,
+          "instructions:u": 175344617496,
+          "raw-stall-backend:u": 40922703995,
+          "raw-ll-cache-miss-rd:u": 1569737115
+        }
+      },
+      "multiplexed": false,
+      "n_invocations": 1,
+      "raw": "Performance counter statistics:\n\n# cpu            count  event_name               # count / runtime\n  0     93,003,725,606  cpu-cycles:u             # 0.736463 GHz \n  1     96,342,103,057  cpu-cycles:u             # 0.753969 GHz \n  2    105,885,344,879  cpu-cycles:u             # 0.762815 GHz \n  3    107,042,319,782  cpu-cycles:u             # 0.766147 GHz \n  4    110,671,877,686  cpu-cycles:u             # 0.771993 GHz \n  5    109,645,519,676  cpu-cycles:u             # 0.770899 GHz \n  6    104,755,695,913  cpu-cycles:u             # 0.793184 GHz \n  7    104,108,536,766  cpu-cycles:u             # 0.799062 GHz \n  0     79,863,253,199  instructions:u           # 632.408 M/sec\n  1     82,410,752,796  instructions:u           # 644.943 M/sec\n  2     95,074,629,136  instructions:u           # 684.933 M/sec\n  3     96,161,098,387  instructions:u           # 688.266 M/sec\n  4     99,438,667,578  instructions:u           # 693.636 M/sec\n  5     97,903,780,968  instructions:u           # 688.345 M/sec\n  6    176,592,099,144  instructions:u           # 1.337 G/sec  \n  7    175,344,617,496  instructions:u           # 1.346 G/sec  \n  0     33,503,351,807  raw-stall-backend:u      # 265.301 M/sec\n  1     35,182,163,234  raw-stall-backend:u      # 275.334 M/sec\n  2     37,635,879,986  raw-stall-backend:u      # 271.135 M/sec\n  3     38,098,912,427  raw-stall-backend:u      # 272.690 M/sec\n  4     39,356,044,283  raw-stall-backend:u      # 274.529 M/sec\n  5     38,930,999,232  raw-stall-backend:u      # 273.717 M/sec\n  6     41,049,223,248  raw-stall-backend:u      # 310.815 M/sec\n  7     40,922,703,995  raw-stall-backend:u      # 314.093 M/sec\n  0        385,133,105  raw-ll-cache-miss-rd:u   # 3.050 M/sec  \n  1        390,998,799  raw-ll-cache-miss-rd:u   # 3.060 M/sec  \n  2        377,084,507  raw-ll-cache-miss-rd:u   # 2.717 M/sec  \n  3        375,749,840  raw-ll-cache-miss-rd:u   # 2.689 M/sec  \n  4        385,164,975  raw-ll-cache-miss-rd:u   # 2.687 M/sec  \n  5        400,642,108  raw-ll-cache-miss-rd:u   # 2.817 M/sec  \n  6      1,546,470,340  raw-ll-cache-miss-rd:u   # 11.709 M/sec \n  7      1,569,737,115  raw-ll-cache-miss-rd:u   # 12.048 M/sec \n\nTotal test time: 157.397258 seconds.\n",
+      "valid": true,
+      "device_online": true,
+      "tokens_counted": 1280,
+      "energy_window": {
+        "start_boottime": 1378607.01,
+        "end_boottime": 1378765.73
+      },
+      "energy_scope": "invocation_incl_setup",
+      "bench_json": "out/llama-bench/bench_json/bench_counters.tg_t8_free.core.json"
+    }
+  }
+]

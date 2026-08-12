@@ -1,0 +1,453 @@
+arm_id,attempt_id,battery_capacity_start,battery_status_end,battery_status_start,bench_json,benchmark,boot_id,charge_delta_uah,config,control_block,cool_timeout,cool_wait_s,device_online,energy_j,energy_j_timestamped,energy_metric_used,energy_scope,entry_temp_mC,mask,mode,multiplexed,n_invocations,perfetto_trace,policy0_khz_max,policy0_khz_mean,policy6_khz_max,policy6_khz_mean,power_w_mean,raw,rc,rep_batch,sampler_samples,samples_are_per_rep,schema_version,suspend_detected,suspend_detected_by_device,t_end,t_start,telemetry_csv,telemetry_samples,test,threads,tokens_counted,tokens_per_joule,tps_iqr,tps_max,tps_median,tps_min,tps_n,tps_q1,tps_q3,trace_captured,trace_evicted,valid,variant,wall_s
+control.tg_t2_A75.bare.b0,f34feea438584dec8079fd361a9b1552,74,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b0.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,0,False,47.9,True,,,,invocation_incl_setup,40800.0,0xC0,control:bare,,,,,,,,,,0,0,0,True,5,,,1382816.04,1382590.7,,,tg,2,2560,,0.082,11.798,11.726,10.217,20,11.664,11.746,False,False,True,bare,225.34
+control.tg_t2_A75.bare.b1,d454457d67fd4d728702e7205da46d29,72,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b1.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,1,False,47.9,True,,,,invocation_incl_setup,40600.0,0xC0,control:bare,,,,,,,,,,0,1,0,True,5,,,1384040.8,1383818.12,,,tg,2,2560,,0.048,11.851,11.769,11.007,20,11.741,11.789,False,False,True,bare,222.68
+control.tg_t2_A75.bare.b2,455a64876ed14b8c83cb70c9457e68a3,69,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b2.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,2,False,47.9,True,,,,invocation_incl_setup,40100.0,0xC0,control:bare,,,,,,,,,,0,2,0,True,5,,,1385840.45,1385618.94,,,tg,2,2560,,0.067,11.896,11.836,11.139,20,11.792,11.859,False,False,True,bare,221.51
+control.tg_t2_A75.bare.b3,4d077479d9474811995433efda732e21,67,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b3.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,3,False,47.8,True,,,,invocation_incl_setup,41400.0,0xC0,control:bare,,,,,,,,,,0,3,0,True,5,,,1386781.62,1386558.86,,,tg,2,2560,,0.032,11.775,11.71,11.509,20,11.692,11.724,False,False,True,bare,222.76
+control.tg_t2_A75.bare.b4,b58b6d344c874e2380d0819d619b549d,62,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b4.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,4,False,47.8,True,,,,invocation_incl_setup,40400.0,0xC0,control:bare,,,,,,,,,,0,4,0,True,5,,,1389276.05,1389054.07,,,tg,2,2560,,0.052,11.853,11.766,11.562,20,11.742,11.794,False,False,True,bare,221.98
+control.tg_t2_A75.bare.b5,46ef7c8cfc0e4722a9a98f2ac6a3a7d4,60,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b5.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,5,False,47.9,True,,,,invocation_incl_setup,41200.0,0xC0,control:bare,,,,,,,,,,0,5,0,True,5,,,1390800.66,1390576.71,,,tg,2,2560,,0.122,11.823,11.712,10.783,20,11.648,11.77,False,False,True,bare,223.95
+control.tg_t2_A75.bare.b6,38bd3dcf67294d4bbc0cd1e34bfa0be8,58,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b6.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,6,False,164.6,True,,,,invocation_incl_setup,42500.0,0xC0,control:bare,,,,,,,,,,0,6,0,True,5,,,1392058.95,1391831.47,,,tg,2,2560,,0.295,11.825,11.696,11.14,20,11.472,11.767,False,False,True,bare,227.48
+control.tg_t2_A75.bare.b7,5207a0d3a441423481c3d9e768813483,54,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.bare.b7.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,7,False,47.9,True,,,,invocation_incl_setup,41800.0,0xC0,control:bare,,,,,,,,,,0,7,0,True,5,,,1393976.0,1393752.5,,,tg,2,2560,,0.243,11.861,11.742,11.189,20,11.564,11.807,False,False,True,bare,223.5
+control.tg_t6_free.bare.b0,84b2dbcef4424ce6b48198cb1a97d91c,76,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b0.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,0,False,47.9,True,,,,invocation_incl_setup,39900.0,free,control:bare,,,,,,,,,,0,0,0,True,5,,,1381749.25,1381581.53,,,tg,6,2560,,0.35,16.553,16.009,13.46,20,15.731,16.081,False,False,True,bare,167.72
+control.tg_t6_free.bare.b1,45dede7ea32f486d8865cd1d6ea0d495,73,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b1.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,1,False,47.8,True,,,,invocation_incl_setup,40800.0,free,control:bare,,,,,,,,,,0,1,0,True,5,,,1383261.16,1383100.11,,,tg,6,2560,,0.386,17.031,16.189,15.859,20,16.114,16.5,False,False,True,bare,161.05
+control.tg_t6_free.bare.b2,b217294263af434eba8dbc937a433d7b,70,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b2.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,2,False,47.8,True,,,,invocation_incl_setup,41400.0,free,control:bare,,,,,,,,,,0,2,0,True,5,,,1385008.42,1384833.09,,,tg,6,2560,,1.169,17.16,15.793,11.34,20,14.932,16.101,False,False,True,bare,175.33
+control.tg_t6_free.bare.b3,781675f5dde948fc8611ffe488b201a8,67,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b3.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,3,False,47.8,True,,,,invocation_incl_setup,40100.0,free,control:bare,,,,,,,,,,0,3,0,True,5,,,1386508.52,1386342.31,,,tg,6,2560,,0.889,17.181,15.929,14.284,20,15.544,16.433,False,False,True,bare,166.21
+control.tg_t6_free.bare.b4,7fac70fa6766483e9914b1347813fe05,65,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b4.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,4,False,47.9,True,,,,invocation_incl_setup,41400.0,free,control:bare,,,,,,,,,,0,4,0,True,5,,,1387973.84,1387790.41,,,tg,6,2560,,0.785,16.415,15.778,8.408,20,15.344,16.129,False,False,True,bare,183.43
+control.tg_t6_free.bare.b5,8539f9a0a3534ab99b1154673eb813f9,61,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b5.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,5,False,47.9,True,,,,invocation_incl_setup,41000.0,free,control:bare,,,,,,,,,,0,5,0,True,5,,,1389962.81,1389783.32,,,tg,6,2560,,2.02,17.241,15.445,10.002,20,13.995,16.015,False,False,True,bare,179.49
+control.tg_t6_free.bare.b6,6e9a82425da34b9fa85668b4778e0d0f,58,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b6.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,6,False,47.8,True,,,,invocation_incl_setup,41300.0,free,control:bare,,,,,,,,,,0,6,0,True,5,,,1391664.32,1391484.05,,,tg,6,2560,,1.672,16.696,15.66,10.419,20,14.247,15.918,False,False,True,bare,180.27
+control.tg_t6_free.bare.b7,aff0950cb1bb4095bc9c03c74ca2af53,55,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.bare.b7.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,7,False,47.9,True,,,,invocation_incl_setup,41200.0,free,control:bare,,,,,,,,,,0,7,0,True,5,,,1393419.05,1393195.56,,,tg,6,2560,,4.813,16.679,13.171,5.755,20,11.092,15.905,False,False,True,bare,223.49
+control.tg_t2_A75.simpleperf.b0,fb662b4e9126455ebd94162e1e699908,74,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b0.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,0,False,47.9,True,,,,invocation_incl_setup,40700.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    179,701,187,670  cpu-cycles:u             # 0.811971 GHz 
+  7    180,301,490,982  cpu-cycles:u             # 0.816717 GHz 
+  6    179,696,096,000  instructions:u           # 811.948 M/sec
+  7    184,386,817,377  instructions:u           # 835.223 M/sec
+  6    111,678,126,011  raw-stall-backend:u      # 504.612 M/sec
+  7    110,882,672,890  raw-stall-backend:u      # 502.269 M/sec
+  6     11,169,558,868  raw-ll-cache-miss-rd:u   # 50.469 M/sec 
+  7     11,223,312,870  raw-ll-cache-miss-rd:u   # 50.839 M/sec 
+
+Total test time: 225.363262 seconds.
+",0,0,0,True,5,,,1382540.27,1382313.51,,,tg,2,2560,,0.109,11.778,11.71,10.487,20,11.647,11.756,False,False,True,simpleperf,226.76
+control.tg_t2_A75.simpleperf.b1,eeab093731cd416bb882e4b3a37c0a6d,71,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b1.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,1,False,47.9,True,,,,invocation_incl_setup,41000.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    178,078,724,498  cpu-cycles:u             # 0.813918 GHz 
+  7    180,460,240,537  cpu-cycles:u             # 0.818024 GHz 
+  6    173,104,207,609  instructions:u           # 791.181 M/sec
+  7    189,446,874,673  instructions:u           # 858.760 M/sec
+  6    112,224,020,728  raw-stall-backend:u      # 512.925 M/sec
+  7    109,480,330,796  raw-stall-backend:u      # 496.273 M/sec
+  6     11,003,814,095  raw-ll-cache-miss-rd:u   # 50.293 M/sec 
+  7     11,091,025,586  raw-ll-cache-miss-rd:u   # 50.275 M/sec 
+
+Total test time: 223.301592 seconds.
+",0,1,0,True,5,,,1384315.88,1384091.16,,,tg,2,2560,,0.102,11.789,11.712,11.366,20,11.644,11.746,False,False,True,simpleperf,224.72
+control.tg_t2_A75.simpleperf.b2,7113509a265e47d89d357319a95a1366,69,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b2.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,2,False,47.8,True,,,,invocation_incl_setup,41000.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0                  0  cpu-cycles:u             # 0.000000 GHz 
+  6    177,749,220,211  cpu-cycles:u             # 0.814088 GHz 
+  7    180,262,133,773  cpu-cycles:u             # 0.817698 GHz 
+  0                  0  instructions:u           # 0.000 /sec   
+  6    172,842,748,916  instructions:u           # 791.616 M/sec
+  7    189,462,972,638  instructions:u           # 859.435 M/sec
+  0                  0  raw-stall-backend:u      # 0.000 /sec   
+  6    112,012,704,632  raw-stall-backend:u      # 513.016 M/sec
+  7    109,267,866,386  raw-stall-backend:u      # 495.657 M/sec
+  0                  0  raw-ll-cache-miss-rd:u   # 0.000 /sec   
+  6     11,200,901,620  raw-ll-cache-miss-rd:u   # 51.300 M/sec 
+  7     11,202,979,659  raw-ll-cache-miss-rd:u   # 50.819 M/sec 
+
+Total test time: 222.766032 seconds.
+",0,2,0,True,5,,,1385568.52,1385344.3,,,tg,2,2560,,0.046,11.799,11.732,11.146,20,11.711,11.757,False,False,True,simpleperf,224.22
+control.tg_t2_A75.simpleperf.b3,287424ececff4a5282494bea77fc5c2d,67,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b3.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,3,False,47.8,True,,,,invocation_incl_setup,39900.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    179,980,542,846  cpu-cycles:u             # 0.812807 GHz 
+  7    182,567,864,789  cpu-cycles:u             # 0.820281 GHz 
+  6    177,220,888,434  instructions:u           # 800.344 M/sec
+  7    191,824,927,336  instructions:u           # 861.873 M/sec
+  6    112,716,223,932  raw-stall-backend:u      # 509.036 M/sec
+  7    110,674,930,507  raw-stall-backend:u      # 497.264 M/sec
+  6     10,920,136,737  raw-ll-cache-miss-rd:u   # 49.316 M/sec 
+  7     11,079,135,831  raw-ll-cache-miss-rd:u   # 49.779 M/sec 
+
+Total test time: 227.569584 seconds.
+",0,3,0,True,5,,,1387060.92,1386831.95,,,tg,2,2560,,0.412,11.752,11.512,10.931,20,11.284,11.695,False,False,True,simpleperf,228.97
+control.tg_t2_A75.simpleperf.b4,61823132ae2d4a56a93cd446a2826278,63,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b4.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,4,False,47.9,True,,,,invocation_incl_setup,40800.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    179,220,930,334  cpu-cycles:u             # 0.811718 GHz 
+  7    178,081,424,332  cpu-cycles:u             # 0.817756 GHz 
+  6    174,680,707,493  instructions:u           # 791.155 M/sec
+  7    184,890,453,353  instructions:u           # 849.024 M/sec
+  6    112,686,904,117  raw-stall-backend:u      # 510.376 M/sec
+  7    108,734,207,785  raw-stall-backend:u      # 499.311 M/sec
+  6     10,998,038,343  raw-ll-cache-miss-rd:u   # 49.812 M/sec 
+  7     11,084,149,903  raw-ll-cache-miss-rd:u   # 50.899 M/sec 
+
+Total test time: 222.149421 seconds.
+",0,4,0,True,5,,,1389003.72,1388780.17,,,tg,2,2560,,0.049,11.852,11.768,11.588,20,11.742,11.791,False,False,True,simpleperf,223.55
+control.tg_t2_A75.simpleperf.b5,68746ea6595943f687ee32424015c4d7,61,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b5.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,5,False,47.9,True,,,,invocation_incl_setup,41000.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    180,209,189,929  cpu-cycles:u             # 0.819006 GHz 
+  7    183,701,698,031  cpu-cycles:u             # 0.815990 GHz 
+  6    175,186,280,695  instructions:u           # 796.178 M/sec
+  7    187,588,761,707  instructions:u           # 833.256 M/sec
+  6    113,865,601,622  raw-stall-backend:u      # 517.491 M/sec
+  7    113,222,820,857  raw-stall-backend:u      # 502.928 M/sec
+  6     10,515,002,901  raw-ll-cache-miss-rd:u   # 47.788 M/sec 
+  7     10,611,291,238  raw-ll-cache-miss-rd:u   # 47.135 M/sec 
+
+Total test time: 225.792099 seconds.
+",0,5,0,True,5,,,1390240.45,1390013.21,,,tg,2,2560,,0.236,11.78,11.553,11.229,20,11.454,11.689,False,False,True,simpleperf,227.24
+control.tg_t2_A75.simpleperf.b6,d174680d2d2140c0a90c0df0c45d4705,56,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b6.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,6,False,47.8,True,,,,invocation_incl_setup,41400.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    177,974,173,877  cpu-cycles:u             # 0.818072 GHz 
+  7    184,421,704,869  cpu-cycles:u             # 0.814666 GHz 
+  6    182,084,570,277  instructions:u           # 836.966 M/sec
+  7    185,342,141,210  instructions:u           # 818.732 M/sec
+  6    109,530,858,908  raw-stall-backend:u      # 503.467 M/sec
+  7    114,187,549,233  raw-stall-backend:u      # 504.413 M/sec
+  6     10,917,964,618  raw-ll-cache-miss-rd:u   # 50.185 M/sec 
+  7     11,113,884,763  raw-ll-cache-miss-rd:u   # 49.095 M/sec 
+
+Total test time: 227.070772 seconds.
+",0,6,0,True,5,,,1392633.88,1392405.31,,,tg,2,2560,,0.408,11.821,11.563,10.736,20,11.311,11.719,False,False,True,simpleperf,228.57
+control.tg_t2_A75.simpleperf.b7,4f45e3ec4e0846c8862ec9753f1988bb,54,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.simpleperf.b7.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t2_A75,7,False,47.8,True,,,,invocation_incl_setup,41000.0,0xC0,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  6    178,614,619,422  cpu-cycles:u             # 0.814449 GHz 
+  7    179,953,929,356  cpu-cycles:u             # 0.818063 GHz 
+  6    173,198,882,760  instructions:u           # 789.754 M/sec
+  7    187,473,384,799  instructions:u           # 852.246 M/sec
+  6    112,693,168,630  raw-stall-backend:u      # 513.860 M/sec
+  7    109,616,931,171  raw-stall-backend:u      # 498.314 M/sec
+  6     11,106,320,124  raw-ll-cache-miss-rd:u   # 50.643 M/sec 
+  7     11,103,155,762  raw-ll-cache-miss-rd:u   # 50.474 M/sec 
+
+Total test time: 222.567172 seconds.
+",0,7,0,True,5,,,1394250.37,1394026.33,,,tg,2,2560,,0.102,11.848,11.758,11.147,20,11.69,11.792,False,False,True,simpleperf,224.04
+control.tg_t6_free.simpleperf.b0,75405dbedc64463cbdf684ee73d05a3e,76,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b0.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,0,False,47.9,True,,,,invocation_incl_setup,38900.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     34,147,141,525  cpu-cycles:u             # 0.756851 GHz 
+  1     53,368,711,207  cpu-cycles:u             # 0.772198 GHz 
+  2     99,068,366,683  cpu-cycles:u             # 0.776558 GHz 
+  3    110,639,594,484  cpu-cycles:u             # 0.777543 GHz 
+  4    117,142,343,797  cpu-cycles:u             # 0.778992 GHz 
+  5    113,292,035,883  cpu-cycles:u             # 0.779638 GHz 
+  6    126,093,396,257  cpu-cycles:u             # 0.803536 GHz 
+  7    129,342,913,846  cpu-cycles:u             # 0.800274 GHz 
+  0     21,744,333,656  instructions:u           # 481.950 M/sec
+  1     33,246,667,606  instructions:u           # 481.050 M/sec
+  2     60,556,953,694  instructions:u           # 474.682 M/sec
+  3     68,105,068,983  instructions:u           # 478.622 M/sec
+  4     75,390,461,986  instructions:u           # 501.344 M/sec
+  5     73,146,638,024  instructions:u           # 503.370 M/sec
+  6    147,502,466,788  instructions:u           # 939.967 M/sec
+  7    154,211,102,143  instructions:u           # 954.139 M/sec
+  0     13,505,083,467  raw-stall-backend:u      # 299.332 M/sec
+  1     21,378,691,762  raw-stall-backend:u      # 309.331 M/sec
+  2     40,113,643,323  raw-stall-backend:u      # 314.435 M/sec
+  3     45,116,126,486  raw-stall-backend:u      # 317.063 M/sec
+  4     47,169,776,559  raw-stall-backend:u      # 313.677 M/sec
+  5     45,435,142,568  raw-stall-backend:u      # 312.669 M/sec
+  6     72,328,982,112  raw-stall-backend:u      # 460.920 M/sec
+  7     73,492,691,724  raw-stall-backend:u      # 454.716 M/sec
+  0        255,242,023  raw-ll-cache-miss-rd:u   # 5.657 M/sec  
+  1        408,478,430  raw-ll-cache-miss-rd:u   # 5.910 M/sec  
+  2        758,728,198  raw-ll-cache-miss-rd:u   # 5.947 M/sec  
+  3        828,628,750  raw-ll-cache-miss-rd:u   # 5.823 M/sec  
+  4        820,709,884  raw-ll-cache-miss-rd:u   # 5.458 M/sec  
+  5        800,751,659  raw-ll-cache-miss-rd:u   # 5.511 M/sec  
+  6      4,251,786,012  raw-ll-cache-miss-rd:u   # 27.095 M/sec 
+  7      4,323,111,573  raw-ll-cache-miss-rd:u   # 26.748 M/sec 
+
+Total test time: 173.870858 seconds.
+",0,0,0,True,5,,,1381531.01,1381355.81,,,tg,6,2560,,0.859,16.516,15.824,11.456,20,15.392,16.252,False,False,True,simpleperf,175.2
+control.tg_t6_free.simpleperf.b1,615de97150664ff2b9b677bdb63ed970,73,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b1.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,1,False,47.8,True,,,,invocation_incl_setup,41800.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     36,216,136,766  cpu-cycles:u             # 0.765782 GHz 
+  1     56,031,399,414  cpu-cycles:u             # 0.774860 GHz 
+  2     91,087,193,888  cpu-cycles:u             # 0.778022 GHz 
+  3    108,264,206,324  cpu-cycles:u             # 0.779812 GHz 
+  4    119,516,789,371  cpu-cycles:u             # 0.781472 GHz 
+  5    109,881,936,663  cpu-cycles:u             # 0.781706 GHz 
+  6    126,166,838,725  cpu-cycles:u             # 0.801528 GHz 
+  7    127,267,091,375  cpu-cycles:u             # 0.810758 GHz 
+  0     22,499,125,219  instructions:u           # 475.739 M/sec
+  1     34,176,336,226  instructions:u           # 472.626 M/sec
+  2     56,199,419,003  instructions:u           # 480.028 M/sec
+  3     66,682,655,110  instructions:u           # 480.306 M/sec
+  4     76,111,117,811  instructions:u           # 497.660 M/sec
+  5     69,533,282,948  instructions:u           # 494.663 M/sec
+  6    147,937,482,389  instructions:u           # 939.835 M/sec
+  7    150,768,486,798  instructions:u           # 960.474 M/sec
+  0     14,398,245,197  raw-stall-backend:u      # 304.448 M/sec
+  1     22,520,564,517  raw-stall-backend:u      # 311.438 M/sec
+  2     36,552,299,291  raw-stall-backend:u      # 312.212 M/sec
+  3     43,976,618,188  raw-stall-backend:u      # 316.757 M/sec
+  4     48,118,908,713  raw-stall-backend:u      # 314.630 M/sec
+  5     44,192,138,818  raw-stall-backend:u      # 314.385 M/sec
+  6     72,664,480,183  raw-stall-backend:u      # 461.632 M/sec
+  7     73,138,685,249  raw-stall-backend:u      # 465.932 M/sec
+  0        267,023,604  raw-ll-cache-miss-rd:u   # 5.646 M/sec  
+  1        417,970,797  raw-ll-cache-miss-rd:u   # 5.780 M/sec  
+  2        663,046,013  raw-ll-cache-miss-rd:u   # 5.663 M/sec  
+  3        777,622,280  raw-ll-cache-miss-rd:u   # 5.601 M/sec  
+  4        812,514,500  raw-ll-cache-miss-rd:u   # 5.313 M/sec  
+  5        761,987,385  raw-ll-cache-miss-rd:u   # 5.421 M/sec  
+  6      4,174,516,681  raw-ll-cache-miss-rd:u   # 26.520 M/sec 
+  7      4,259,518,722  raw-ll-cache-miss-rd:u   # 27.135 M/sec 
+
+Total test time: 170.541732 seconds.
+",0,1,0,True,5,,,1383483.39,1383311.45,,,tg,6,2560,,0.695,16.796,15.751,11.823,20,15.321,16.017,False,False,True,simpleperf,171.94
+control.tg_t6_free.simpleperf.b2,d7023f6ae1db48a6b3df9ac52859073a,71,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b2.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,2,False,47.9,True,,,,invocation_incl_setup,40100.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     38,568,233,333  cpu-cycles:u             # 0.767570 GHz 
+  1     55,450,243,258  cpu-cycles:u             # 0.778668 GHz 
+  2     92,753,037,849  cpu-cycles:u             # 0.781545 GHz 
+  3    110,132,315,680  cpu-cycles:u             # 0.782035 GHz 
+  4    119,455,950,180  cpu-cycles:u             # 0.784247 GHz 
+  5    109,285,267,960  cpu-cycles:u             # 0.784513 GHz 
+  6    124,603,361,951  cpu-cycles:u             # 0.807804 GHz 
+  7    129,802,055,776  cpu-cycles:u             # 0.803401 GHz 
+  0     24,154,612,079  instructions:u           # 480.716 M/sec
+  1     34,079,978,489  instructions:u           # 478.573 M/sec
+  2     57,254,172,419  instructions:u           # 482.429 M/sec
+  3     69,359,075,425  instructions:u           # 492.510 M/sec
+  4     76,182,246,759  instructions:u           # 500.148 M/sec
+  5     70,265,361,951  instructions:u           # 504.405 M/sec
+  6    145,971,700,526  instructions:u           # 946.335 M/sec
+  7    152,409,902,355  instructions:u           # 943.331 M/sec
+  0     15,414,651,693  raw-stall-backend:u      # 306.776 M/sec
+  1     22,404,874,620  raw-stall-backend:u      # 314.624 M/sec
+  2     37,556,501,113  raw-stall-backend:u      # 316.454 M/sec
+  3     44,842,411,545  raw-stall-backend:u      # 318.420 M/sec
+  4     48,590,789,789  raw-stall-backend:u      # 319.006 M/sec
+  5     44,235,929,937  raw-stall-backend:u      # 317.551 M/sec
+  6     71,584,080,216  raw-stall-backend:u      # 464.080 M/sec
+  7     74,043,519,426  raw-stall-backend:u      # 458.287 M/sec
+  0        264,564,234  raw-ll-cache-miss-rd:u   # 5.265 M/sec  
+  1        386,461,520  raw-ll-cache-miss-rd:u   # 5.427 M/sec  
+  2        634,868,411  raw-ll-cache-miss-rd:u   # 5.349 M/sec  
+  3        719,558,144  raw-ll-cache-miss-rd:u   # 5.109 M/sec  
+  4        757,645,000  raw-ll-cache-miss-rd:u   # 4.974 M/sec  
+  5        690,670,293  raw-ll-cache-miss-rd:u   # 4.958 M/sec  
+  6      4,243,792,069  raw-ll-cache-miss-rd:u   # 27.513 M/sec 
+  7      4,627,633,995  raw-ll-cache-miss-rd:u   # 28.642 M/sec 
+
+Total test time: 172.128741 seconds.
+",0,2,0,True,5,,,1384539.78,1384366.31,,,tg,6,2560,,0.95,16.764,16.117,11.662,20,15.344,16.294,False,False,True,simpleperf,173.47
+control.tg_t6_free.simpleperf.b3,299eb1d754484696aa2afff9af45b186,68,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b3.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,3,False,47.9,True,,,,invocation_incl_setup,40700.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     37,727,231,520  cpu-cycles:u             # 0.773052 GHz 
+  1     48,958,229,271  cpu-cycles:u             # 0.777977 GHz 
+  2     91,358,724,821  cpu-cycles:u             # 0.781903 GHz 
+  3    107,077,630,312  cpu-cycles:u             # 0.782122 GHz 
+  4    107,722,829,477  cpu-cycles:u             # 0.781927 GHz 
+  5    108,050,269,394  cpu-cycles:u             # 0.782886 GHz 
+  6    123,097,388,560  cpu-cycles:u             # 0.804393 GHz 
+  7    124,697,723,548  cpu-cycles:u             # 0.805934 GHz 
+  0     22,391,260,206  instructions:u           # 458.809 M/sec
+  1     29,074,652,029  instructions:u           # 462.015 M/sec
+  2     54,782,974,678  instructions:u           # 468.866 M/sec
+  3     65,323,343,206  instructions:u           # 477.138 M/sec
+  4     65,148,661,521  instructions:u           # 472.894 M/sec
+  5     65,700,558,067  instructions:u           # 476.038 M/sec
+  6    139,211,389,098  instructions:u           # 909.691 M/sec
+  7    140,046,249,603  instructions:u           # 905.133 M/sec
+  0     15,394,021,122  raw-stall-backend:u      # 315.432 M/sec
+  1     20,061,743,057  raw-stall-backend:u      # 318.794 M/sec
+  2     37,344,624,957  raw-stall-backend:u      # 319.618 M/sec
+  3     44,146,024,257  raw-stall-backend:u      # 322.454 M/sec
+  4     44,873,239,227  raw-stall-backend:u      # 325.721 M/sec
+  5     44,813,618,929  raw-stall-backend:u      # 324.700 M/sec
+  6     72,504,036,895  raw-stall-backend:u      # 473.785 M/sec
+  7     73,501,326,213  raw-stall-backend:u      # 475.046 M/sec
+  0        283,022,452  raw-ll-cache-miss-rd:u   # 5.799 M/sec  
+  1        366,983,663  raw-ll-cache-miss-rd:u   # 5.832 M/sec  
+  2        668,107,124  raw-ll-cache-miss-rd:u   # 5.718 M/sec  
+  3        745,193,349  raw-ll-cache-miss-rd:u   # 5.443 M/sec  
+  4        741,383,938  raw-ll-cache-miss-rd:u   # 5.381 M/sec  
+  5        741,237,852  raw-ll-cache-miss-rd:u   # 5.371 M/sec  
+  6      4,354,532,267  raw-ll-cache-miss-rd:u   # 28.455 M/sec 
+  7      4,702,389,662  raw-ll-cache-miss-rd:u   # 30.392 M/sec 
+
+Total test time: 162.948241 seconds.
+",0,3,0,True,5,,,1386291.91,1386127.64,,,tg,6,2560,,0.52,16.672,16.127,15.367,20,15.829,16.349,False,False,True,simpleperf,164.27
+control.tg_t6_free.simpleperf.b4,e47109a1fc8f4ee6b2ad08a0491bb28e,64,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b4.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,4,False,47.9,True,,,,invocation_incl_setup,40700.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     31,422,960,866  cpu-cycles:u             # 0.757355 GHz 
+  1     59,501,776,878  cpu-cycles:u             # 0.770552 GHz 
+  2     86,913,658,575  cpu-cycles:u             # 0.775950 GHz 
+  3    113,693,267,932  cpu-cycles:u             # 0.777746 GHz 
+  4    120,468,838,293  cpu-cycles:u             # 0.778739 GHz 
+  5    107,002,424,293  cpu-cycles:u             # 0.779012 GHz 
+  6    127,393,568,198  cpu-cycles:u             # 0.799048 GHz 
+  7    127,097,752,242  cpu-cycles:u             # 0.806998 GHz 
+  0     19,129,299,403  instructions:u           # 461.054 M/sec
+  1     35,711,301,649  instructions:u           # 462.464 M/sec
+  2     53,347,399,988  instructions:u           # 476.276 M/sec
+  3     70,001,507,063  instructions:u           # 478.862 M/sec
+  4     75,426,403,536  instructions:u           # 487.574 M/sec
+  5     66,485,843,119  instructions:u           # 484.038 M/sec
+  6    147,788,862,916  instructions:u           # 926.973 M/sec
+  7    147,587,392,520  instructions:u           # 937.096 M/sec
+  0     12,680,800,456  raw-stall-backend:u      # 305.632 M/sec
+  1     24,273,810,525  raw-stall-backend:u      # 314.348 M/sec
+  2     35,202,861,371  raw-stall-backend:u      # 314.285 M/sec
+  3     46,672,590,461  raw-stall-backend:u      # 319.275 M/sec
+  4     49,357,226,583  raw-stall-backend:u      # 319.057 M/sec
+  5     43,976,543,752  raw-stall-backend:u      # 320.163 M/sec
+  6     73,685,465,289  raw-stall-backend:u      # 462.176 M/sec
+  7     73,582,159,623  raw-stall-backend:u      # 467.205 M/sec
+  0        237,342,297  raw-ll-cache-miss-rd:u   # 5.720 M/sec  
+  1        455,107,517  raw-ll-cache-miss-rd:u   # 5.894 M/sec  
+  2        640,458,863  raw-ll-cache-miss-rd:u   # 5.718 M/sec  
+  3        814,267,580  raw-ll-cache-miss-rd:u   # 5.570 M/sec  
+  4        832,338,555  raw-ll-cache-miss-rd:u   # 5.380 M/sec  
+  5        746,480,242  raw-ll-cache-miss-rd:u   # 5.435 M/sec  
+  6      4,292,909,649  raw-ll-cache-miss-rd:u   # 26.926 M/sec 
+  7      4,475,896,560  raw-ll-cache-miss-rd:u   # 28.419 M/sec 
+
+Total test time: 171.002077 seconds.
+",0,4,0,True,5,,,1388447.25,1388274.86,,,tg,6,2560,,0.618,16.749,15.796,11.447,20,15.53,16.149,False,False,True,simpleperf,172.39
+control.tg_t6_free.simpleperf.b5,276dfbd093d84329b5fc77a6c5d427fd,62,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b5.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,5,False,47.9,True,,,,invocation_incl_setup,40200.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     32,847,050,956  cpu-cycles:u             # 0.768032 GHz 
+  1     58,586,963,924  cpu-cycles:u             # 0.778304 GHz 
+  2     92,164,395,092  cpu-cycles:u             # 0.781497 GHz 
+  3    107,012,678,582  cpu-cycles:u             # 0.781931 GHz 
+  4    119,541,274,896  cpu-cycles:u             # 0.782794 GHz 
+  5    102,877,674,705  cpu-cycles:u             # 0.782783 GHz 
+  6    124,756,296,908  cpu-cycles:u             # 0.806224 GHz 
+  7    126,149,772,564  cpu-cycles:u             # 0.813831 GHz 
+  0     20,278,659,324  instructions:u           # 474.157 M/sec
+  1     35,619,930,866  instructions:u           # 473.196 M/sec
+  2     55,403,746,757  instructions:u           # 469.789 M/sec
+  3     64,633,083,217  instructions:u           # 472.267 M/sec
+  4     74,522,604,046  instructions:u           # 487.997 M/sec
+  5     63,927,832,373  instructions:u           # 486.419 M/sec
+  6    145,821,632,579  instructions:u           # 942.356 M/sec
+  7    143,845,521,626  instructions:u           # 927.992 M/sec
+  0     13,219,935,540  raw-stall-backend:u      # 309.110 M/sec
+  1     23,780,875,927  raw-stall-backend:u      # 315.919 M/sec
+  2     37,750,426,519  raw-stall-backend:u      # 320.100 M/sec
+  3     44,474,818,711  raw-stall-backend:u      # 324.973 M/sec
+  4     49,127,698,735  raw-stall-backend:u      # 321.704 M/sec
+  5     42,312,841,045  raw-stall-backend:u      # 321.953 M/sec
+  6     72,187,358,987  raw-stall-backend:u      # 466.503 M/sec
+  7     73,948,860,238  raw-stall-backend:u      # 477.067 M/sec
+  0        235,749,504  raw-ll-cache-miss-rd:u   # 5.512 M/sec  
+  1        431,211,853  raw-ll-cache-miss-rd:u   # 5.728 M/sec  
+  2        670,248,335  raw-ll-cache-miss-rd:u   # 5.683 M/sec  
+  3        746,097,068  raw-ll-cache-miss-rd:u   # 5.452 M/sec  
+  4        806,456,852  raw-ll-cache-miss-rd:u   # 5.281 M/sec  
+  5        698,751,740  raw-ll-cache-miss-rd:u   # 5.317 M/sec  
+  6      4,269,053,496  raw-ll-cache-miss-rd:u   # 27.588 M/sec 
+  7      4,689,382,996  raw-ll-cache-miss-rd:u   # 30.253 M/sec 
+
+Total test time: 166.636138 seconds.
+",0,5,0,True,5,,,1389732.9,1389564.91,,,tg,6,2560,,0.597,16.639,16.057,12.644,20,15.681,16.277,False,False,True,simpleperf,167.99
+control.tg_t6_free.simpleperf.b6,1fae7a53180442f9bda044c41a17ba5a,59,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b6.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,6,False,47.9,True,,,,invocation_incl_setup,40500.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     56,751,312,594  cpu-cycles:u             # 0.747214 GHz 
+  1     76,694,510,446  cpu-cycles:u             # 0.768486 GHz 
+  2    121,900,309,171  cpu-cycles:u             # 0.774963 GHz 
+  3    138,786,032,674  cpu-cycles:u             # 0.777583 GHz 
+  4    222,678,486,950  cpu-cycles:u             # 0.786460 GHz 
+  5    213,165,701,579  cpu-cycles:u             # 0.787436 GHz 
+  6    219,223,174,939  cpu-cycles:u             # 0.809739 GHz 
+  7    239,708,519,356  cpu-cycles:u             # 0.811253 GHz 
+  0     47,123,825,779  instructions:u           # 620.454 M/sec
+  1     58,712,132,906  instructions:u           # 588.301 M/sec
+  2     96,325,508,551  instructions:u           # 612.375 M/sec
+  3    108,031,025,575  instructions:u           # 605.270 M/sec
+  4    201,023,658,247  instructions:u           # 709.979 M/sec
+  5    196,345,555,664  instructions:u           # 725.302 M/sec
+  6    370,497,318,519  instructions:u           # 1.368 G/sec  
+  7    413,648,174,041  instructions:u           # 1.400 G/sec  
+  0     19,910,081,268  raw-stall-backend:u      # 262.145 M/sec
+  1     28,246,839,474  raw-stall-backend:u      # 283.036 M/sec
+  2     44,232,971,315  raw-stall-backend:u      # 281.205 M/sec
+  3     51,285,186,485  raw-stall-backend:u      # 287.338 M/sec
+  4     75,559,425,507  raw-stall-backend:u      # 266.862 M/sec
+  5     71,150,062,360  raw-stall-backend:u      # 262.829 M/sec
+  6     86,448,715,522  raw-stall-backend:u      # 319.313 M/sec
+  7     90,562,022,854  raw-stall-backend:u      # 306.492 M/sec
+  0        261,734,127  raw-ll-cache-miss-rd:u   # 3.446 M/sec  
+  1        407,798,800  raw-ll-cache-miss-rd:u   # 4.086 M/sec  
+  2        604,977,282  raw-ll-cache-miss-rd:u   # 3.846 M/sec  
+  3        689,342,478  raw-ll-cache-miss-rd:u   # 3.862 M/sec  
+  4        803,493,296  raw-ll-cache-miss-rd:u   # 2.838 M/sec  
+  5        732,971,760  raw-ll-cache-miss-rd:u   # 2.708 M/sec  
+  6      4,275,696,489  raw-ll-cache-miss-rd:u   # 15.793 M/sec 
+  7      4,595,458,864  raw-ll-cache-miss-rd:u   # 15.553 M/sec 
+
+Total test time: 348.757109 seconds.
+",0,6,0,True,5,,,1391433.56,1391083.43,,,tg,6,2560,,3.544,17.029,15.118,1.178,20,12.444,15.988,False,False,True,simpleperf,350.13
+control.tg_t6_free.simpleperf.b7,380079a65abc45cba694c89ab5222628,55,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.simpleperf.b7.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,,tg_t6_free,7,False,47.9,True,,,,invocation_incl_setup,41800.0,free,control:simpleperf,False,1,,,,,,,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     37,495,038,622  cpu-cycles:u             # 0.749683 GHz 
+  1     55,566,602,502  cpu-cycles:u             # 0.769640 GHz 
+  2     96,525,796,060  cpu-cycles:u             # 0.774960 GHz 
+  3    115,265,953,122  cpu-cycles:u             # 0.778425 GHz 
+  4    126,144,264,186  cpu-cycles:u             # 0.780886 GHz 
+  5    117,454,229,655  cpu-cycles:u             # 0.780390 GHz 
+  6    131,131,818,110  cpu-cycles:u             # 0.804806 GHz 
+  7    134,553,183,723  cpu-cycles:u             # 0.804792 GHz 
+  0     23,752,397,195  instructions:u           # 474.910 M/sec
+  1     34,634,359,771  instructions:u           # 479.713 M/sec
+  2     61,286,966,270  instructions:u           # 492.044 M/sec
+  3     75,690,223,056  instructions:u           # 511.158 M/sec
+  4     83,579,954,528  instructions:u           # 517.395 M/sec
+  5     78,364,479,045  instructions:u           # 520.669 M/sec
+  6    159,800,138,064  instructions:u           # 980.755 M/sec
+  7    164,023,470,522  instructions:u           # 981.060 M/sec
+  0     14,971,961,122  raw-stall-backend:u      # 299.352 M/sec
+  1     22,363,727,323  raw-stall-backend:u      # 309.755 M/sec
+  2     38,810,374,152  raw-stall-backend:u      # 311.590 M/sec
+  3     46,309,721,268  raw-stall-backend:u      # 312.743 M/sec
+  4     50,712,166,026  raw-stall-backend:u      # 313.929 M/sec
+  5     46,929,527,468  raw-stall-backend:u      # 311.809 M/sec
+  6     73,305,754,012  raw-stall-backend:u      # 449.905 M/sec
+  7     74,910,976,622  raw-stall-backend:u      # 448.059 M/sec
+  0        264,749,922  raw-ll-cache-miss-rd:u   # 5.293 M/sec  
+  1        397,711,478  raw-ll-cache-miss-rd:u   # 5.509 M/sec  
+  2        662,137,210  raw-ll-cache-miss-rd:u   # 5.316 M/sec  
+  3        747,909,104  raw-ll-cache-miss-rd:u   # 5.051 M/sec  
+  4        796,889,025  raw-ll-cache-miss-rd:u   # 4.933 M/sec  
+  5        743,647,942  raw-ll-cache-miss-rd:u   # 4.941 M/sec  
+  6      4,284,744,985  raw-ll-cache-miss-rd:u   # 26.297 M/sec 
+  7      4,640,371,208  raw-ll-cache-miss-rd:u   # 27.755 M/sec 
+
+Total test time: 182.686314 seconds.
+",0,7,0,True,5,,,1393145.12,1392961.11,,,tg,6,2560,,1.744,16.441,15.792,9.015,20,14.375,16.119,False,False,True,simpleperf,184.01
+control.tg_t2_A75.telemetry.b0,e65bad4fede841548dd68cac27594174,75,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b0.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,27000.0,tg_t2_A75,0,False,47.8,True,293.07,295.35,energy_j_timestamped,invocation_incl_setup,40700.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b0.perfetto-trace,850000.0,847625.0,850000.0,850000.0,1.283,,0,0,65,True,5,False,False,1382261.65,1382033.28,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b0.csv,64,tg,2,2560,8.668,0.041,11.583,11.5,10.184,20,11.481,11.522,True,False,True,telemetry,228.37
+control.tg_t2_A75.telemetry.b1,91545ec299a44d2da8b45d4dd2f63a63,72,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b1.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t2_A75,1,False,47.8,True,286.04,286.23,energy_j_timestamped,invocation_incl_setup,41000.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b1.perfetto-trace,850000.0,847697.0,850000.0,850000.0,1.237,,0,1,67,True,5,False,False,1383766.41,1383535.14,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b1.csv,66,tg,2,2560,8.944,0.057,11.444,11.336,10.258,20,11.311,11.369,True,False,True,telemetry,231.27
+control.tg_t2_A75.telemetry.b2,e3f864dfe90e4026acd336ae1c8e4267,70,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b2.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,26000.0,tg_t2_A75,2,False,47.9,True,293.26,295.69,energy_j_timestamped,invocation_incl_setup,41000.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b2.perfetto-trace,850000.0,848830.8,850000.0,850000.0,1.262,,0,2,66,True,5,False,False,1385292.58,1385060.12,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b2.csv,65,tg,2,2560,8.658,0.116,11.441,11.35,9.842,20,11.287,11.402,True,False,True,telemetry,232.46
+control.tg_t2_A75.telemetry.b3,98dc601519de48c6bb33b413df07ebfa,66,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b3.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t2_A75,3,False,433.4,True,326.83,325.9,energy_j_timestamped,invocation_incl_setup,42100.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b3.perfetto-trace,850000.0,848882.4,850000.0,850000.0,1.36,,0,3,69,True,5,False,False,1387738.56,1387498.28,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b3.csv,68,tg,2,2560,7.855,0.539,11.548,11.424,8.852,20,10.919,11.458,True,False,True,telemetry,240.28
+control.tg_t2_A75.telemetry.b4,ffce52e779494dc0a9932b14dec8456a,63,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b4.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,24000.0,tg_t2_A75,4,False,47.8,True,307.06,308.25,energy_j_timestamped,invocation_incl_setup,41400.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b4.perfetto-trace,850000.0,847625.0,850000.0,850000.0,1.338,,0,4,65,True,5,False,False,1388728.4,1388498.95,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b4.csv,64,tg,2,2560,8.305,0.163,11.538,11.46,10.99,20,11.331,11.494,True,False,True,telemetry,229.45
+control.tg_t2_A75.telemetry.b5,20c882085f35484e88f05f808c1d7986,60,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b5.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t2_A75,5,False,47.8,True,325.46,325.83,energy_j_timestamped,invocation_incl_setup,41400.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b5.perfetto-trace,850000.0,847661.5,850000.0,850000.0,1.4,,0,5,66,True,5,False,False,1390524.76,1390292.25,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b5.csv,65,tg,2,2560,7.857,0.315,11.523,11.341,10.406,20,11.107,11.422,True,False,True,telemetry,232.51
+control.tg_t2_A75.telemetry.b6,cf449791ab184418955b5f84bec103b8,57,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b6.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,25000.0,tg_t2_A75,6,False,59.4,True,306.15,303.27,energy_j_timestamped,invocation_incl_setup,41000.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b6.perfetto-trace,850000.0,847661.5,850000.0,850000.0,1.325,,0,6,66,True,5,False,False,1392353.43,1392122.39,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b6.csv,65,tg,2,2560,8.441,0.308,11.615,11.503,10.007,20,11.229,11.537,True,False,True,telemetry,231.04
+control.tg_t2_A75.telemetry.b7,fc1a258fe2724404b3e45e1326353836,54,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t2_A75.telemetry.b7.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t2_A75,7,False,47.7,True,314.79,312.97,energy_j_timestamped,invocation_incl_setup,41000.0,0xC0,control:telemetry,,,out/llama-bench/traces/control.tg_t2_A75.telemetry.b7.perfetto-trace,850000.0,848812.5,850000.0,850000.0,1.369,,0,7,65,True,5,False,False,1393700.7,1393470.82,out/llama-bench/telemetry/control.tg_t2_A75.telemetry.b7.csv,64,tg,2,2560,8.18,0.301,11.625,11.526,10.341,20,11.271,11.572,True,False,True,telemetry,229.88
+control.tg_t6_free.telemetry.b0,54c7155072ec4986a38cc723fd956e84,75,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b0.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,27000.0,tg_t6_free,0,False,47.9,True,242.97,241.79,energy_j_timestamped,invocation_incl_setup,40400.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b0.perfetto-trace,850000.0,848509.8,850000.0,850000.0,1.356,,0,0,52,True,5,False,False,1381980.22,1381801.09,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b0.csv,51,tg,6,2560,10.588,0.473,15.126,14.735,13.957,20,14.383,14.856,True,False,True,telemetry,179.13
+control.tg_t6_free.telemetry.b1,f1ea7dfb3dc84a5aa0b56cb80f51be5f,73,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b1.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t6_free,1,False,47.9,True,280.84,279.76,energy_j_timestamped,invocation_incl_setup,39900.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b1.perfetto-trace,850000.0,848480.0,850000.0,850000.0,1.556,,0,1,51,True,5,False,False,1383048.4,1382867.86,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b1.csv,50,tg,6,2560,9.151,0.848,15.74,14.646,12.426,20,14.19,15.038,True,False,True,telemetry,180.54
+control.tg_t6_free.telemetry.b2,5985dc42b0864b93b95867dbaa391f0e,70,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b2.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t6_free,2,False,47.8,True,276.02,274.9,energy_j_timestamped,invocation_incl_setup,41700.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b2.perfetto-trace,850000.0,847185.2,850000.0,850000.0,1.453,,0,2,55,True,5,False,False,1384781.44,1384591.43,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b2.csv,54,tg,6,2560,9.312,0.726,14.889,14.33,8.165,20,13.889,14.615,True,False,True,telemetry,190.01
+control.tg_t6_free.telemetry.b3,52bc2eecc4634358b5a595562ee26a24,68,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b3.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,26000.0,tg_t6_free,3,False,47.8,True,253.38,254.61,energy_j_timestamped,invocation_incl_setup,40200.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b3.perfetto-trace,850000.0,847019.6,850000.0,850000.0,1.379,,0,3,52,True,5,False,False,1386075.92,1385892.2,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b3.csv,51,tg,6,2560,10.055,0.483,15.428,14.397,11.646,20,14.16,14.643,True,False,True,telemetry,183.72
+control.tg_t6_free.telemetry.b4,d5259bfd3952482cbc33e62551fa1a2e,64,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b4.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t6_free,4,False,47.8,True,284.04,287.03,energy_j_timestamped,invocation_incl_setup,40500.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b4.perfetto-trace,850000.0,843965.5,850000.0,850000.0,1.438,,0,4,59,True,5,False,False,1388223.13,1388025.59,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b4.csv,58,tg,6,2560,8.919,2.662,14.821,14.423,8.947,20,11.928,14.59,True,False,True,telemetry,197.54
+control.tg_t6_free.telemetry.b5,8a46639d858d4ba7b84f9c39f9d9446d,62,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b5.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,24000.0,tg_t6_free,5,False,47.8,True,280.49,279.97,energy_j_timestamped,invocation_incl_setup,40000.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b5.perfetto-trace,850000.0,842111.1,850000.0,850000.0,1.513,,0,5,55,True,5,False,False,1389513.18,1389327.76,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b5.csv,54,tg,6,2560,9.144,0.422,15.369,14.444,11.367,20,14.187,14.609,True,False,True,telemetry,185.42
+control.tg_t6_free.telemetry.b6,46adc9510ea945d290e2fa0eea71f159,59,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b6.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,22000.0,tg_t6_free,6,False,47.9,True,267.71,267.57,energy_j_timestamped,invocation_incl_setup,40100.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b6.perfetto-trace,850000.0,848538.5,850000.0,850000.0,1.496,,0,6,53,True,5,False,False,1391031.71,1390852.7,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b6.csv,52,tg,6,2560,9.568,0.506,15.207,14.735,13.43,20,14.402,14.909,True,False,True,telemetry,179.01
+control.tg_t6_free.telemetry.b7,598ede5cf7bf45ba9da03cf1f2f0ca88,56,Discharging,Discharging,out/llama-bench/bench_json/bench_control.tg_t6_free.telemetry.b7.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,23000.0,tg_t6_free,7,False,47.9,True,317.11,315.78,energy_j_timestamped,invocation_incl_setup,41300.0,free,control:telemetry,,,out/llama-bench/traces/control.tg_t6_free.telemetry.b7.perfetto-trace,850000.0,850000.0,850000.0,850000.0,1.419,,0,7,66,True,5,False,False,1392909.27,1392685.82,out/llama-bench/telemetry/control.tg_t6_free.telemetry.b7.csv,65,tg,6,2560,8.107,2.929,14.873,12.622,6.217,20,10.961,13.89,True,False,True,telemetry,223.45

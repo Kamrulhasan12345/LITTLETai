@@ -1,0 +1,481 @@
+arm_id,attempt_id,battery_capacity_start,battery_status_end,battery_status_start,bench_json,benchmark,boot_id,config,cool_timeout,cool_wait_s,device_online,energy_scope,entry_temp_mC,mask,mode,multiplexed,n_invocations,raw,rc,rep_batch,sampler_samples,samples_are_per_rep,schema_version,t_end,t_start,test,threads,tokens_counted,tps_iqr,tps_max,tps_median,tps_min,tps_n,tps_q1,tps_q3,trace_captured,trace_evicted,valid,variant,wall_s
+counters.tg_t2_A55.a55,4f291791a08f4056a2d30c50c3c3f704,76,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t2_A55.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t2_A55,False,47.9,True,invocation_incl_setup,40700.0,0x03,counters:a55,False,1,"Performance counter statistics:
+
+# cpu            count  event_name                                # count / runtime
+  0    167,729,315,791  cpu-cycles:u                              # 0.778777 GHz 
+  1    171,254,066,926  cpu-cycles:u                              # 0.777473 GHz 
+  7          8,009,458  cpu-cycles:u                              # 0.300388 GHz 
+  0     93,227,660,832  instructions:u                            # 432.862 M/sec
+  1     91,333,404,620  instructions:u                            # 414.643 M/sec
+  7          9,366,577  instructions:u                            # 351.286 M/sec
+  0     37,300,674,535  raw-cortex-a55-stall-backend-ilock:u      # 173.189 M/sec
+  1     38,797,738,354  raw-cortex-a55-stall-backend-ilock:u      # 176.137 M/sec
+  7             57,823  raw-cortex-a55-stall-backend-ilock:u      # 2.169 M/sec  
+  0      7,371,660,522  raw-cortex-a55-stall-backend-ld-cache:u   # 34.227 M/sec 
+  1      8,651,215,945  raw-cortex-a55-stall-backend-ld-cache:u   # 39.275 M/sec 
+  7              1,475  raw-cortex-a55-stall-backend-ld-cache:u   # 55.319 K/sec 
+
+Total test time: 222.962183 seconds.
+",0,0,0,True,5,1381305.38,1381081.02,tg,2,1280,0.018,5.994,5.981,5.654,10,5.971,5.989,False,False,True,a55,224.36
+counters.tg_t2_A75.a55,07560da76a8a4d5f9164d4363d2bf428,77,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t2_A75.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t2_A75,False,47.8,True,invocation_incl_setup,39400.0,0xC0,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  6    90,706,471,114  cpu-cycles:u                              # 0.806833 GHz 
+  7    89,647,242,798  cpu-cycles:u                              # 0.818114 GHz 
+  6    88,955,835,160  instructions:u                            # 791.261 M/sec
+  7    93,594,939,603  instructions:u                            # 854.141 M/sec
+  6       174,720,342  raw-cortex-a55-stall-backend-ilock:u      # 1.554 M/sec  
+  7       160,939,280  raw-cortex-a55-stall-backend-ilock:u      # 1.469 M/sec  
+  6           635,151  raw-cortex-a55-stall-backend-ld-cache:u   # 5.650 K/sec  
+  7           542,015  raw-cortex-a55-stall-backend-ld-cache:u   # 4.946 K/sec  
+
+Total test time: 113.439957 seconds.
+",0,0,0,True,5,1380270.61,1380155.77,tg,2,1280,0.053,11.737,11.684,11.595,10,11.66,11.714,False,False,True,a55,114.84
+counters.tg_t2_free.a55,5a5e4854bc594a8ebb2303a5f2aa945b,78,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t2_free.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t2_free,False,47.9,True,invocation_incl_setup,39100.0,free,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  0       501,407,163  cpu-cycles:u                              # 0.741047 GHz 
+  1       641,597,354  cpu-cycles:u                              # 0.772287 GHz 
+  2       805,299,458  cpu-cycles:u                              # 0.773123 GHz 
+  3       626,631,166  cpu-cycles:u                              # 0.772980 GHz 
+  4       888,459,617  cpu-cycles:u                              # 0.778166 GHz 
+  5     1,204,086,492  cpu-cycles:u                              # 0.780808 GHz 
+  6    87,415,791,040  cpu-cycles:u                              # 0.816105 GHz 
+  7    91,844,161,258  cpu-cycles:u                              # 0.811313 GHz 
+  0       275,455,434  instructions:u                            # 407.105 M/sec
+  1       355,115,592  instructions:u                            # 427.451 M/sec
+  2       428,720,089  instructions:u                            # 411.590 M/sec
+  3       346,378,987  instructions:u                            # 427.275 M/sec
+  4       490,665,365  instructions:u                            # 429.754 M/sec
+  5       664,593,019  instructions:u                            # 430.965 M/sec
+  6    87,178,904,608  instructions:u                            # 813.894 M/sec
+  7    94,001,121,009  instructions:u                            # 830.367 M/sec
+  0       114,048,519  raw-cortex-a55-stall-backend-ilock:u      # 168.556 M/sec
+  1       146,445,901  raw-cortex-a55-stall-backend-ilock:u      # 176.276 M/sec
+  2       181,016,322  raw-cortex-a55-stall-backend-ilock:u      # 173.784 M/sec
+  3       144,071,715  raw-cortex-a55-stall-backend-ilock:u      # 177.720 M/sec
+  4       200,188,469  raw-cortex-a55-stall-backend-ilock:u      # 175.337 M/sec
+  5       270,947,805  raw-cortex-a55-stall-backend-ilock:u      # 175.700 M/sec
+  6       152,679,795  raw-cortex-a55-stall-backend-ilock:u      # 1.425 M/sec  
+  7       161,641,597  raw-cortex-a55-stall-backend-ilock:u      # 1.428 M/sec  
+  0        25,105,112  raw-cortex-a55-stall-backend-ld-cache:u   # 37.104 M/sec 
+  1        31,571,488  raw-cortex-a55-stall-backend-ld-cache:u   # 38.002 M/sec 
+  2        43,768,661  raw-cortex-a55-stall-backend-ld-cache:u   # 42.020 M/sec 
+  3        31,878,929  raw-cortex-a55-stall-backend-ld-cache:u   # 39.324 M/sec 
+  4        45,653,187  raw-cortex-a55-stall-backend-ld-cache:u   # 39.986 M/sec 
+  5        64,812,334  raw-cortex-a55-stall-backend-ld-cache:u   # 42.029 M/sec 
+  6         1,200,408  raw-cortex-a55-stall-backend-ld-cache:u   # 11.207 K/sec 
+  7         1,519,490  raw-cortex-a55-stall-backend-ld-cache:u   # 13.423 K/sec 
+
+Total test time: 115.828136 seconds.
+",0,0,0,True,5,1379800.66,1379683.5,tg,2,1280,0.328,11.769,11.57,10.761,10,11.358,11.686,False,False,True,a55,117.16
+counters.tg_t4_free.a55,e95a7ea86647448990dd7d664d2a61af,77,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t4_free.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t4_free,False,47.9,True,invocation_incl_setup,39500.0,free,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  0     8,147,945,414  cpu-cycles:u                              # 0.792379 GHz 
+  1     7,143,915,985  cpu-cycles:u                              # 0.795292 GHz 
+  2    12,479,349,794  cpu-cycles:u                              # 0.796119 GHz 
+  3    30,431,545,298  cpu-cycles:u                              # 0.797671 GHz 
+  4    41,080,050,579  cpu-cycles:u                              # 0.800087 GHz 
+  5    41,024,658,447  cpu-cycles:u                              # 0.799970 GHz 
+  6    68,813,647,718  cpu-cycles:u                              # 0.812012 GHz 
+  7    70,541,657,184  cpu-cycles:u                              # 0.809828 GHz 
+  0     4,683,121,889  instructions:u                            # 455.429 M/sec
+  1     4,198,218,659  instructions:u                            # 467.364 M/sec
+  2     7,089,562,361  instructions:u                            # 452.278 M/sec
+  3    17,214,751,458  instructions:u                            # 451.232 M/sec
+  4    23,947,639,601  instructions:u                            # 466.411 M/sec
+  5    23,832,821,904  instructions:u                            # 464.733 M/sec
+  6    76,750,002,944  instructions:u                            # 905.662 M/sec
+  7    79,192,253,039  instructions:u                            # 909.138 M/sec
+  0     1,849,319,333  raw-cortex-a55-stall-backend-ilock:u      # 179.844 M/sec
+  1     1,588,546,465  raw-cortex-a55-stall-backend-ilock:u      # 176.844 M/sec
+  2     2,834,717,762  raw-cortex-a55-stall-backend-ilock:u      # 180.841 M/sec
+  3     6,910,669,522  raw-cortex-a55-stall-backend-ilock:u      # 181.142 M/sec
+  4     9,174,293,148  raw-cortex-a55-stall-backend-ilock:u      # 178.681 M/sec
+  5     9,123,218,761  raw-cortex-a55-stall-backend-ilock:u      # 177.900 M/sec
+  6       104,156,691  raw-cortex-a55-stall-backend-ilock:u      # 1.229 M/sec  
+  7       111,838,631  raw-cortex-a55-stall-backend-ilock:u      # 1.284 M/sec  
+  0       470,560,735  raw-cortex-a55-stall-backend-ld-cache:u   # 45.762 M/sec 
+  1       397,265,221  raw-cortex-a55-stall-backend-ld-cache:u   # 44.225 M/sec 
+  2       729,617,101  raw-cortex-a55-stall-backend-ld-cache:u   # 46.546 M/sec 
+  3     1,791,246,262  raw-cortex-a55-stall-backend-ld-cache:u   # 46.952 M/sec 
+  4     2,248,804,204  raw-cortex-a55-stall-backend-ld-cache:u   # 43.798 M/sec 
+  5     2,314,518,973  raw-cortex-a55-stall-backend-ld-cache:u   # 45.132 M/sec 
+  6           386,889  raw-cortex-a55-stall-backend-ld-cache:u   # 4.565 K/sec  
+  7           546,520  raw-cortex-a55-stall-backend-ld-cache:u   # 6.274 K/sec  
+
+Total test time: 90.048259 seconds.
+",0,0,0,True,5,1380570.86,1380479.44,tg,4,1280,0.441,15.409,14.876,13.886,10,14.733,15.174,False,False,True,a55,91.42
+counters.tg_t4_mix.a55,a15ba8ce5c46457badf084bc3b335b32,77,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t4_mix.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t4_mix,False,47.8,True,invocation_incl_setup,40100.0,0xC3,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  0    69,728,912,379  cpu-cycles:u                              # 0.793392 GHz 
+  1    70,654,732,828  cpu-cycles:u                              # 0.800342 GHz 
+  6    71,558,695,992  cpu-cycles:u                              # 0.821562 GHz 
+  7    74,213,116,153  cpu-cycles:u                              # 0.808794 GHz 
+  0    38,611,974,453  instructions:u                            # 439.336 M/sec
+  1    42,931,178,729  instructions:u                            # 486.303 M/sec
+  6    83,981,821,445  instructions:u                            # 964.191 M/sec
+  7    86,756,498,431  instructions:u                            # 945.495 M/sec
+  0    16,150,165,502  raw-cortex-a55-stall-backend-ilock:u      # 183.760 M/sec
+  1    15,745,700,885  raw-cortex-a55-stall-backend-ilock:u      # 178.359 M/sec
+  6       108,681,960  raw-cortex-a55-stall-backend-ilock:u      # 1.248 M/sec  
+  7       119,571,497  raw-cortex-a55-stall-backend-ilock:u      # 1.303 M/sec  
+  0     4,108,014,728  raw-cortex-a55-stall-backend-ld-cache:u   # 46.742 M/sec 
+  1     3,711,976,664  raw-cortex-a55-stall-backend-ld-cache:u   # 42.047 M/sec 
+  6           694,306  raw-cortex-a55-stall-backend-ld-cache:u   # 7.971 K/sec  
+  7           875,960  raw-cortex-a55-stall-backend-ld-cache:u   # 9.546 K/sec  
+
+Total test time: 92.333674 seconds.
+",0,0,0,True,5,1380715.24,1380621.5,tg,4,1280,1.008,15.477,14.369,13.298,10,14.113,15.121,False,False,True,a55,93.74
+counters.tg_t6_A55.a55,a69967c0fcf9462b9e9027ea71678c8d,77,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t6_A55.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t6_A55,False,47.8,True,invocation_incl_setup,40700.0,0x3F,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  0    73,548,594,530  cpu-cycles:u                              # 0.764965 GHz 
+  1    72,633,560,833  cpu-cycles:u                              # 0.768682 GHz 
+  2    75,708,749,144  cpu-cycles:u                              # 0.775452 GHz 
+  3    78,468,499,051  cpu-cycles:u                              # 0.755486 GHz 
+  4    77,179,475,611  cpu-cycles:u                              # 0.778092 GHz 
+  5    76,932,464,494  cpu-cycles:u                              # 0.778637 GHz 
+  6         8,116,861  cpu-cycles:u                              # 0.298271 GHz 
+  0    46,130,114,927  instructions:u                            # 479.791 M/sec
+  1    43,559,048,883  instructions:u                            # 460.986 M/sec
+  2    46,256,224,791  instructions:u                            # 473.783 M/sec
+  3    42,904,664,438  instructions:u                            # 413.081 M/sec
+  4    48,276,741,955  instructions:u                            # 486.706 M/sec
+  5    49,157,712,821  instructions:u                            # 497.527 M/sec
+  6         9,366,169  instructions:u                            # 344.180 M/sec
+  0    15,528,386,137  raw-cortex-a55-stall-backend-ilock:u      # 161.508 M/sec
+  1    14,996,760,109  raw-cortex-a55-stall-backend-ilock:u      # 158.711 M/sec
+  2    15,614,998,417  raw-cortex-a55-stall-backend-ilock:u      # 159.938 M/sec
+  3    16,585,396,873  raw-cortex-a55-stall-backend-ilock:u      # 159.682 M/sec
+  4    16,057,232,058  raw-cortex-a55-stall-backend-ilock:u      # 161.882 M/sec
+  5    16,278,641,764  raw-cortex-a55-stall-backend-ilock:u      # 164.757 M/sec
+  6            76,452  raw-cortex-a55-stall-backend-ilock:u      # 2.809 M/sec  
+  0     7,630,838,058  raw-cortex-a55-stall-backend-ld-cache:u   # 79.367 M/sec 
+  1     8,946,716,729  raw-cortex-a55-stall-backend-ld-cache:u   # 94.683 M/sec 
+  2     9,559,006,196  raw-cortex-a55-stall-backend-ld-cache:u   # 97.909 M/sec 
+  3    11,169,761,954  raw-cortex-a55-stall-backend-ld-cache:u   # 107.541 M/sec
+  4     9,140,548,418  raw-cortex-a55-stall-backend-ld-cache:u   # 92.151 M/sec 
+  5     7,999,776,695  raw-cortex-a55-stall-backend-ld-cache:u   # 80.966 M/sec 
+  6             1,499  raw-cortex-a55-stall-backend-ld-cache:u   # 55.084 K/sec 
+
+Total test time: 106.434156 seconds.
+",0,0,0,True,5,1380428.98,1380321.1,tg,6,1280,0.5,13.632,13.341,10.688,10,12.968,13.468,False,False,True,a55,107.88
+counters.tg_t6_free.a55,4bca2df2b19b4eadac3157b1025edbd3,78,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t6_free.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t6_free,False,47.9,True,invocation_incl_setup,39000.0,free,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  0    15,027,924,166  cpu-cycles:u                              # 0.766770 GHz 
+  1    20,739,349,526  cpu-cycles:u                              # 0.775971 GHz 
+  2    51,897,321,242  cpu-cycles:u                              # 0.778570 GHz 
+  3    57,153,652,062  cpu-cycles:u                              # 0.777912 GHz 
+  4    57,972,695,370  cpu-cycles:u                              # 0.780060 GHz 
+  5    49,478,661,818  cpu-cycles:u                              # 0.778856 GHz 
+  6    61,003,173,057  cpu-cycles:u                              # 0.804876 GHz 
+  7    64,550,183,507  cpu-cycles:u                              # 0.794022 GHz 
+  0     9,167,243,952  instructions:u                            # 467.740 M/sec
+  1    12,715,384,239  instructions:u                            # 475.751 M/sec
+  2    31,089,244,103  instructions:u                            # 466.405 M/sec
+  3    33,536,265,025  instructions:u                            # 456.459 M/sec
+  4    35,713,962,689  instructions:u                            # 480.554 M/sec
+  5    30,430,341,351  instructions:u                            # 479.012 M/sec
+  6    69,135,368,705  instructions:u                            # 912.173 M/sec
+  7    75,069,276,847  instructions:u                            # 923.415 M/sec
+  0     3,159,986,939  raw-cortex-a55-stall-backend-ilock:u      # 161.232 M/sec
+  1     4,346,525,750  raw-cortex-a55-stall-backend-ilock:u      # 162.627 M/sec
+  2    10,934,489,210  raw-cortex-a55-stall-backend-ilock:u      # 164.041 M/sec
+  3    12,075,222,439  raw-cortex-a55-stall-backend-ilock:u      # 164.355 M/sec
+  4    12,115,738,858  raw-cortex-a55-stall-backend-ilock:u      # 163.025 M/sec
+  5    10,315,691,234  raw-cortex-a55-stall-backend-ilock:u      # 162.382 M/sec
+  6        76,883,851  raw-cortex-a55-stall-backend-ilock:u      # 1.014 M/sec  
+  7        83,717,589  raw-cortex-a55-stall-backend-ilock:u      # 1.030 M/sec  
+  0     1,676,512,351  raw-cortex-a55-stall-backend-ld-cache:u   # 85.541 M/sec 
+  1     2,347,819,937  raw-cortex-a55-stall-backend-ld-cache:u   # 87.845 M/sec 
+  2     6,042,963,147  raw-cortex-a55-stall-backend-ld-cache:u   # 90.657 M/sec 
+  3     7,303,906,369  raw-cortex-a55-stall-backend-ld-cache:u   # 99.413 M/sec 
+  4     7,312,300,344  raw-cortex-a55-stall-backend-ld-cache:u   # 98.392 M/sec 
+  5     6,205,232,312  raw-cortex-a55-stall-backend-ld-cache:u   # 97.678 M/sec 
+  6           218,171  raw-cortex-a55-stall-backend-ld-cache:u   # 2.879 K/sec  
+  7           390,240  raw-cortex-a55-stall-backend-ld-cache:u   # 4.800 K/sec  
+
+Total test time: 84.149777 seconds.
+",0,0,0,True,5,1379633.06,1379547.57,tg,6,1280,0.664,16.57,15.917,15.315,10,15.649,16.314,False,False,True,a55,85.49
+counters.tg_t8_free.a55,8dd7539e8b044d4aa6bac4caae760528,78,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t8_free.a55.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t8_free,False,47.8,True,invocation_incl_setup,39300.0,free,counters:a55,False,1,"Performance counter statistics:
+
+# cpu           count  event_name                                # count / runtime
+  0    66,226,993,298  cpu-cycles:u                              # 0.741153 GHz 
+  1    67,435,194,112  cpu-cycles:u                              # 0.747099 GHz 
+  2    68,800,905,190  cpu-cycles:u                              # 0.751364 GHz 
+  3    68,339,498,224  cpu-cycles:u                              # 0.747631 GHz 
+  4    69,520,401,420  cpu-cycles:u                              # 0.752772 GHz 
+  5    69,760,413,160  cpu-cycles:u                              # 0.754292 GHz 
+  6    68,964,459,328  cpu-cycles:u                              # 0.784612 GHz 
+  7    69,603,119,163  cpu-cycles:u                              # 0.788478 GHz 
+  0    45,718,906,156  instructions:u                            # 511.645 M/sec
+  1    45,968,771,005  instructions:u                            # 509.277 M/sec
+  2    44,900,311,650  instructions:u                            # 490.349 M/sec
+  3    48,342,437,285  instructions:u                            # 528.864 M/sec
+  4    49,564,297,890  instructions:u                            # 536.686 M/sec
+  5    48,908,597,375  instructions:u                            # 528.829 M/sec
+  6    89,957,602,467  instructions:u                            # 1.023 G/sec  
+  7    93,296,839,703  instructions:u                            # 1.057 G/sec  
+  0    13,488,299,538  raw-cortex-a55-stall-backend-ilock:u      # 150.949 M/sec
+  1    13,820,448,647  raw-cortex-a55-stall-backend-ilock:u      # 153.114 M/sec
+  2    14,539,812,802  raw-cortex-a55-stall-backend-ilock:u      # 158.787 M/sec
+  3    13,828,405,026  raw-cortex-a55-stall-backend-ilock:u      # 151.282 M/sec
+  4    14,098,548,415  raw-cortex-a55-stall-backend-ilock:u      # 152.660 M/sec
+  5    14,123,357,080  raw-cortex-a55-stall-backend-ilock:u      # 152.710 M/sec
+  6        64,068,096  raw-cortex-a55-stall-backend-ilock:u      # 728.906 K/sec
+  7        60,818,709  raw-cortex-a55-stall-backend-ilock:u      # 688.967 K/sec
+  0     9,495,464,814  raw-cortex-a55-stall-backend-ld-cache:u   # 106.265 M/sec
+  1    10,378,560,777  raw-cortex-a55-stall-backend-ld-cache:u   # 114.982 M/sec
+  2    11,038,112,868  raw-cortex-a55-stall-backend-ld-cache:u   # 120.545 M/sec
+  3    10,568,872,169  raw-cortex-a55-stall-backend-ld-cache:u   # 115.623 M/sec
+  4    10,623,286,599  raw-cortex-a55-stall-backend-ld-cache:u   # 115.030 M/sec
+  5    10,453,996,377  raw-cortex-a55-stall-backend-ld-cache:u   # 113.035 M/sec
+  6           248,362  raw-cortex-a55-stall-backend-ld-cache:u   # 2.826 K/sec  
+  7           352,406  raw-cortex-a55-stall-backend-ld-cache:u   # 3.992 K/sec  
+
+Total test time: 98.096846 seconds.
+",0,0,0,True,5,1380105.34,1380005.91,tg,8,1280,0.94,14.896,13.603,12.793,10,13.019,13.96,False,False,True,a55,99.43
+counters.tg_t2_A55.core,d36a2811f87e40cea4d228b6e773edd5,79,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t2_A55.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t2_A55,False,47.9,True,invocation_incl_setup,40200.0,0x03,counters:core,False,1,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0    167,924,456,457  cpu-cycles:u             # 0.774166 GHz 
+  1    170,587,306,586  cpu-cycles:u             # 0.783250 GHz 
+  7          8,097,006  cpu-cycles:u             # 0.291610 GHz 
+  0     87,656,133,530  instructions:u           # 404.113 M/sec
+  1     96,278,951,579  instructions:u           # 442.064 M/sec
+  7          9,366,394  instructions:u           # 337.327 M/sec
+  0     62,961,634,931  raw-stall-backend:u      # 290.266 M/sec
+  1     61,874,662,842  raw-stall-backend:u      # 284.097 M/sec
+  7          2,910,195  raw-stall-backend:u      # 104.809 M/sec
+  0      2,070,723,301  raw-ll-cache-miss-rd:u   # 9.546 M/sec  
+  1      1,943,712,875  raw-ll-cache-miss-rd:u   # 8.925 M/sec  
+  7             31,941  raw-ll-cache-miss-rd:u   # 1.150 M/sec  
+
+Total test time: 222.167773 seconds.
+",0,0,0,True,5,1379194.76,1378971.19,tg,2,1280,0.025,6.005,5.983,5.877,10,5.965,5.991,False,False,True,core,223.57
+counters.tg_t2_A75.core,7971126f0c8b43319a2cc10fa1a23361,79,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t2_A75.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t2_A75,False,47.8,True,invocation_incl_setup,38400.0,0xC0,counters:core,False,1,"Performance counter statistics:
+
+# cpu           count  event_name               # count / runtime
+  6    89,293,947,472  cpu-cycles:u             # 0.821419 GHz 
+  7    90,098,668,348  cpu-cycles:u             # 0.816024 GHz 
+  6    92,954,747,382  instructions:u           # 855.095 M/sec
+  7    89,254,710,835  instructions:u           # 808.380 M/sec
+  6    54,570,195,629  raw-stall-backend:u      # 501.994 M/sec
+  7    56,389,166,757  raw-stall-backend:u      # 510.717 M/sec
+  6     5,615,051,247  raw-ll-cache-miss-rd:u   # 51.653 M/sec 
+  7     5,654,334,104  raw-ll-cache-miss-rd:u   # 51.211 M/sec 
+
+Total test time: 111.931019 seconds.
+",0,0,0,True,5,1379358.43,1379245.1,tg,2,1280,0.018,11.87,11.84,11.812,10,11.836,11.853,False,False,True,core,113.33
+counters.tg_t2_free.core,32036c3f1b8d48d4800056c84ea72f7a,77,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t2_free.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t2_free,False,47.9,True,invocation_incl_setup,39400.0,free,counters:core,False,1,"Performance counter statistics:
+
+# cpu           count  event_name               # count / runtime
+  0       389,334,772  cpu-cycles:u             # 0.748993 GHz 
+  1       355,413,273  cpu-cycles:u             # 0.767292 GHz 
+  2       686,462,855  cpu-cycles:u             # 0.777061 GHz 
+  3       444,850,102  cpu-cycles:u             # 0.781483 GHz 
+  4       774,306,624  cpu-cycles:u             # 0.781565 GHz 
+  5       850,526,634  cpu-cycles:u             # 0.775527 GHz 
+  6    87,321,595,081  cpu-cycles:u             # 0.814858 GHz 
+  7    92,257,058,973  cpu-cycles:u             # 0.809974 GHz 
+  0       215,583,109  instructions:u           # 414.733 M/sec
+  1       196,015,656  instructions:u           # 423.173 M/sec
+  2       408,114,622  instructions:u           # 461.977 M/sec
+  3       243,070,190  instructions:u           # 427.010 M/sec
+  4       426,914,163  instructions:u           # 430.916 M/sec
+  5       468,166,674  instructions:u           # 426.884 M/sec
+  6    89,008,376,816  instructions:u           # 830.599 M/sec
+  7    92,909,332,264  instructions:u           # 815.701 M/sec
+  0       143,103,708  raw-stall-backend:u      # 275.299 M/sec
+  1       131,915,150  raw-stall-backend:u      # 284.788 M/sec
+  2       249,366,800  raw-stall-backend:u      # 282.278 M/sec
+  3       165,611,182  raw-stall-backend:u      # 290.935 M/sec
+  4       286,969,332  raw-stall-backend:u      # 289.659 M/sec
+  5       317,101,064  raw-stall-backend:u      # 289.139 M/sec
+  6    53,812,775,127  raw-stall-backend:u      # 502.164 M/sec
+  7    57,018,621,036  raw-stall-backend:u      # 500.597 M/sec
+  0         4,071,287  raw-ll-cache-miss-rd:u   # 7.832 M/sec  
+  1         3,922,741  raw-ll-cache-miss-rd:u   # 8.469 M/sec  
+  2         6,699,136  raw-ll-cache-miss-rd:u   # 7.583 M/sec  
+  3         4,716,775  raw-ll-cache-miss-rd:u   # 8.286 M/sec  
+  4         8,090,305  raw-ll-cache-miss-rd:u   # 8.166 M/sec  
+  5         9,021,246  raw-ll-cache-miss-rd:u   # 8.226 M/sec  
+  6     5,443,041,538  raw-ll-cache-miss-rd:u   # 50.793 M/sec 
+  7     5,602,724,115  raw-ll-cache-miss-rd:u   # 49.189 M/sec 
+
+Total test time: 115.692360 seconds.
+",0,0,0,True,5,1380882.76,1380765.73,tg,2,1280,0.229,11.754,11.675,10.334,10,11.471,11.699,False,False,True,core,117.03
+counters.tg_t4_free.core,bdba7536535e48d9a089270293c3e9c5,76,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t4_free.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t4_free,False,47.9,True,invocation_incl_setup,40500.0,free,counters:core,False,1,"Performance counter statistics:
+
+# cpu           count  event_name               # count / runtime
+  0     6,460,120,381  cpu-cycles:u             # 0.775001 GHz 
+  1     8,585,122,470  cpu-cycles:u             # 0.789518 GHz 
+  2    15,931,421,127  cpu-cycles:u             # 0.794641 GHz 
+  3    22,820,372,111  cpu-cycles:u             # 0.795069 GHz 
+  4    48,947,462,802  cpu-cycles:u             # 0.790559 GHz 
+  5    46,287,937,205  cpu-cycles:u             # 0.796357 GHz 
+  6    70,647,276,802  cpu-cycles:u             # 0.802193 GHz 
+  7    72,096,848,430  cpu-cycles:u             # 0.813245 GHz 
+  0     3,808,484,239  instructions:u           # 456.892 M/sec
+  1     5,137,362,845  instructions:u           # 472.450 M/sec
+  2     9,386,333,244  instructions:u           # 468.179 M/sec
+  3    13,377,180,651  instructions:u           # 466.065 M/sec
+  4    28,441,381,152  instructions:u           # 459.362 M/sec
+  5    28,227,118,033  instructions:u           # 485.631 M/sec
+  6    82,260,094,318  instructions:u           # 934.056 M/sec
+  7    83,287,975,364  instructions:u           # 939.479 M/sec
+  0     2,385,049,687  raw-stall-backend:u      # 286.127 M/sec
+  1     3,159,541,294  raw-stall-backend:u      # 290.562 M/sec
+  2     5,892,454,094  raw-stall-backend:u      # 293.909 M/sec
+  3     8,492,578,112  raw-stall-backend:u      # 295.884 M/sec
+  4    18,280,014,253  raw-stall-backend:u      # 295.244 M/sec
+  5    16,986,985,937  raw-stall-backend:u      # 292.251 M/sec
+  6    40,530,481,025  raw-stall-backend:u      # 460.220 M/sec
+  7    41,609,814,691  raw-stall-backend:u      # 469.354 M/sec
+  0        67,628,483  raw-ll-cache-miss-rd:u   # 8.113 M/sec  
+  1        88,441,546  raw-ll-cache-miss-rd:u   # 8.133 M/sec  
+  2       167,295,752  raw-ll-cache-miss-rd:u   # 8.345 M/sec  
+  3       238,349,712  raw-ll-cache-miss-rd:u   # 8.304 M/sec  
+  4       516,660,616  raw-ll-cache-miss-rd:u   # 8.345 M/sec  
+  5       469,106,828  raw-ll-cache-miss-rd:u   # 8.071 M/sec  
+  6     2,973,341,888  raw-ll-cache-miss-rd:u   # 33.762 M/sec 
+  7     3,107,963,752  raw-ll-cache-miss-rd:u   # 35.057 M/sec 
+
+Total test time: 96.174815 seconds.
+",0,0,0,True,5,1381030.62,1380933.13,tg,4,1280,1.3,15.446,14.548,12.112,10,13.498,14.798,False,False,True,core,97.49
+counters.tg_t4_mix.core,5989dbabe63f4c5082e9d0d72c101fa7,79,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t4_mix.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t4_mix,False,47.8,True,invocation_incl_setup,39500.0,0xC3,counters:core,False,1,"Performance counter statistics:
+
+# cpu           count  event_name               # count / runtime
+  0    66,375,716,840  cpu-cycles:u             # 0.799368 GHz 
+  1    66,696,621,604  cpu-cycles:u             # 0.801516 GHz 
+  6    69,294,668,666  cpu-cycles:u             # 0.806896 GHz 
+  7    68,157,165,283  cpu-cycles:u             # 0.816582 GHz 
+  0    38,228,887,283  instructions:u           # 460.394 M/sec
+  1    38,432,038,933  instructions:u           # 461.851 M/sec
+  6    71,661,050,457  instructions:u           # 834.451 M/sec
+  7    75,757,919,347  instructions:u           # 907.646 M/sec
+  0    24,339,904,445  raw-stall-backend:u      # 293.127 M/sec
+  1    24,527,708,934  raw-stall-backend:u      # 294.758 M/sec
+  6    42,513,927,432  raw-stall-backend:u      # 495.050 M/sec
+  7    40,410,272,246  raw-stall-backend:u      # 484.150 M/sec
+  0       680,678,485  raw-ll-cache-miss-rd:u   # 8.197 M/sec  
+  1       704,702,434  raw-ll-cache-miss-rd:u   # 8.469 M/sec  
+  6     3,171,193,616  raw-ll-cache-miss-rd:u   # 36.927 M/sec 
+  7     3,125,503,116  raw-ll-cache-miss-rd:u   # 37.446 M/sec 
+
+Total test time: 87.001571 seconds.
+",0,0,0,True,5,1379497.17,1379408.77,tg,4,1280,0.078,15.505,15.415,15.223,10,15.355,15.433,False,False,True,core,88.4
+counters.tg_t6_A55.core,68f4b89e49a44fd2b8decd1c6d2a9668,78,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t6_A55.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t6_A55,False,47.9,True,invocation_incl_setup,39600.0,0x3F,counters:core,False,1,"Performance counter statistics:
+
+# cpu           count  event_name               # count / runtime
+  0    70,394,914,840  cpu-cycles:u             # 0.767287 GHz 
+  1    74,769,813,469  cpu-cycles:u             # 0.769309 GHz 
+  2    73,808,699,275  cpu-cycles:u             # 0.772404 GHz 
+  3    73,316,654,025  cpu-cycles:u             # 0.774580 GHz 
+  4    74,167,237,809  cpu-cycles:u             # 0.778073 GHz 
+  5    75,942,012,977  cpu-cycles:u             # 0.767425 GHz 
+  7         7,957,771  cpu-cycles:u             # 0.296117 GHz 
+  0    42,613,751,413  instructions:u           # 464.479 M/sec
+  1    45,054,340,333  instructions:u           # 463.565 M/sec
+  2    43,776,918,819  instructions:u           # 458.123 M/sec
+  3    43,512,305,316  instructions:u           # 459.701 M/sec
+  4    44,924,050,786  instructions:u           # 471.289 M/sec
+  5    42,529,292,970  instructions:u           # 429.776 M/sec
+  7         9,366,628  instructions:u           # 348.542 M/sec
+  0    27,880,285,548  raw-stall-backend:u      # 303.888 M/sec
+  1    30,221,746,706  raw-stall-backend:u      # 310.952 M/sec
+  2    30,409,602,583  raw-stall-backend:u      # 318.235 M/sec
+  3    30,188,073,886  raw-stall-backend:u      # 318.933 M/sec
+  4    30,050,747,297  raw-stall-backend:u      # 315.256 M/sec
+  5    31,715,743,595  raw-stall-backend:u      # 320.501 M/sec
+  7         2,835,860  raw-stall-backend:u      # 105.525 M/sec
+  0       564,937,274  raw-ll-cache-miss-rd:u   # 6.158 M/sec  
+  1       550,678,700  raw-ll-cache-miss-rd:u   # 5.666 M/sec  
+  2       573,029,588  raw-ll-cache-miss-rd:u   # 5.997 M/sec  
+  3       566,241,723  raw-ll-cache-miss-rd:u   # 5.982 M/sec  
+  4       570,442,244  raw-ll-cache-miss-rd:u   # 5.984 M/sec  
+  5       605,753,187  raw-ll-cache-miss-rd:u   # 6.121 M/sec  
+  7            30,347  raw-ll-cache-miss-rd:u   # 1.129 M/sec  
+
+Total test time: 103.054667 seconds.
+",0,0,0,True,5,1379955.56,1379851.1,tg,6,1280,0.101,13.81,13.444,12.548,10,13.412,13.512,False,False,True,core,104.46
+counters.tg_t6_free.core,030a7d03a6b94cce98323173e5dfb0d4,79,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t6_free.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t6_free,False,47.8,True,invocation_incl_setup,38100.0,free,counters:core,False,1,"Performance counter statistics:
+
+# cpu           count  event_name               # count / runtime
+  0    22,364,811,295  cpu-cycles:u             # 0.724017 GHz 
+  1    33,414,649,695  cpu-cycles:u             # 0.756844 GHz 
+  2    49,998,216,920  cpu-cycles:u             # 0.768008 GHz 
+  3    61,582,686,237  cpu-cycles:u             # 0.773899 GHz 
+  4    71,111,309,999  cpu-cycles:u             # 0.777359 GHz 
+  5    68,012,457,484  cpu-cycles:u             # 0.776582 GHz 
+  6    68,096,153,724  cpu-cycles:u             # 0.797243 GHz 
+  7    67,378,856,024  cpu-cycles:u             # 0.806473 GHz 
+  0    15,454,882,826  instructions:u           # 500.321 M/sec
+  1    22,856,890,161  instructions:u           # 517.710 M/sec
+  2    34,300,341,520  instructions:u           # 526.878 M/sec
+  3    42,035,652,245  instructions:u           # 528.255 M/sec
+  4    49,626,106,839  instructions:u           # 542.492 M/sec
+  5    48,045,718,926  instructions:u           # 548.597 M/sec
+  6    87,333,300,778  instructions:u           # 1.022 G/sec  
+  7    86,429,670,838  instructions:u           # 1.034 G/sec  
+  0     8,587,513,974  raw-stall-backend:u      # 278.004 M/sec
+  1    12,924,891,103  raw-stall-backend:u      # 292.750 M/sec
+  2    19,334,731,552  raw-stall-backend:u      # 296.995 M/sec
+  3    24,128,693,968  raw-stall-backend:u      # 303.221 M/sec
+  4    27,704,651,102  raw-stall-backend:u      # 302.856 M/sec
+  5    26,229,991,451  raw-stall-backend:u      # 299.500 M/sec
+  6    36,675,804,644  raw-stall-backend:u      # 429.386 M/sec
+  7    36,369,517,469  raw-stall-backend:u      # 435.315 M/sec
+  0       147,474,298  raw-ll-cache-miss-rd:u   # 4.774 M/sec  
+  1       225,353,744  raw-ll-cache-miss-rd:u   # 5.104 M/sec  
+  2       331,295,549  raw-ll-cache-miss-rd:u   # 5.089 M/sec  
+  3       402,320,070  raw-ll-cache-miss-rd:u   # 5.056 M/sec  
+  4       444,685,551  raw-ll-cache-miss-rd:u   # 4.861 M/sec  
+  5       425,364,389  raw-ll-cache-miss-rd:u   # 4.857 M/sec  
+  6     2,039,315,937  raw-ll-cache-miss-rd:u   # 23.876 M/sec 
+  7     2,090,788,321  raw-ll-cache-miss-rd:u   # 25.025 M/sec 
+
+Total test time: 103.368793 seconds.
+",0,0,0,True,5,1378920.8,1378816.12,tg,6,1280,3.151,16.529,12.698,10.254,10,11.774,14.925,False,False,True,core,104.68
+counters.tg_t8_free.core,9ccecfebf4f2470392a3a3a58a379e49,80,Discharging,Discharging,out/llama-bench/bench_json/bench_counters.tg_t8_free.core.json,llama-bench,3d8291e5-728b-4b83-8098-d7c6948ce998,tg_t8_free,False,47.8,True,invocation_incl_setup,37200.0,free,counters:core,False,1,"Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0     93,003,725,606  cpu-cycles:u             # 0.736463 GHz 
+  1     96,342,103,057  cpu-cycles:u             # 0.753969 GHz 
+  2    105,885,344,879  cpu-cycles:u             # 0.762815 GHz 
+  3    107,042,319,782  cpu-cycles:u             # 0.766147 GHz 
+  4    110,671,877,686  cpu-cycles:u             # 0.771993 GHz 
+  5    109,645,519,676  cpu-cycles:u             # 0.770899 GHz 
+  6    104,755,695,913  cpu-cycles:u             # 0.793184 GHz 
+  7    104,108,536,766  cpu-cycles:u             # 0.799062 GHz 
+  0     79,863,253,199  instructions:u           # 632.408 M/sec
+  1     82,410,752,796  instructions:u           # 644.943 M/sec
+  2     95,074,629,136  instructions:u           # 684.933 M/sec
+  3     96,161,098,387  instructions:u           # 688.266 M/sec
+  4     99,438,667,578  instructions:u           # 693.636 M/sec
+  5     97,903,780,968  instructions:u           # 688.345 M/sec
+  6    176,592,099,144  instructions:u           # 1.337 G/sec  
+  7    175,344,617,496  instructions:u           # 1.346 G/sec  
+  0     33,503,351,807  raw-stall-backend:u      # 265.301 M/sec
+  1     35,182,163,234  raw-stall-backend:u      # 275.334 M/sec
+  2     37,635,879,986  raw-stall-backend:u      # 271.135 M/sec
+  3     38,098,912,427  raw-stall-backend:u      # 272.690 M/sec
+  4     39,356,044,283  raw-stall-backend:u      # 274.529 M/sec
+  5     38,930,999,232  raw-stall-backend:u      # 273.717 M/sec
+  6     41,049,223,248  raw-stall-backend:u      # 310.815 M/sec
+  7     40,922,703,995  raw-stall-backend:u      # 314.093 M/sec
+  0        385,133,105  raw-ll-cache-miss-rd:u   # 3.050 M/sec  
+  1        390,998,799  raw-ll-cache-miss-rd:u   # 3.060 M/sec  
+  2        377,084,507  raw-ll-cache-miss-rd:u   # 2.717 M/sec  
+  3        375,749,840  raw-ll-cache-miss-rd:u   # 2.689 M/sec  
+  4        385,164,975  raw-ll-cache-miss-rd:u   # 2.687 M/sec  
+  5        400,642,108  raw-ll-cache-miss-rd:u   # 2.817 M/sec  
+  6      1,546,470,340  raw-ll-cache-miss-rd:u   # 11.709 M/sec 
+  7      1,569,737,115  raw-ll-cache-miss-rd:u   # 12.048 M/sec 
+
+Total test time: 157.397258 seconds.
+",0,0,0,True,5,1378765.73,1378607.01,tg,8,1280,5.784,14.751,9.968,4.018,10,7.844,13.628,False,False,True,core,158.72
