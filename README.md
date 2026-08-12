@@ -1,197 +1,281 @@
-# LITTLETai — llama.cpp is 2.6–11× slower than it needs to be on your phone
+# LITTLETai
 
-**One flag fixes it.** `llama.cpp`'s default thread count on Android is *all
-physical cores*, which on a big.LITTLE SoC is the single worst configuration
-available. This repo proves that with PMU counters, explains the mechanism, and
-ships a tool that picks the right flags from any Arm phone's own CPU topology.
+> *The right number of threads is never all of them.*
 
-Measured on a retail mid-range handset (realme RMX5020, MediaTek Helio G85),
-Qwen2 1B Q4_0, token generation:
+`LITTLETai` reads your phone's CPU layout and tells llama.cpp how to use it.
+The name is `big.LITTLE` plus AI — and a nod to the little phones, the mid-range
+Helio and Snapdragon handsets most of the world actually owns, which is where I
+did all of this.
 
-| | stock llama.cpp | with KleidiAI |
+It turns out llama.cpp has been leaving a lot on the table there. Not a little.
+On my test phone, generating tokens:
+
+| | stock llama.cpp | KleidiAI build |
 |---|---|---|
-| **default** (`-t 8`) | 8.06 t/s · 359 J/1k tok | 1.60 t/s · 1462 J/1k tok |
-| **any LITTLETai preset** | 19.6–20.8 t/s · 109–140 J/1k tok | 13.6–18.1 t/s · 134–192 J/1k tok |
-| **speedup** | **2.4–2.6×** | **8.5–11.3×** |
-| **energy per token** | **2.6–3.3× less** | **7.6–11× less** |
+| default (`-t 8`) | 8.06 t/s · 359 J/1k tok | 1.60 t/s · 1462 J/1k tok |
+| any LITTLETai preset | 19.6–20.8 t/s · 109–140 J/1k tok | 13.6–18.1 t/s · 134–192 J/1k tok |
+| | **2.4–2.6× faster** | **8.5–11.3× faster** |
+| | **2.6–3.3× less energy** | **7.6–11× less energy** |
 
-No model changes. No recompilation. No root. The model, the binary and the
-prompt are identical — only the CPU flags differ.
+Same model. Same binary. Same prompt. The only thing that changed is a couple
+of CLI flags.
 
-```bash
-# before
-./llama-cli -m model.gguf -p "hello"
-
-# after
-sh cpupreset.sh balanced -- ./llama-cli -m model.gguf -p "hello"
+```console
+$ ./llama-cli -m model.gguf -p "hello"                              # 1.6 tok/s
+$ sh cpupreset.sh balanced -- ./llama-cli -m model.gguf -p "hello"  # 18 tok/s
 ```
 
 ---
 
-## Why this happens
+## Contents
 
-`common_cpu_get_num_math()` in llama.cpp picks the default thread count. It has
-a hybrid-CPU heuristic — for Intel P/E cores. It is guarded like this:
+- [Why this exists](#why-this-exists)
+- [Install](#install)
+- [Usage](#usage)
+- [Presets](#presets)
+- [Other runtimes](#other-runtimes)
+- [How it decides](#how-it-decides)
+- [Results](#results)
+- [The machine I measured on](#the-machine-i-measured-on)
+- [How the numbers were made](#how-the-numbers-were-made)
+- [Reproducing](#reproducing)
+- [Tests](#tests)
+- [What I don't know yet](#what-i-dont-know-yet)
+- [Layout](#layout)
+- [License](#license)
+
+---
+
+## Why this exists
+
+llama.cpp decides your default thread count in `common_cpu_get_num_math()`.
+There's a heuristic in there for heterogeneous CPUs — the kind with fast and
+slow cores mixed together. It's guarded like this:
 
 ```c
 #if defined(__x86_64__) && defined(__linux__) && !defined(__ANDROID__)
 ```
 
-So on Android it falls through to "all physical cores" = 8. Arm's big.LITTLE is
-the most widely deployed heterogeneous CPU architecture on earth, and it is
-explicitly excluded from the one heuristic that exists for heterogeneous CPUs.
+That's for Intel's P and E cores. Android is explicitly excluded, so on a phone
+it falls through to "use every physical core." Arm's big.LITTLE is the most
+widely deployed heterogeneous CPU design on the planet and it gets nothing.
 
-The cost is measurable, not theoretical. Retired instructions **per generated
-token**, summed across all cores, from `simpleperf` PMU counters:
+I expected this to cost maybe 10-20%. Then I counted instructions.
+
+Retired instructions **per generated token**, summed across all cores, straight
+out of `simpleperf`:
 
 | threads | stock | KleidiAI |
 |---|---|---|
 | 2 | 143 M | 161 M |
 | 4 | 185 M | 249 M |
 | 6 | 216–302 M | 306–383 M |
-| **8 (the default)** | **365–705 M** | **1053–1231 M** |
+| **8 — the default** | **365–705 M** | **1053–1231 M** |
 
-Identical work, up to **7.6× the instructions**. `ggml_barrier()` busy-spins on
-`ggml_thread_cpu_relax()` with no yield and no poll gate. Put a thread on every
-core of a heterogeneous SoC and the barrier waits on the slowest one while all
-the others burn cycles. The default *guarantees* zero spare cores, so it hits
-the worst case every time.
+Same tokens, up to 7.6× the instructions to produce them. They're not doing
+work; they're spinning. `ggml_barrier()` waits with `ggml_thread_cpu_relax()` —
+no yield, and `--poll` doesn't gate it. So every thread burns cycles waiting for
+the slowest one, and the default guarantees there isn't a single spare core for
+anything else to run on. Worst case, every single time.
 
-This also explains why the KleidiAI build collapses harder: this SoC is
-ARMv8.2-A with `asimddp` but **no `i8mm`, no SVE, no SME2** (verified in
-`/proc/cpuinfo`), so KleidiAI's repacked GEMV path falls back to a slower kernel
-for decode — which makes the spin-wait window longer, which makes
-oversubscription hurt more. Prefill, which is GEMM-bound, still wins with
-KleidiAI.
+The KleidiAI build falls further because this chip is ARMv8.2-A: it has
+`asimddp`, but no `i8mm`, no SVE, no SME2 (check `/proc/cpuinfo` yourself).
+KleidiAI's published wins lean on instructions this silicon doesn't have, so its
+decode path falls back to something slower, the spin window gets longer, and
+oversubscription hurts proportionally more. Prefill still wins with KleidiAI —
+that half is GEMM-bound and it genuinely helps.
 
-## What LITTLETai does
+## Install
 
-`cpupreset.sh` reads the device's CPU topology from `/sys` and emits the flags
-llama.cpp already understands. **It does not patch llama.cpp** and it never
-loads a model.
-
-- Groups CPUs by **performance class** — `(max frequency, MIDR)` — not by
-  cpufreq policy, because plenty of kernels expose one policy per CPU
-- Decodes MIDR to core names (Cortex-A55, A710, X2 …) with an efficiency-core
-  tie-breaker, so a part whose clusters share a frequency ceiling still orders
-  correctly
-- Applies rules derived from 238 measured benchmark arms
-- Emits `-t` / `-tb` plus a `taskset` prefix, or settings for other runtimes
-
-Three presets, by intent:
-
-| preset | for | on a 6+2 phone |
-|---|---|---|
-| `throughput` | fastest median, tolerates jitter | `-t 4 -tb 6` |
-| `balanced` *(default)* | never throttled in any run; leaves cores for the UI | `taskset cf -t 4 -tb 6` |
-| `background` | lowest power and heat; big cores stay free | `taskset 3f -t 4 -tb 6` |
-
-## Target platform
-
-Everything here targets **Arm AArch64 Android, unrooted, shell uid**.
-
-| | |
-|---|---|
-| CPU | 6× **Arm Cortex-A55** @ 1.7 GHz + 2× **Arm Cortex-A75** @ 2.0 GHz, DynamIQ big.LITTLE |
-| ISA | ARMv8.2-A, NEON, `asimddp` (dotprod), `fphp`/`asimdhp`; no `i8mm`, no SVE, no SME2 |
-| SoC | MediaTek Helio G85 (`ro.board.platform=mt6768`, `ro.soc.model=MT6769`) |
-| Device | realme RMX5020, Android 16, kernel 6.6.118, 5.6 GB RAM |
-| Access | no root, no Shizuku; `/data/local/tmp` as shell uid |
-
-The **rules generalise by construction** — they are a function of cluster count,
-core counts and frequency ceilings, not of this SoC. `device/test_cpupreset.sh`
-checks them against 12 synthetic topologies (4+4, 1+3+4, 2+2+4, 8×identical,
-per-CPU-policy layouts, offline CPUs, no-cpufreq) with no phone attached. The
-*constants* come from one device; the *arithmetic* is tested broadly.
-
-## Quick start
+There's nothing to build. It's one POSIX shell script.
 
 ```bash
 git clone https://github.com/Kamrulhasan12345/littletai
 cd littletai/llama.cpp/harness/device
-
-sh cpupreset.sh --print balanced        # explain what this machine resolves to
-sh cpupreset.sh --json                  # machine-readable topology + all presets
-./test_cpupreset.sh                     # 53 assertions, no device needed
 ```
 
-`cpupreset.sh` is POSIX sh for toybox — it runs on an Android phone with no
-Python, no busybox and no coreutils beyond what ships in the ROM.
+Written for toybox `sh`, because that's what Android ships. No Python, no
+busybox, no bash, no coreutils beyond the ROM. Push it to `/data/local/tmp`
+next to your binary and it runs.
 
-Use it as a launcher (correct by construction — the `taskset` prefix must come
-*before* the binary and the flags *after* it):
+## Usage
+
+The launcher form is the one to use:
 
 ```bash
 sh cpupreset.sh balanced -- ./llama-cli -m model.gguf -p "hello"
 ```
 
-Or ask for the pieces:
+It has to be a launcher because the pieces go in different places — `taskset`
+before the binary, flags after it — so no single `$(...)` can express a preset.
+If you're wiring it into your own script, ask for the halves:
 
-```bash
-sh cpupreset.sh --flags  balanced   # -t 4 -tb 6
-sh cpupreset.sh --prefix balanced   # taskset cf
+```console
+$ sh cpupreset.sh --flags  balanced
+-t 4 -tb 6
+$ sh cpupreset.sh --prefix balanced
+taskset cf
 ```
 
-### Other runtimes
+To see what it decided and why:
 
-Only the *spelling* is engine-specific; the topology rules are the same, and the
-`taskset` prefix is identical because affinity is a kernel call.
+```console
+$ sh cpupreset.sh --print balanced
+topology: 8 online CPUs in 2 performance class(es)
+  cpus 6 7            Cortex-A75   max 2000000 kHz  mask 0xc0
+  cpus 0 1 2 3 4 5    Cortex-A55   max 1700000 kHz  mask 0x3f
 
-```bash
-sh cpupreset.sh --format onnxruntime --flags balanced   # intra_op_num_threads=4
-sh cpupreset.sh --format tflite      --flags balanced   # num_threads=4
-sh cpupreset.sh --format env         --flags balanced   # OMP_NUM_THREADS=4 ...
+preset:   balanced
+decode:   -t 4
+prefill:  -tb 6
+mask:     0xcf (taskset)
+
+usage:    taskset cf ./llama-cli -m model.gguf -t 4 -tb 6 -p 'hi'
 ```
 
-ONNX Runtime's intra-op pool and TFLite's XNNPACK/pthreadpool spin-wait at
-barriers the same way and default to roughly core count, so the same
-oversubscription penalty should apply. **Only llama.cpp/ggml was measured** —
-the tool prints `INFERRED` on those formats rather than implying otherwise.
+`--json` gives you the same thing machine-readably, including all three presets.
 
-## How the numbers were produced
+## Presets
 
-The measurements are the point, so the apparatus is part of the deliverable.
-`llama.cpp/harness/` is a device-side benchmark harness built for this project:
+| preset | what it's for | on a 6+2 phone |
+|---|---|---|
+| `throughput` | fastest median, don't care about jitter | `-t 4 -tb 6` |
+| `balanced` | never throttled in any run, leaves cores for the UI | `taskset cf -t 4 -tb 6` |
+| `background` | coolest and quietest, big cores stay free | `taskset 3f -t 4 -tb 6` |
 
-- **The phone runs the benchmark loop.** The laptop generates a seeded plan,
-  receives results over TCP, and analyses them. `adb` copies files once and
-  starts the runner detached, then is free to die.
-- **Randomised, interleaved, block-structured** so thermal drift cannot align
-  with a single config.
-- **Thermal gating** — every arm waits for a temperature floor before measuring.
-- **Named failure states.** An arm ends as a measurement or as a reason
-  (`thermal_gate_timeout`, `bench_json_missing`, `suspend_during_measurement` …),
-  never as a plausible-looking number.
-- **Energy** from the fuel gauge at 200 ms, trapezoidally integrated, screen off
-  and unplugged.
-- **PMU counters** via `simpleperf --per-core`, with multiplexing detection.
-- **Harness overhead measured, not assumed** — a control pass showed the
-  sampler itself costs −8.3% at 6 threads, which is *why* `balanced` reserves
-  cores.
+`throughput` and `balanced` differ only by the mask, which looks lazy until you
+see the spread: unpinned runs faster on median but goes bimodal (IQR up to 70%
+of the median as threads bounce between clusters), while pinned is a hair slower
+and never throttled once across two full sessions. Speed vs. predictability is a
+real choice. I could have invented a thread-count difference to make the presets
+look more distinct. That would have been a lie.
 
-238 benchmark arms across five passes. Plans are seeded and reproducible: the two
-97-arm matrices in `llama.cpp/harness/out/` regenerate byte-identically.
+## Other runtimes
 
-### Results in this repo
+Only the spelling changes. The topology rules are identical, and the `taskset`
+prefix works everywhere because affinity is a kernel call, not a library
+setting.
 
-| directory | what |
+```console
+$ sh cpupreset.sh --format onnxruntime --flags balanced
+intra_op_num_threads=4
+inter_op_num_threads=1
+$ sh cpupreset.sh --format tflite --flags balanced
+num_threads=4
+$ sh cpupreset.sh --format env --flags balanced
+OMP_NUM_THREADS=4
+OMP_WAIT_POLICY=passive
+```
+
+ONNX Runtime's intra-op pool and TFLite's XNNPACK/pthreadpool both spin at
+barriers and both default to roughly core count, so I'd expect the same problem.
+**I haven't measured either.** The tool prints `INFERRED` on those formats
+instead of quietly implying I did. That `OMP_WAIT_POLICY=passive` is the direct
+counterpart to the missing yield in `ggml_barrier` — if you only take one thing
+from here into a non-llama.cpp project, take that.
+
+## How it decides
+
+Groups CPUs by **performance class** — `(max frequency, MIDR)` — not by cpufreq
+policy. That distinction cost me an evening: my first version reported my
+4-core laptop as *four clusters*, because plenty of kernels expose one cpufreq
+policy per CPU. Grouping on policies would hand `background` a single core on
+those machines.
+
+Frequency alone isn't enough either. On a part where both clusters cap at the
+same GHz, ties fall back to sysfs order, which puts `cpu0` first — a little core
+on every Arm SoC — and inverts every preset. So the MIDR joins the key, with a
+small efficiency-core list as the tie-breaker. Not a speed ranking of every Arm
+core ever made; "is this a LITTLE core" is a short list you can actually check.
+
+Masks are built nibble-by-nibble in `awk`, as strings. toybox `sh` does 32-bit
+signed arithmetic and I'd already been bitten by it once — `$(( 949244217 +
+6491805586 ))` wraps to `-1148884789`, which is a fun thing to discover in a
+cycle count.
+
+**Why `taskset` and not llama.cpp's own `-C`:** because `-C` was silently
+ignored on Android until [PR #26838](https://github.com/ggml-org/llama.cpp/issues/26838).
+`ggml-cpu.c` guarded the affinity code with `#elif defined(__gnu_linux__)`,
+which Clang doesn't define for Android triples, so the mask hit a stub. An older
+binary accepts your flag and does nothing at all — measured: `-C 0x03
+--cpu-strict 1` left 99.5% of cycles on the big cores, versus 0.1% for `taskset
+03`. A flag that lies is worse than no flag. `taskset` is a kernel call and
+can't be dropped on the floor. The price is that it's process-wide, so it can't
+give prefill and decode different masks — worth about 5%, against the ~156% the
+thread counts are worth.
+
+## Results
+
+| directory | what's in it |
 |---|---|
-| `out/presets_stock/`, `out/presets_kai/` | **the headline A/B** — presets vs the llama.cpp default |
-| `out/prefill_stock/`, `out/prefill_kai/` | prefill thread/mask sweep |
-| `out/llama-bench/`, `out/llama-bench-kai/` | the 97-arm matrices, stock vs KleidiAI |
+| `out/presets_stock/`, `out/presets_kai/` | the headline A/B — presets vs. the llama.cpp default |
+| `out/prefill_stock/`, `out/prefill_kai/` | prefill thread and mask sweep |
+| `out/llama-bench/`, `out/llama-bench-kai/` | the two 97-arm matrices, stock vs. KleidiAI |
 
-Each contains `summary.md`, `results.csv`, per-arm telemetry, and figures
-(`fig_throughput.png`, `fig_energy.png`, `fig_timeline.png`).
+Each has `summary.md`, `results.csv`, per-arm telemetry and figures.
 
-**[`llama.cpp/harness/PRESETS.md`](llama.cpp/harness/PRESETS.md) traces every
-rule constant back to the arm it came from** — including a rule the validation
-run contradicted, and what was changed as a result.
+**[`PRESETS.md`](llama.cpp/harness/PRESETS.md) traces every constant in the tool
+back to the specific benchmark arm it came from** — including a rule my own
+validation run contradicted, what I changed, and the two questions the follow-up
+sweep still didn't answer.
+
+## The machine I measured on
+
+Unrooted retail Android, shell uid, nothing special.
+
+| | |
+|---|---|
+| CPU | 6× **Arm Cortex-A55** @ 1.7 GHz + 2× **Arm Cortex-A75** @ 2.0 GHz, DynamIQ big.LITTLE |
+| ISA | ARMv8.2-A, NEON, `asimddp`, `fphp`/`asimdhp` — no `i8mm`, no SVE, no SME2 |
+| SoC | MediaTek Helio G85 (`ro.board.platform=mt6768`, `ro.soc.model=MT6769`) |
+| Device | realme RMX5020, Android 16, kernel 6.6.118, 5.6 GB RAM |
+| Access | no root, no Shizuku, `/data/local/tmp` |
+| Model | Qwen2 1B Q4_0, `pp512` / `tg128` |
+
+The *rules* aren't tied to this chip — they're a function of cluster count, core
+counts and frequency ceilings. `test_cpupreset.sh` checks them against 12
+synthetic topologies (4+4, 1+3+4, 2+2+4, 8× identical, per-CPU-policy layouts,
+hot-unplugged cores, no cpufreq at all) with nothing plugged in. The *constants*
+came from one phone. I'm not going to pretend otherwise.
+
+## How the numbers were made
+
+I didn't set out to build a benchmark harness. I built one because the first
+few rounds of numbers were garbage and I couldn't tell which ones.
+
+The phone runs the benchmark loop itself. The laptop generates a seeded plan,
+receives results over TCP, and analyses them. `adb` copies files once, starts
+the runner detached, and is then free to die — which it does, roughly every 3-4
+hours over wireless. The previous version drove each arm from the laptop inside
+a blocking `adb shell`, and when adb dropped mid-benchmark the run was lost and
+needed a human. That happened enough times to be worth fixing properly.
+
+What the harness insists on:
+
+- Randomised, interleaved, block-structured runs, so thermal drift can't line up
+  with one config
+- A thermal gate before every arm
+- Named failure states — an arm ends as a measurement or as a *reason*
+  (`thermal_gate_timeout`, `bench_json_missing`, `suspend_during_measurement`),
+  never as a plausible-looking number
+- Energy from the fuel gauge at 200 ms, trapezoidally integrated, screen off and
+  unplugged
+- PMU counters via `simpleperf --per-core`, with multiplexing detection, because
+  silently scaled estimates look exactly like real counts
+
+And one that changed the design: **the harness measured its own overhead.** A
+control pass showed the 200 ms sampler costing −8.3% at 6 threads. That's why
+`balanced` reserves cores — if one shell loop can cost 8%, so can the launcher,
+and so can whatever the user is actually doing on their phone.
+
+238 arms across five passes. Plans are seeded, so the two 97-arm matrices in
+`out/` regenerate byte-for-byte identically.
 
 ## Reproducing
 
-You need an unrooted Android phone, `adb`, and about 40 minutes.
-[`llama.cpp/harness/RUNBOOK.md`](llama.cpp/harness/RUNBOOK.md) is the full
-session, including the two physical prerequisites that silently ruin a run.
+An unrooted Android phone, `adb`, and about 40 minutes.
+[`RUNBOOK.md`](llama.cpp/harness/RUNBOOK.md) has the full session — including
+the two physical things that will quietly ruin a run if you skip them.
 
 ```bash
 cd llama.cpp/harness
@@ -201,56 +285,57 @@ cd llama.cpp/harness
 .venv/bin/python analyze.py out/presets_stock
 ```
 
-Expected: `tg_default` (8 threads) last in the throughput table, roughly 2.6×
-below the presets on stock and 11× below on KleidiAI.
+You're looking for `tg_default` at the bottom of the throughput table, roughly
+2.6× below the presets on stock and 11× on KleidiAI.
 
 ## Tests
 
-209 assertions, none of which need a phone:
+209 assertions. None of them need a phone.
 
 ```bash
 cd llama.cpp/harness
-device/test_cpupreset.sh                      # 53  topology + preset rules
-python3 -m unittest discover -p 'test_*.py'   # 107 result model, plan, ingest
-device/test_runner.sh                         # 35  device loop vs a fake tree
-./e2e_dryrun.sh                               # 14  whole pipeline, no device
+device/test_cpupreset.sh                      #  53  topology + preset rules
+python3 -m unittest discover -p 'test_*.py'   # 107  result model, plan, ingest
+device/test_runner.sh                         #  35  the device loop, fake tree
+./e2e_dryrun.sh                               #  14  whole pipeline, no device
 ```
 
-## Limitations
+The device loop is driven entirely through `$DEV`, `$PATH`, `$BAT_DIR` and
+`$THERMAL_DIR`, so it runs on a laptop against a fake sysfs tree with stub
+binaries. Nothing touches a real phone until `deploy.sh`.
 
-Stated plainly, because the rules are only as good as what produced them.
+## What I don't know yet
 
-- **Constants come from one SoC.** The arithmetic is tested against 12 synthetic
-  topologies; the numbers are not.
-- **One model** (Qwen2 1B Q4_0). Decode is memory-bound so behaviour should
-  scale with model size — that is reasoning, not measurement.
-- **Two clock regimes.** Early runs hit a vendor clamp at 850 MHz; later ones ran
-  at ~1.5 GHz. Absolute t/s differs 40–70% between them, so every comparison in
-  this repo is same-run and same-binary. Where the two disagreed, the full-clock
-  data won and the superseded claim is marked as such.
-- **The mask question is unresolved.** Whether pinning helps prefill is not
-  settled — the two binaries disagreed and the noise swamped the effect. No mask
-  rule was derived from it.
-- **Non-llama output formats are inferred**, not measured.
+- **The constants come from one SoC.** The arithmetic is tested widely; the
+  numbers aren't.
+- **One model**, Qwen2 1B Q4_0. Decode is memory-bound so it *should* scale with
+  model size. That's reasoning, not evidence.
+- **Two different clock regimes.** Early runs hit a vendor clamp at 850 MHz;
+  later ones ran at ~1.5 GHz. That moves absolute t/s by 40-70%, so every
+  comparison here is same-run and same-binary, and where the two regimes
+  disagreed the full-clock data won.
+- **Whether pinning helps prefill is unresolved.** The two binaries disagreed
+  and the noise swallowed the effect. I didn't derive a mask rule from it.
+- **The non-llama.cpp formats are inferred.** Nothing more.
 
 ## Layout
 
 ```
 llama.cpp/harness/
-  device/cpupreset.sh        the tool - topology -> flags (POSIX sh)
+  device/cpupreset.sh        the tool
   device/test_cpupreset.sh   53 assertions, 12 synthetic topologies
   PRESETS.md                 every rule traced to the arm it came from
   RUNBOOK.md                 how to run a measurement session
-  README.md                  harness architecture and design rationale
-  SETUP_LOG.md               the bring-up log, including what broke
-  out/                       results, summaries and figures
+  README.md                  harness architecture, and why it's shaped that way
+  SETUP_LOG.md               the bring-up log, including everything that broke
+  out/                       results, summaries, figures
 ```
 
-`llama.cpp/harness/` is **self-contained** — reading or running `cpupreset.sh`
-and its tests needs nothing from the `llama.cpp/src` submodule, which is only
-required to build benchmark binaries.
+`llama.cpp/harness/` stands alone. Reading or running `cpupreset.sh` and its
+tests needs nothing from the `llama.cpp/src` submodule — that's only there to
+build benchmark binaries.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). Vendored llama.cpp is separately MIT, Copyright
-(c) 2023-2026 The ggml authors.
+MIT, see [`LICENSE`](LICENSE). The vendored llama.cpp is separately MIT,
+© 2023-2026 The ggml authors.
