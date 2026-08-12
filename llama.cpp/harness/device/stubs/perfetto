@@ -1,0 +1,9 @@
+#!/bin/sh
+# Stub perfetto: creates the output file and prints a daemon pid on the last
+# line, exactly like `--background-wait`.
+OUT=""; prev=""
+for a in "$@"; do [ "$prev" = "-o" ] && OUT="$a"; prev="$a"; done
+[ -n "$OUT" ] && { mkdir -p "$(dirname "$OUT")"; echo "STUBTRACE" > "$OUT"; }
+sh -c 'sleep 300' >/dev/null 2>&1 &
+echo "Connected to the Perfetto traced service"
+echo $!

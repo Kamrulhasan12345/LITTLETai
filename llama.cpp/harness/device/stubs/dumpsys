@@ -1,0 +1,16 @@
+#!/bin/sh
+# Stub dumpsys thermalservice. Temperature comes from $DEV/.stub_temp_c so a
+# test can drive the cooldown gate. Includes the stale "Cached temperatures"
+# block on purpose - the real parser must skip it.
+DEV="${DEV:-/data/local/tmp}"
+T=$(cat "$DEV/.stub_temp_c" 2>/dev/null || echo 36.7)
+case "$1" in
+  thermalservice)
+    echo "Cached temperatures from HAL:"
+    echo "  Temperature{mValue=64.5, mType=0, mName=SOC}"
+    echo "Current temperatures from HAL:"
+    echo "  Temperature{mValue=$T, mType=0, mName=SOC}"
+    ;;
+  power) [ -f "$DEV/.stub_wakelock" ] && echo "  PARTIAL_WAKE_LOCK 'termux' ON" ;;
+esac
+exit 0

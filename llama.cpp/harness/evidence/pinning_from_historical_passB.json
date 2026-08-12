@@ -1,0 +1,62 @@
+{
+  "note": "Pass B counter evidence that -C cpu masking was ignored. Kept after the raw runs were deleted.",
+  "source_run": "out/run_20260809_230355 (deleted 2026-08-11)",
+  "per_config": {
+    "tg_t8_free": {
+      "mask": "free",
+      "threads": 8,
+      "a55_cycles": 1125026432804,
+      "a75_cycles": 433008874255,
+      "a75_share_pct": 27.8
+    },
+    "tg_t6_free": {
+      "mask": "free",
+      "threads": 6,
+      "a55_cycles": 447988256297,
+      "a75_cycles": 220363589906,
+      "a75_share_pct": 33.0
+    },
+    "tg_t2_A55": {
+      "mask": "0x03",
+      "threads": 2,
+      "a55_cycles": 8820811673,
+      "a75_cycles": 309301150053,
+      "a75_share_pct": 97.2
+    },
+    "tg_t2_A75": {
+      "mask": "0xC0",
+      "threads": 2,
+      "a55_cycles": 564908376,
+      "a75_cycles": 312869240374,
+      "a75_share_pct": 99.8
+    },
+    "tg_t4_mix": {
+      "mask": "0xC3",
+      "threads": 4,
+      "a55_cycles": 267319549685,
+      "a75_cycles": 269187511226,
+      "a75_share_pct": 50.2
+    },
+    "tg_t6_A55": {
+      "mask": "0x3F",
+      "threads": 6,
+      "a55_cycles": 437671391590,
+      "a75_cycles": 218783184785,
+      "a75_share_pct": 33.3
+    },
+    "tg_t2_free": {
+      "mask": "free",
+      "threads": 2,
+      "a55_cycles": 936100582,
+      "a75_cycles": 312359053812,
+      "a75_share_pct": 99.7
+    },
+    "tg_t4_free": {
+      "mask": "free",
+      "threads": 4,
+      "a55_cycles": 253851047058,
+      "a75_cycles": 259234220378,
+      "a75_share_pct": 50.5
+    }
+  }
+}

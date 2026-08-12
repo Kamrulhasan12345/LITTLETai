@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""
+Stub `nc` reproducing toybox 0.8.12-android semantics for the dry run.
+
+This laptop has no netcat, and a normal netcat would not reproduce the
+behaviour that actually matters. Measured on the device:
+
+    toybox nc exits the moment stdin reaches EOF, discarding whatever the
+    peer was about to send - and its documented -q flag does not change this.
+
+That is the most consequential property of the transport, because it is what
+makes delete-on-ack silently never fire. So this stub reproduces it exactly:
+
+    the socket is read ONLY while stdin is still open.
+    stdin EOF ends the process immediately, reading nothing further.
+
+On a real network the ack arrives after the payload has been sent, i.e. after
+stdin would have EOF'd - so without the trailing `sleep` in lib.sh's
+send_frame, the ack is lost. This is modelled with select() rather than a
+reader thread so it is deterministic on loopback instead of a race the stub
+would usually win.
+
+If the sleep workaround is ever removed, this stub is what fails.
+"""
+
+import select
+import socket
+import sys
+
+argv = sys.argv[1:]
+takes_value = {"-q", "-w", "-W", "-p", "-s", "-o", "-O", "-f"}
+positional = []
+i = 0
+while i < len(argv):
+    a = argv[i]
+    if a in takes_value:
+        i += 2
+        continue
+    if a.startswith("-"):
+        i += 1
+        continue
+    positional.append(a)
+    i += 1
+
+if len(positional) < 2:
+    sys.exit("stub nc: need HOST PORT")
+host, port = positional[0], int(positional[1])
+
+try:
+    sock = socket.create_connection((host, port), timeout=30)
+except OSError as e:
+    print(f"nc: connect: {e}", file=sys.stderr)
+    sys.exit(1)
+
+sock.setblocking(False)
+stdin_fd = sys.stdin.buffer.fileno()
+out = sys.stdout.buffer
+stdin_open = True
+
+while stdin_open:
+    rlist = [sock, stdin_fd]
+    ready, _, _ = select.select(rlist, [], [], 0.05)
+
+    if sock in ready:
+        try:
+            data = sock.recv(65536)
+        except (BlockingIOError, InterruptedError):
+            data = b""
+        except OSError:
+            break
+        if data:
+            out.write(data)
+            out.flush()
+        else:
+            break                       # peer closed
+
+    if stdin_fd in ready:
+        chunk = sys.stdin.buffer.read1(65536)
+        if not chunk:
+            # stdin EOF: toybox exits here, WITHOUT draining the socket.
+            stdin_open = False
+            break
+        try:
+            sock.sendall(chunk)
+        except OSError:
+            break
+
+try:
+    sock.close()
+except OSError:
+    pass
+out.flush()

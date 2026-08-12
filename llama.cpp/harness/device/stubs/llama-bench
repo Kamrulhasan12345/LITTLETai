@@ -1,0 +1,23 @@
+#!/bin/sh
+# Stub llama-bench. Behaviour is driven by control files in $DEV so tests can
+# reproduce every failure mode the real binary can produce.
+DEV="${DEV:-/data/local/tmp}"
+[ -f "$DEV/.stub_bench_hang" ] && { sleep 3600; exit 0; }
+[ -f "$DEV/.stub_bench_rc" ] && exit "$(cat "$DEV/.stub_bench_rc")"
+# A real arm runs for minutes; some scenarios need the sampler to actually
+# produce rows while the benchmark is alive.
+[ -f "$DEV/.stub_bench_delay" ] && sleep "$(cat "$DEV/.stub_bench_delay")"
+case "$*" in *--help*) echo "llama-bench (stub) build: 0000"; exit 0 ;; esac
+MODE=$(cat "$DEV/.stub_bench_out" 2>/dev/null || echo ok)
+case "$MODE" in
+  empty)   : ;;                                   # write nothing at all
+  invalid) echo '{not json' ;;
+  norows)  echo '[]' ;;
+  *) cat <<'JSON'
+[{"model":"model.gguf","n_threads":6,"n_prompt":0,"n_gen":128,
+  "samples_ts":[10.0,11.0,12.0],"samples_ns":[100000000,90909090,83333333],
+  "avg_ts":11.0}]
+JSON
+  ;;
+esac
+exit 0

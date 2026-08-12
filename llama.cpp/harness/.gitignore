@@ -1,0 +1,29 @@
+# Local analysis venv. System python is externally managed, so analyze.py
+# needs this to draw figures - but it is 181 MB of rebuildable wheels.
+#   python3 -m venv .venv && .venv/bin/pip install matplotlib
+.venv/
+__pycache__/
+
+# Perfetto traces: ~20 MB each, 1.2 GB across both matrices. They are
+# diagnostic (sched_switch evidence for cluster placement), not measurement -
+# nothing in analyze.py reads them, and every number in results*.json is
+# derived from bench_json/ and telemetry/ instead. Too big for git; keep them
+# locally or archive them out of band.
+out/*/traces/
+
+# Runtime noise
+out/*/receiver.log
+out/*/receiver.pid
+out/.prep/
+
+# NOTE what is deliberately NOT ignored:
+#   out/*/inbox/        the received measurement arms, ~2.6 MB total. ingest.py
+#                       is a pure function of this directory, so keeping it
+#                       means results can be rebuilt after any ingest fix -
+#                       which is exactly what recovered a wrongly-rejected arm
+#                       and a trace-clobbering bug during the first two runs.
+#   out/*/bench_json/   untouched llama-bench output; the source of truth.
+#   out/*/telemetry/    per-arm sampler CSVs; energy is re-derivable from them.
+
+# Release artifacts: built by hand, uploaded to GitHub Releases, not committed.
+dist/

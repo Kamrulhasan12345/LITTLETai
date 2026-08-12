@@ -1,0 +1,29 @@
+#!/bin/sh
+# Stub simpleperf: writes a per-core report to -o, then runs the workload.
+# NOTE: argument parsing STOPS at `--`. Everything after it belongs to the
+# workload, which has its own -o (llama-bench's output format). Parsing past
+# the separator makes this stub write its report to a file called "json".
+REP=""; prev=""; WORKLOAD=0; CMD=""
+for a in "$@"; do
+  if [ "$WORKLOAD" = "1" ]; then
+    CMD="$CMD $a"
+  else
+    [ "$prev" = "-o" ] && REP="$a"
+    [ "$a" = "--" ] && WORKLOAD=1
+    prev="$a"
+  fi
+done
+if [ -n "$REP" ]; then
+  cat > "$REP" <<'REPORT'
+Performance counter statistics:
+
+# cpu            count  event_name               # count / runtime
+  0        957,898,660  cpu-cycles:u             # 0.754181 GHz
+  6    151,014,921,645  cpu-cycles:u             # 0.816262 GHz
+  0        613,054,073  instructions:u           # 482.675 M/sec
+  6    216,315,734,987  instructions:u           # 1.169 G/sec
+
+Total test time: 197.765102 seconds.
+REPORT
+fi
+[ -n "$CMD" ] && eval "$CMD"
