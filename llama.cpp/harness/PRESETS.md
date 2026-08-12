@@ -145,7 +145,7 @@ gained.
 
 ## Criterion 6 — reserve cores so observation does not perturb
 
-The Pass C control arms measured the harness's own 200 ms sampler against bare
+The Pass C control arms measured the harness's own sampler against bare
 runs, block-paired within a thermal window:
 
 | config | arm | median delta vs bare |
@@ -224,17 +224,41 @@ same-run, same-binary.
 
 ### Energy
 
-| config | stock J/1k tok | kai J/1k tok |
-|---|---|---|
-| best preset | **109** | **139** |
-| tg_default | 359 | 1462 |
-| **ratio** | **3.3×** | **10.5×** |
+Two framings, because the measured window and the metric's name are not the same
+thing. `energy_scope` is `invocation_incl_setup`, so the reported figure includes
+model load and warmup — between 2.6% and 38.8% of the window depending on the
+arm. The second column re-integrates the telemetry over only the benchmarking
+portion.
+
+| J/1k tokens | stock (invoc) | stock (bench) | kai (invoc) | kai (bench) |
+|---|---|---|---|---|
+| `tg_default` | 358.8 | 352.1 | 1461.4 | 1114.5 |
+| `tg_balanced` | **109.2** | **101.3** | 191.7 | 121.7 |
+| `tg_background` | 125.9 | 113.5 | **133.5** | **107.7** |
+| `tg_throughput` | 139.5 | 128.6 | 139.2 | 120.7 |
+| **default ÷ best** | **3.29×** | **3.48×** | **10.95×** | **10.35×** |
+| **default ÷ worst preset** | **2.57×** | **2.74×** | **7.62×** | **9.16×** |
+
+The claim survives either framing, which is the point of showing both. Note the
+best preset differs by binary — `tg_balanced` on stock, `tg_background` on kai —
+so "best preset" is not one configuration.
+
+**Precision caveat.** The sampler is configured for 200 ms and achieves 1.5–4 s
+in practice, because every tick reads 40-odd thermal zones plus each cpufreq
+policy. Some arms integrate over as few as 7 samples, and the fuel gauge itself
+updates roughly once a second. These are device-wide figures at ±15–25%. A 3×
+or 10× ratio clears that comfortably; nothing under ~30% should be read from
+this table.
 
 ### What this establishes
 
-1. **The default is wrong, by a lot.** `tg_default` is last in both runs:
-   **2.6× slower on stock, 11.3× on KleidiAI**, and **3.3–10.5× more energy per
-   token**. This is the claim the work rests on and it is unambiguous.
+1. **The default is wrong, by a lot.** `tg_default` is last in both runs. Against
+   the *best* preset that is 2.59× on stock and 11.29× on KleidiAI; against the
+   *worst* preset — the fairer number, since it is the floor — **2.22× and
+   8.52×**, at **2.6–3.3× and 7.6–11× the energy per token**. Throughput comes
+   from llama-bench's own per-repetition `samples_ts`, so it excludes model load
+   entirely and none of the energy caveats above touch it. This is the claim the
+   work rests on and it is unambiguous.
 2. `tg_default` draws *less* power than the presets (2.06 W vs 2.53 W) while
    being 2.6× slower. Spinning is cheap per cycle and useless per token — low
    power is not efficiency.

@@ -13,12 +13,20 @@ On my test phone, generating tokens:
 | | stock llama.cpp | KleidiAI build |
 |---|---|---|
 | default (`-t 8`) | 8.06 t/s · 359 J/1k tok | 1.60 t/s · 1462 J/1k tok |
-| any LITTLETai preset | 19.6–20.8 t/s · 109–140 J/1k tok | 13.6–18.1 t/s · 134–192 J/1k tok |
-| | **2.4–2.6× faster** | **8.5–11.3× faster** |
+| any LITTLETai preset | 17.9–20.8 t/s · 109–140 J/1k tok | 13.6–18.1 t/s · 134–192 J/1k tok |
+| | **2.2–2.6× faster** | **8.5–11.3× faster** |
 | | **2.6–3.3× less energy** | **7.6–11× less energy** |
 
 Same model. Same binary. Same prompt. The only thing that changed is a couple
 of CLI flags.
+
+<sub>Throughput is llama-cpp's own per-repetition `samples_ts`, so it excludes
+model load. Energy is whole-invocation and **does** include model load and
+warmup — that's 2.6–38.8% of the window depending on the arm. Integrating over
+only the benchmarking portion gives 352 → 101 J/1k tok on stock (3.5×) and 1115
+→ 108 on KleidiAI (10.3×), so the claim holds either way; the table just uses
+the number that was measured rather than the one that was modelled. Device-wide
+draw, ±15–25%.</sub>
 
 ```console
 $ ./llama-cli -m model.gguf -p "hello"                              # 1.6 tok/s
@@ -258,13 +266,16 @@ What the harness insists on:
 - Named failure states — an arm ends as a measurement or as a *reason*
   (`thermal_gate_timeout`, `bench_json_missing`, `suspend_during_measurement`),
   never as a plausible-looking number
-- Energy from the fuel gauge at 200 ms, trapezoidally integrated, screen off and
-  unplugged
+- Energy from the fuel gauge, trapezoidally integrated, screen off and unplugged.
+  The sampler asks for 200 ms and actually achieves 1.5–4 s, because each tick
+  reads 40-odd thermal zones plus every cpufreq policy — some arms integrate over
+  as few as 7 samples. Call it ±15–25%, which is why the ratios above are stated
+  and the third decimal place isn't
 - PMU counters via `simpleperf --per-core`, with multiplexing detection, because
   silently scaled estimates look exactly like real counts
 
 And one that changed the design: **the harness measured its own overhead.** A
-control pass showed the 200 ms sampler costing −8.3% at 6 threads. That's why
+control pass showed the sampler costing −8.3% at 6 threads. That's why
 `balanced` reserves cores — if one shell loop can cost 8%, so can the launcher,
 and so can whatever the user is actually doing on their phone.
 
@@ -317,6 +328,17 @@ binaries. Nothing touches a real phone until `deploy.sh`.
 - **Whether pinning helps prefill is unresolved.** The two binaries disagreed
   and the noise swallowed the effect. I didn't derive a mask rule from it.
 - **The non-llama.cpp formats are inferred.** Nothing more.
+- **The energy sampler is coarser than it looks.** 1.5–4 s cadence against a
+  200 ms target, and the fuel gauge itself only updates about once a second, so
+  these are device-wide ±15–25% figures. Fine for 3× and 10× claims. Not fine
+  for anything under about 30%.
+
+One loose thread I haven't chased: on KleidiAI, `tg_default` spent **118 s**
+before benchmarking even started, against 7–18 s for the presets and 3 s for
+stock's own default. Same binary, same model. The load penalty scales with
+thread count and only appears with KleidiAI, which fits weight repacking running
+on the same spinning thread pool — so the bug would be hitting model load too.
+That's a hypothesis with numbers behind it, not a mechanism I've confirmed.
 
 ## Layout
 
