@@ -1,3 +1,5 @@
+![LITTLETai — the right number of threads is never all of them](assets/banner.png)
+
 # LITTLETai
 
 > *The right number of threads is never all of them.*
@@ -32,6 +34,15 @@ draw, ±15–25%.</sub>
 $ ./llama-cli -m model.gguf -p "hello"                              # 1.6 tok/s
 $ sh cpupreset.sh balanced -- ./llama-cli -m model.gguf -p "hello"  # 18 tok/s
 ```
+
+![Token generation: the default at 8.06 t/s on stock and 1.60 t/s on KleidiAI, against 17.9–20.8 and 13.6–18.1 for the presets](assets/hero_decode.png)
+
+![Energy per 1000 tokens: 359 J at the default on stock and 1462 J on KleidiAI, against 109–140 and 133–192 for the presets](assets/hero_energy.png)
+
+<sub>Both charts share one x-scale across the two panels, so the bars are
+comparable between builds as well as within them. Regenerate with
+`.venv/bin/python llama.cpp/harness/hero_figures.py` — the values are read from
+`results.json`, never typed in.</sub>
 
 ---
 
