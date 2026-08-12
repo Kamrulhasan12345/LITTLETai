@@ -178,7 +178,83 @@ def figure(metric, title, sub, fmt, better_is_low, note, fname):
     print("wrote", OUT / fname)
 
 
+def instructions_figure():
+    """Retired instructions per generated token, against thread count.
+
+    This is the mechanism rather than the result, and it is the chart that makes
+    the rest credible: the work is identical at every thread count, so a rising
+    line can only be overhead. Two binaries = two series that ARE the subject,
+    so this one is genuinely categorical where the others are emphasis.
+
+    Every counter arm is plotted, not a mean of them. There are two event-set
+    variants per (binary, thread count) and at 8 threads they disagree by nearly
+    2x - showing both is honest about how noisy the pathological case is, and
+    the spread is itself part of the finding.
+    """
+    series = [("llama-bench", "stock", CONTEXT),
+              ("llama-bench-kai", "KleidiAI", "#d95926")]
+
+    fig, ax = plt.subplots(figsize=(7.6, 4.4))
+    fig.patch.set_facecolor(PAGE)
+    ax.set_facecolor(SURFACE)
+
+    for run, human, colour in series:
+        d = json.loads((HERE / "out" / run / "results_counters.json").read_text())
+        per = {}
+        for r in d:
+            c = r["extra"].get("counters") or {}
+            if not c or not r["config"].startswith("tg_t"):
+                continue
+            ins = sum(v.get("instructions:u", 0) for v in c.values())
+            tok = 128 * len(r["tps"])
+            per.setdefault(r["threads"], []).append(ins / tok / 1e6)
+
+        xs = sorted(per)
+        med = [st.median(per[t]) for t in xs]
+        ax.plot(xs, med, color=colour, linewidth=2, zorder=3,
+                marker="o", markersize=7, markeredgecolor=PAGE,
+                markeredgewidth=1.6, label=human)
+        for t in xs:                       # every individual invocation
+            ax.scatter([t] * len(per[t]), per[t], s=13, color=colour,
+                       alpha=0.5, zorder=2, linewidths=0)
+
+    ax.axvline(8, color=ACCENT, linewidth=1.4, linestyle=(0, (4, 3)), zorder=1)
+    ax.text(7.85, ax.get_ylim()[1] * 0.97, "llama.cpp's default  ",
+            ha="right", va="top", color=ACCENT, fontsize=10.5, fontweight="bold")
+
+    ax.set_xticks([2, 4, 6, 8])
+    ax.set_xlabel("threads", color=MUTED, fontsize=10, labelpad=8)
+    ax.set_ylabel("million instructions per generated token",
+                  color=MUTED, fontsize=10, labelpad=8)
+    for t in list(ax.get_xticklabels()) + list(ax.get_yticklabels()):
+        t.set_fontfamily(FONT_MONO)
+    ax.tick_params(colors=MUTED, labelsize=9.5)
+    ax.grid(color=GRID, linewidth=0.8, zorder=0)
+    ax.set_axisbelow(True)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    for s in ("left", "bottom"):
+        ax.spines[s].set_color(BASE)
+
+    leg = ax.legend(frameon=False, loc="upper left", fontsize=10.5)
+    for txt in leg.get_texts():
+        txt.set_color(INK_2)
+
+    fig.suptitle("Those cores aren't working. They're spinning.",
+                 color=INK, fontsize=15, fontweight="bold",
+                 x=0.035, y=0.975, ha="left", va="top")
+    fig.text(0.035, 0.878,
+             "Same tokens, same model, same work — up to 7.6× the instructions "
+             "to produce it.\nsimpleperf --per-core, every invocation plotted.",
+             color=MUTED, fontsize=9.5, ha="left", va="top")
+    fig.tight_layout(rect=(0, 0, 1, 0.80))
+    OUT.mkdir(exist_ok=True)
+    fig.savefig(OUT / "hero_instructions.png", dpi=190, facecolor=PAGE)
+    print("wrote", OUT / "hero_instructions.png")
+
+
 def main():
+    instructions_figure()
     figure(0,
            "llama.cpp's default thread count is its worst one",
            "Token generation, Qwen2 1B Q4_0, realme RMX5020 (6× Cortex-A55 + 2× Cortex-A75). "

@@ -91,6 +91,8 @@ out of `simpleperf`:
 | 6 | 216–302 M | 306–383 M |
 | **8 — the default** | **365–705 M** | **1053–1231 M** |
 
+![Instructions per generated token against thread count: near-flat from 2 to 6 threads, then rising steeply at 8 on both binaries](assets/hero_instructions.png)
+
 Same tokens, up to 7.6× the instructions to produce them. They're not doing
 work; they're spinning. `ggml_barrier()` waits with `ggml_thread_cpu_relax()` —
 no yield, and `--poll` doesn't gate it. So every thread burns cycles waiting for

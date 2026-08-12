@@ -1,58 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640"
+     font-family="'Noto Sans', 'Liberation Sans', sans-serif">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d0d0d"/>
-      <stop offset="100%" stop-color="#17171a"/>
-    </linearGradient>
-    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3987e5" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="#3987e5" stop-opacity="0"/>
-    </linearGradient>
+    <!-- The 'spinning' fill. Cores at -t 8 are occupied but not producing:
+         hatched rather than solid says busy-but-wasted without a caption. -->
+    <pattern id="spin" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="9" height="9" fill="#3a1f21"/>
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#e66767" stroke-width="3.2"/>
+    </pattern>
   </defs>
 
-  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="#0d0d0d"/>
 
-  <!-- core strip: 6 LITTLE + 2 big, the topology the whole project is about.
-       The two lit cells on the left cluster and the two on the right are the
-       'balanced' mask 0xCF - what the tool actually picks on this device. -->
-  <g transform="translate(96, 128)">
-    <text x="0" y="0" font-size="15" fill="#898781" letter-spacing="2.5">6 × CORTEX-A55</text>
-    <text x="452" y="0" font-size="15" fill="#898781" letter-spacing="2.5">2 × A75</text>
+  <!-- ── left column: identity ───────────────────────────────────────── -->
+  <text x="88" y="228" font-family="'JetBrainsMono NF', 'Hack', monospace"
+        font-size="72" font-weight="700" fill="#ffffff" letter-spacing="-2">LITTLETai</text>
 
-    <g transform="translate(0, 18)">
-      <rect x="0"   y="0" width="60" height="60" rx="9" fill="#3987e5"/>
-      <rect x="70"  y="0" width="60" height="60" rx="9" fill="#3987e5"/>
-      <rect x="140" y="0" width="60" height="60" rx="9" fill="#3987e5"/>
-      <rect x="210" y="0" width="60" height="60" rx="9" fill="#3987e5"/>
-      <rect x="280" y="0" width="60" height="60" rx="9" fill="#232326"/>
-      <rect x="350" y="0" width="60" height="60" rx="9" fill="#232326"/>
-      <rect x="452" y="0" width="60" height="60" rx="9" fill="#3987e5"/>
-      <rect x="522" y="0" width="60" height="60" rx="9" fill="#3987e5"/>
+  <text x="90" y="276" font-family="'JetBrainsMono NF', 'Hack', monospace"
+        font-size="19" fill="#5c5b57"># the right number of threads</text>
+  <text x="90" y="304" font-family="'JetBrainsMono NF', 'Hack', monospace"
+        font-size="19" fill="#5c5b57"># is never all of them</text>
+
+  <rect x="90" y="348" width="60" height="2" fill="#2c2c2a"/>
+
+  <text x="88" y="404" font-size="17" fill="#c3c2b7">llama.cpp on Android defaults to</text>
+  <text x="88" y="430" font-size="17" fill="#c3c2b7">every core. On a big.LITTLE phone</text>
+  <text x="88" y="456" font-size="17" fill="#c3c2b7">that is its slowest setting.</text>
+
+  <text x="88" y="524" font-family="'JetBrainsMono NF', 'Hack', monospace"
+        font-size="15" fill="#5c5b57">0 lines patched · reads /sys · POSIX sh</text>
+
+  <!-- ── right column: the finding ───────────────────────────────────── -->
+  <g transform="translate(632, 118)">
+    <text x="0" y="0" font-family="'JetBrainsMono NF', 'Hack', monospace"
+          font-size="14" fill="#5c5b57" letter-spacing="1.5">6 × CORTEX-A55</text>
+    <text x="396" y="0" font-family="'JetBrainsMono NF', 'Hack', monospace"
+          font-size="14" fill="#5c5b57" letter-spacing="1.5">2 × A75</text>
+
+    <!-- row 1 — the default. Every core occupied, almost none of it useful.
+         A75 cells are drawn larger because they physically are. -->
+    <g transform="translate(0, 30)">
+      <rect x="0"   y="10" width="52" height="52" rx="8" fill="url(#spin)"/>
+      <rect x="62"  y="10" width="52" height="52" rx="8" fill="url(#spin)"/>
+      <rect x="124" y="10" width="52" height="52" rx="8" fill="url(#spin)"/>
+      <rect x="186" y="10" width="52" height="52" rx="8" fill="url(#spin)"/>
+      <rect x="248" y="10" width="52" height="52" rx="8" fill="url(#spin)"/>
+      <rect x="310" y="10" width="52" height="52" rx="8" fill="url(#spin)"/>
+      <rect x="396" y="0"  width="72" height="72" rx="10" fill="url(#spin)"/>
+      <rect x="478" y="0"  width="72" height="72" rx="10" fill="url(#spin)"/>
+
+      <text x="0" y="106" font-family="'JetBrainsMono NF', 'Hack', monospace"
+            font-size="17" fill="#e66767" font-weight="700">-t 8</text>
+      <text x="72" y="106" font-size="16" fill="#898781">the default — 8 threads spinning at a barrier</text>
+      <text x="550" y="106" font-family="'JetBrainsMono NF', 'Hack', monospace"
+            font-size="21" font-weight="700" fill="#ffffff" text-anchor="end">1.60 t/s</text>
     </g>
-    <text x="0" y="106" font-size="14" fill="#5c5b57">
-      lit = cores this workload should actually use
+
+    <!-- row 2 — what LITTLETai picks. Fewer cores, all of them working. -->
+    <g transform="translate(0, 196)">
+      <rect x="0"   y="10" width="52" height="52" rx="8" fill="#3987e5"/>
+      <rect x="62"  y="10" width="52" height="52" rx="8" fill="#3987e5"/>
+      <rect x="124" y="10" width="52" height="52" rx="8" fill="#1c1c1b" stroke="#2c2c2a" stroke-width="1.5"/>
+      <rect x="186" y="10" width="52" height="52" rx="8" fill="#1c1c1b" stroke="#2c2c2a" stroke-width="1.5"/>
+      <rect x="248" y="10" width="52" height="52" rx="8" fill="#1c1c1b" stroke="#2c2c2a" stroke-width="1.5"/>
+      <rect x="310" y="10" width="52" height="52" rx="8" fill="#1c1c1b" stroke="#2c2c2a" stroke-width="1.5"/>
+      <rect x="396" y="0"  width="72" height="72" rx="10" fill="#3987e5"/>
+      <rect x="478" y="0"  width="72" height="72" rx="10" fill="#3987e5"/>
+
+      <text x="0" y="106" font-family="'JetBrainsMono NF', 'Hack', monospace"
+            font-size="17" fill="#3987e5" font-weight="700">-t 4</text>
+      <text x="72" y="106" font-size="16" fill="#898781">LITTLETai — 4 threads, none of them waiting</text>
+      <text x="550" y="106" font-family="'JetBrainsMono NF', 'Hack', monospace"
+            font-size="21" font-weight="700" fill="#ffffff" text-anchor="end">18.07 t/s</text>
+    </g>
+
+    <!-- The cells show HOW MANY cores are doing work, not which ones: the
+         18.07 t/s arm runs 4 threads with a free mask, so placement is the
+         scheduler's. Saying so keeps the picture from claiming a pinning the
+         measurement did not use. -->
+    <text x="0" y="384" font-size="14" fill="#3f3e3b">
+      Qwen2 1B Q4_0 · KleidiAI build · realme RMX5020 · same binary, same prompt
+    </text>
+    <text x="0" y="408" font-size="14" fill="#3f3e3b">
+      cells show thread count, not a pinned mask
     </text>
   </g>
-
-  <text x="96" y="330" font-size="86" font-weight="700" fill="#ffffff" letter-spacing="-2">LITTLETai</text>
-
-  <text x="96" y="380" font-size="24" fill="#c3c2b7">
-    The right number of threads is never all of them.
-  </text>
-
-  <rect x="96" y="424" width="1088" height="1" fill="#2c2c2a"/>
-
-  <!-- the three numbers, as a stat row -->
-  <g transform="translate(96, 470)">
-    <text x="0" y="34" font-size="46" font-weight="700" fill="#3987e5">2.2–11×</text>
-    <text x="0" y="64" font-size="15" fill="#898781">faster token generation</text>
-
-    <text x="330" y="34" font-size="46" font-weight="700" fill="#3987e5">up to 11×</text>
-    <text x="330" y="64" font-size="15" fill="#898781">less energy per token</text>
-
-    <text x="680" y="34" font-size="46" font-weight="700" fill="#3987e5">0</text>
-    <text x="680" y="64" font-size="15" fill="#898781">lines patched in llama.cpp</text>
-  </g>
-
-  <rect x="0" y="0" width="1280" height="640" fill="url(#fade)" style="mix-blend-mode:screen"/>
 </svg>
