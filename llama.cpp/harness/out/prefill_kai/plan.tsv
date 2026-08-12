@@ -1,0 +1,16 @@
+#arm_id	pass	config	threads	mask	test	reps	rep_batch	n_prompt	n_gen	telemetry	trace	events	variant
+prefill.pp_t4_free.b0	prefill	pp_t4_free	4	free	pp	5	0	512	0	1	0	-	-
+prefill.pp_t6_free.b0	prefill	pp_t6_free	6	free	pp	5	0	512	0	1	0	-	-
+prefill.pp_t8_free.b0	prefill	pp_t8_free	8	free	pp	5	0	512	0	1	0	-	-
+prefill.pp_t6_bal.b0	prefill	pp_t6_bal	6	0xCF	pp	5	0	512	0	1	0	-	-
+prefill.pp_t6_lit.b0	prefill	pp_t6_lit	6	0x3F	pp	5	0	512	0	1	0	-	-
+prefill.pp_t6_free.b1	prefill	pp_t6_free	6	free	pp	5	1	512	0	1	0	-	-
+prefill.pp_t4_free.b1	prefill	pp_t4_free	4	free	pp	5	1	512	0	1	0	-	-
+prefill.pp_t6_bal.b1	prefill	pp_t6_bal	6	0xCF	pp	5	1	512	0	1	0	-	-
+prefill.pp_t6_lit.b1	prefill	pp_t6_lit	6	0x3F	pp	5	1	512	0	1	0	-	-
+prefill.pp_t8_free.b1	prefill	pp_t8_free	8	free	pp	5	1	512	0	1	0	-	-
+prefill.pp_t4_free.b2	prefill	pp_t4_free	4	free	pp	5	2	512	0	1	0	-	-
+prefill.pp_t6_free.b2	prefill	pp_t6_free	6	free	pp	5	2	512	0	1	0	-	-
+prefill.pp_t8_free.b2	prefill	pp_t8_free	8	free	pp	5	2	512	0	1	0	-	-
+prefill.pp_t6_bal.b2	prefill	pp_t6_bal	6	0xCF	pp	5	2	512	0	1	0	-	-
+prefill.pp_t6_lit.b2	prefill	pp_t6_lit	6	0x3F	pp	5	2	512	0	1	0	-	-

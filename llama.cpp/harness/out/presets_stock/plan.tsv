@@ -1,0 +1,8 @@
+#arm_id	pass	config	threads	mask	test	reps	rep_batch	n_prompt	n_gen	telemetry	trace	events	variant
+presets.tg_balanced.b0	presets	tg_balanced	4	0xCF	tg	5	0	0	128	1	0	-	-
+presets.tg_default.b0	presets	tg_default	8	free	tg	5	0	0	128	1	0	-	-
+presets.tg_throughput.b0	presets	tg_throughput	4	free	tg	5	0	0	128	1	0	-	-
+presets.pp_background.b0	presets	pp_background	6	0x3F	pp	5	0	512	0	1	0	-	-
+presets.pp_throughput.b0	presets	pp_throughput	8	free	pp	5	0	512	0	1	0	-	-
+presets.tg_background.b0	presets	tg_background	4	0x3F	tg	5	0	0	128	1	0	-	-
+presets.pp_balanced.b0	presets	pp_balanced	6	0xCF	pp	5	0	512	0	1	0	-	-
