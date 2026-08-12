@@ -29,7 +29,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-
+from matplotlib import font_manager as fm
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent.parent / "assets"
@@ -49,6 +49,42 @@ CONTEXT = "#3987e5"  # the presets - context
 
 RUNS = [("presets_stock", "stock llama.cpp"),
         ("presets_kai", "KleidiAI build")]
+
+
+def _pick(*names, bold=True):
+    """First installed family from names, else matplotlib's default.
+
+    Requires a real 700 weight when bold=True. This is not pedantry: several
+    otherwise-good faces here ship a single weight - Adwaita Sans is 400 only,
+    Figtree is 300 only - and matplotlib answers a bold request against them by
+    warning and silently rendering regular. Every emphasis in the chart would
+    quietly stop working, which is worse than using a slightly plainer face.
+
+    Listed rather than hardcoded so the figures still render on a machine
+    without any of them; the cost of a miss is that it looks worse, not that
+    the build breaks.
+    """
+    weights = {}
+    for f in fm.fontManager.ttflist:
+        weights.setdefault(f.name, set()).add(f.weight)
+    for n in names:
+        if n in weights and (not bold or 700 in weights[n]):
+            return n
+    return "sans-serif" if bold else "monospace"
+
+
+# Sans for prose, mono for anything that is a measurement. The split is the
+# point: it makes numbers read as instrument output rather than as decoration,
+# and mono digits are tabular by construction so the value labels line up.
+FONT_SANS = _pick("Inter", "Noto Sans", "Liberation Sans", "DejaVu Sans")
+FONT_MONO = _pick("JetBrains Mono", "JetBrainsMono NF", "Hack",
+                  "DejaVu Sans Mono")
+
+plt.rcParams.update({
+    "font.family": FONT_SANS,
+    "figure.dpi": 190,
+    "axes.unicode_minus": False,
+})
 
 
 def load(run):
@@ -76,10 +112,10 @@ def bars(ax, labels, values, fmt, span, note):
         ax.text(v + span * 0.022, i, fmt(v), va="center", ha="left",
                 color=INK if lab == "default" else INK_2,
                 fontsize=10.5, fontweight="bold" if lab == "default" else "normal",
-                zorder=4)
+                fontfamily=FONT_MONO, zorder=4)
     ax.set_yticks(list(y))
-    ax.set_yticklabels(labels, fontsize=10.5,
-                       color=INK_2)
+    ax.set_yticklabels(labels, fontsize=10.5, color=INK_2,
+                       fontfamily=FONT_MONO)
     for t, lab in zip(ax.get_yticklabels(), labels):
         if lab == "default":
             t.set_color(INK)
@@ -89,6 +125,8 @@ def bars(ax, labels, values, fmt, span, note):
     ax.invert_yaxis()
     ax.set_xlabel(note, color=MUTED, fontsize=9.5, labelpad=8)
     ax.tick_params(axis="x", colors=MUTED, labelsize=9)
+    for t in ax.get_xticklabels():
+        t.set_fontfamily(FONT_MONO)
     ax.tick_params(axis="y", length=0)
     ax.grid(axis="x", color=GRID, linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
@@ -99,7 +137,7 @@ def bars(ax, labels, values, fmt, span, note):
 
 
 def figure(metric, title, sub, fmt, better_is_low, note, fname):
-    fig, axes = plt.subplots(1, 2, figsize=(11.5, 3.9))
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.2))
     fig.patch.set_facecolor(PAGE)
 
     panels = []
@@ -132,9 +170,9 @@ def figure(metric, title, sub, fmt, better_is_low, note, fname):
                      color=INK, fontsize=11.5, pad=12, loc="left", fontweight="bold")
 
     fig.suptitle(title, color=INK, fontsize=15, fontweight="bold",
-                 x=0.045, y=0.985, ha="left")
-    fig.text(0.045, 0.905, sub, color=MUTED, fontsize=10, ha="left")
-    fig.tight_layout(rect=(0, 0, 1, 0.90))
+                 x=0.045, y=0.975, ha="left", va="top")
+    fig.text(0.045, 0.862, sub, color=MUTED, fontsize=10, ha="left")
+    fig.tight_layout(rect=(0, 0, 1, 0.845))
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / fname, dpi=190, facecolor=PAGE)
     print("wrote", OUT / fname)
