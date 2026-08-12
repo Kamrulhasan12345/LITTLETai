@@ -31,3 +31,8 @@ out/*/inbox/.heartbeat
 
 # Release artifacts: built by hand, uploaded to GitHub Releases, not committed.
 dist/
+
+# editor swap files - a stray .swp nearly landed in a submission commit
+*.swp
+*.swo
+*~

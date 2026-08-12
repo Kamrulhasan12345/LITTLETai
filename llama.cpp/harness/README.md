@@ -41,9 +41,58 @@ device side (pushed to /data/local/tmp)
   preflight.sh     validates the apparatus, refuses to start if it is broken
   lib.sh           shared helpers
   sampler.sh       on-device sysfs sampler (200 ms cadence)
+  cpupreset.sh     topology -> llama.cpp CPU flags (see PRESETS.md)
   trace_config.pbtx  perfetto config
   stubs/           fake binaries so the loop is testable on a laptop
 ```
+
+## CPU presets
+
+`device/cpupreset.sh` turns a phone's topology into the llama.cpp flags that
+suit it. It modifies nothing in llama.cpp — it emits `-t`, `-tb` and a
+`taskset` prefix that llama.cpp already understands.
+
+```bash
+sh cpupreset.sh --print balanced                    # what this device resolves to
+sh cpupreset.sh balanced -- ./llama-cli -m model.gguf -p 'hi'
+```
+
+It exists because llama.cpp's Android default is `-t <physical cores>` — the
+hybrid-CPU heuristic beside it is compiled out by `!defined(__ANDROID__)`.
+Measured on this 6+2 device, that default is **2.6× slower on stock and 11.3×
+slower with KleidiAI**, and burns **3.3–10.5× the energy per token**:
+
+| | stock | KleidiAI |
+|---|---|---|
+| `-t 8` (the default) | 8.06 t/s, 359 J/1k tok | 1.60 t/s, 1462 J/1k tok |
+| best preset | **20.84 t/s, 109 J/1k tok** | **18.07 t/s, 139 J/1k tok** |
+
+`PRESETS.md` traces every rule constant back to the arm it came from, including
+one rule the validation run contradicted.
+
+It also emits settings for other runtimes — only the spelling changes, the
+topology rules are the same:
+
+```bash
+sh cpupreset.sh --format onnxruntime --flags balanced   # intra_op_num_threads=4
+sh cpupreset.sh --format tflite      --flags balanced   # num_threads=4
+sh cpupreset.sh --format env         --flags balanced   # OMP_NUM_THREADS=4 ...
+```
+
+Those are **inferred, not measured** — the tool says so itself. Only
+llama.cpp/ggml was benchmarked.
+
+Reproduce the validation on real hardware in ~40 minutes for both binaries —
+see `RUNBOOK.md` for the full session, including the two physical prerequisites
+that silently ruin a run:
+
+```bash
+./deploy.sh --mode presets --reps 5 --batches 1 --out out/presets_stock
+```
+
+`presets` is deliberately not part of `--mode all`: the matrix is the 97 arms
+the existing datasets contain, and growing it would mean `--resume` on either
+of them suddenly had work to do.
 
 ## Per-session setup
 

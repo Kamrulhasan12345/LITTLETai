@@ -40,7 +40,8 @@ import random
 import sys
 from pathlib import Path
 
-from resultlib import (CONFIGS, CONTROL_CONFIGS, EVENTS_CORE, EVENTS_A55,
+from resultlib import (CONFIGS, CONTROL_CONFIGS, PRESET_CONFIGS,
+                       PREFILL_CONFIGS, EVENTS_CORE, EVENTS_A55,
                        N_GEN, N_PROMPT)
 
 COLUMNS = ["arm_id", "pass", "config", "threads", "mask", "test", "reps",
@@ -119,6 +120,60 @@ def plan_sweep(reps, batches, seed, trace_batches, skip_masked=False):
     return rows
 
 
+def plan_presets(reps, batches, seed):
+    """Pass P. The cpupreset.sh presets against the default, one thermal policy.
+
+    Same block structure and shuffling as the sweep, for the same reason: the
+    presets differ by a few percent on prefill, and an unshuffled order lets
+    thermal drift align with a single config and manufacture that difference.
+
+    Its own rng stream, seeded off the sweep's seed rather than sharing it, so
+    running presets does not perturb the order a plain --mode sweep produces
+    for the same --seed.
+
+    Never traced. The pass answers "which flags win on throughput and energy",
+    which comes from the telemetry CSVs; a perfetto trace is ~16 MB per arm and
+    would put 112 MB and a chunk of the runtime into a check whose entire point
+    is that it costs 20 minutes. Use --mode sweep when you want sched_switch.
+    """
+    rng = random.Random(seed + 1)
+    rows = []
+    for b in range(batches):
+        order = PRESET_CONFIGS[:]
+        rng.shuffle(order)
+        for (name, th, mask, test) in order:
+            rows.append(row(
+                arm_id=f"presets.{name}.b{b}", pass_="presets", config=name,
+                threads=th, mask=mask, test=test, reps=reps, rep_batch=b,
+                telemetry=True, trace=False,
+                events=None, variant=None))
+    return rows
+
+
+def plan_prefill(reps, batches, seed):
+    """Pass F. Prefill thread sweep at fixed mask + mask sweep at fixed threads.
+
+    Its own rng stream again (seed + 2), so adding this pass cannot change the
+    order --mode sweep or --mode presets produce for the same --seed.
+
+    Shuffled and blocked like the others. It matters more here than anywhere
+    else: the effect being measured is ~12%, which is well inside the range
+    thermal drift can manufacture if configs run in a fixed order.
+    """
+    rng = random.Random(seed + 2)
+    rows = []
+    for b in range(batches):
+        order = PREFILL_CONFIGS[:]
+        rng.shuffle(order)
+        for (name, th, mask, test) in order:
+            rows.append(row(
+                arm_id=f"prefill.{name}.b{b}", pass_="prefill", config=name,
+                threads=th, mask=mask, test=test, reps=reps, rep_batch=b,
+                telemetry=True, trace=False,
+                events=None, variant=None))
+    return rows
+
+
 def plan_counters(reps, seed, skip_masked=False):
     """Pass B. simpleperf, decode configs only, both event sets interleaved.
 
@@ -188,8 +243,15 @@ def build(mode, reps, batches, control_n, seed, trace_batches,
     """
     mode = set(m.strip() for m in str(mode).split(",") if m.strip())
     if "all" in mode:
+        # "presets" is NOT in "all". A full matrix is the 97 arms the existing
+        # datasets contain; silently growing it would mean --resume on either
+        # of them suddenly had work to do.
         mode |= {"sweep", "counters", "control"}
     rows = []
+    if mode & {"presets"}:
+        rows += plan_presets(reps, batches, seed)
+    if mode & {"prefill"}:
+        rows += plan_prefill(reps, batches, seed)
     if mode & {"all", "sweep"}:
         rows += plan_sweep(reps, batches, seed, trace_batches, skip_masked)
     if mode & {"all", "counters"}:
@@ -232,9 +294,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--mode", default="all",
-                    help="all | sweep | counters | control, or a comma-"
-                         "separated combination such as 'counters,control' "
-                         "so one session can cover several passes unattended")
+                    help="all | sweep | counters | control | presets | "
+                         "prefill, or a comma-separated combination such as "
+                         "'counters,control' so one session can cover several "
+                         "passes unattended. 'presets' and 'prefill' are "
+                         "excluded from 'all': they are short targeted runs "
+                         "(~20 min each) that answer a specific question, not "
+                         "part of the 97-arm matrix")
     ap.add_argument("--reps", type=int, default=20)
     ap.add_argument("--batches", type=int, default=3)
     ap.add_argument("--control-n", type=int, default=8)

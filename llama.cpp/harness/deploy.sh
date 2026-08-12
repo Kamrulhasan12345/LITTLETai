@@ -114,7 +114,7 @@ fi
   echo "deploy: $DEV/$BENCH will not launch (missing? not +x?)" >&2; exit 1; }
 for _m in $(echo "$MODE" | tr ',' ' '); do
   case "$_m" in
-    all|sweep|counters|control) ;;
+    all|sweep|counters|control|presets|prefill) ;;
     *) echo "deploy: unknown pass '$_m' in --mode" >&2; exit 1 ;;
   esac
 done
@@ -240,11 +240,12 @@ fi
 say "pushing scripts"
 adb push "$HERE/device/lib.sh" "$HERE/device/runner.sh" \
          "$HERE/device/uploader.sh" "$HERE/device/preflight.sh" \
-         "$HERE/device/sampler.sh" "$HERE/device/trace_config.pbtx" \
+         "$HERE/device/sampler.sh" "$HERE/device/cpupreset.sh" \
+         "$HERE/device/trace_config.pbtx" \
          "$DEV/" >/dev/null || exit 1
 [ "$RESUME" = "1" ] || adb push "$OUTDIR/plan.tsv" "$DEV/plan.tsv" >/dev/null
 adb shell "chmod 755 $DEV/lib.sh $DEV/runner.sh $DEV/uploader.sh \
-                     $DEV/preflight.sh $DEV/sampler.sh"
+                     $DEV/preflight.sh $DEV/sampler.sh $DEV/cpupreset.sh"
 
 # The plan must arrive intact: a truncated push would silently shorten the
 # matrix, and the device has no way to know what it should have received.

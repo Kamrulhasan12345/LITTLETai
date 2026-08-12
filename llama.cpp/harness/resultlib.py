@@ -40,6 +40,7 @@ MASK_A55 = "0x3F"
 MASK_A75 = "0xC0"
 MASK_A55x2 = "0x03"
 MASK_MIX = "0xC3"   # 2 big + 2 little
+MASK_BALANCED = "0xCF"   # everything except the two highest A55s (cpu4, cpu5)
 
 # (name, threads, cpu_mask, test)  test is "tg" (decode) or "pp" (prefill)
 CONFIGS = [
@@ -59,6 +60,57 @@ CONFIGS = [
 CONTROL_CONFIGS = [
     ("tg_t6_free", 6, None, "tg"),
     ("tg_t2_A75",  2, MASK_A75, "tg"),
+]
+
+# Pass P. What `device/cpupreset.sh` resolves to on THIS device, plus the
+# default llama.cpp would have picked, so the two are measured under one
+# thermal policy and one seed.
+#
+# Deliberately NOT part of CONFIGS. The sweep order is a function of the seed
+# and the config list, so appending here would change what `--seed 1234`
+# produces and make the two existing 97-arm matrices non-reproducible.
+#
+# Regenerate after any rule change:
+#     sh device/cpupreset.sh --json
+#
+# `pp_default` is absent on purpose: llama.cpp defaults n_threads_batch to
+# n_threads, so the default prefill IS t=8 free, which is exactly
+# pp_throughput. Prefill is not what the default gets wrong.
+# Pass F. A prefill thread sweep at a FIXED mask, plus a mask sweep at a FIXED
+# thread count.
+#
+# Exists to settle one question the preset validation could not. There,
+# pp_balanced (t6, 0xCF) beat pp_throughput (t8, free) on both binaries - but
+# those two arms differ in thread count AND mask simultaneously, so the +12%
+# cannot be attributed to either. The rule "prefill uses all cores" is
+# contradicted by that result without being replaced by anything measured.
+#
+# pp_t6_free is the arm that separates them:
+#   t6_free ~= t6_bal          -> thread count is what matters; prefill = C - reserve
+#   t6_bal  >  t6_free         -> the mask is what matters; throughput needs one
+#   t8_free >= t6_free         -> the original rule stands and the mask did the work
+#
+# t8_free is re-measured here rather than reused from the preset run: the 850 MHz
+# clamp moved absolute t/s by 40-70% between sessions, so every comparison has to
+# live inside one run.
+PREFILL_CONFIGS = [
+    # (name, threads, mask, test)
+    ("pp_t4_free", 4, None,          "pp"),
+    ("pp_t6_free", 6, None,          "pp"),   # the missing arm
+    ("pp_t8_free", 8, None,          "pp"),   # in-run baseline
+    ("pp_t6_bal",  6, MASK_BALANCED, "pp"),   # 0xCF, mask effect at fixed threads
+    ("pp_t6_lit",  6, MASK_A55,      "pp"),   # 0x3F, little cluster only
+]
+
+PRESET_CONFIGS = [
+    # (name, threads, mask, test)
+    ("tg_default",    8, None,          "tg"),   # common_cpu_get_num_math() = 8
+    ("tg_throughput", 4, None,          "tg"),
+    ("tg_balanced",   4, MASK_BALANCED, "tg"),
+    ("tg_background", 4, MASK_A55,      "tg"),
+    ("pp_throughput", 8, None,          "pp"),   # == the current default
+    ("pp_balanced",   6, MASK_BALANCED, "pp"),
+    ("pp_background", 6, MASK_A55,      "pp"),
 ]
 
 N_GEN = 128       # tokens for tg

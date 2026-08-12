@@ -47,7 +47,17 @@ from resultlib import (Result, add_energy_metrics, dump, extract_bench_samples,
                        summarise_telemetry, N_GEN, N_PROMPT)
 
 # Which results file each pass lands in. analyze.py reads exactly these.
-SUFFIX = {"sweep": "", "counters": "_counters", "control": "_control"}
+#
+# "presets" shares the sweep's file on purpose. Its arms are ordinary
+# throughput+energy arms that differ only in which flags produced them, so
+# landing them in results.json makes analyze.py's existing throughput, energy
+# and throttle tables work with no changes. A preset run gets its own --out
+# directory, so the two never mix inside one file.
+#
+# An unlisted pass still falls back to results_<pass>.json rather than being
+# dropped - see the SUFFIX.get() below.
+SUFFIX = {"sweep": "", "counters": "_counters", "control": "_control",
+          "presets": "", "prefill": ""}
 
 INT_KEYS = ("threads", "rep_batch", "reps", "n_prompt", "n_gen",
             "sampler_samples")
