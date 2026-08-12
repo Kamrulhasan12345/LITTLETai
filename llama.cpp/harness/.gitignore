@@ -15,6 +15,10 @@ out/*/traces/
 out/*/receiver.log
 out/*/receiver.pid
 out/.prep/
+# The receiver rewrites this every ~30 s while it is up, so tracking it means
+# the tree is permanently dirty and every run produces a spurious diff. It is
+# liveness state, not measurement - the one thing under inbox/ worth ignoring.
+out/*/inbox/.heartbeat
 
 # NOTE what is deliberately NOT ignored:
 #   out/*/inbox/        the received measurement arms, ~2.6 MB total. ingest.py
