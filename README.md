@@ -35,11 +35,9 @@ $ ./llama-cli -m model.gguf -p "hello"                                #  1.6 t/s
 $ sh cpupreset.sh throughput -- ./llama-cli -m model.gguf -p "hello"  # 18.1 t/s   (stock: 19.6)
 ```
 
-<sub>Which binary you built changes the size of the win, not its direction, so
-both are given: the leading number is the KleidiAI build, where the default is
-at its worst, and stock is in parentheses. Everything below follows the same
-convention, and the two measured binaries are `llama-bench` (stock) and
-`llama-bench-kai` (KleidiAI).</sub>
+<sub>Leading number is the KleidiAI build, where the default is at its worst;
+stock in parentheses. Which binary you built changes the size of the win, not
+its direction.</sub>
 
 ![Token generation: the default at 8.06 t/s on stock and 1.60 t/s on KleidiAI, against 17.9–20.8 and 13.6–18.1 for the presets](assets/hero_decode.png)
 
@@ -50,14 +48,11 @@ comparable between builds as well as within them. Regenerate with
 `.venv/bin/python llama.cpp/harness/hero_figures.py`; the values are read from
 `results.json`, never typed in.</sub>
 
-These are not the first numbers I got, and the first ones were wrong in a way
-worth admitting up front. The two 97-arm matrices were collected with both
-cpufreq policies vendor-clamped to 850 MHz against a rated 1.7 and 2.0 GHz, and
-the rule I pulled out of them, that prefill wants *every* core, is an artifact
-of that clamp. It is false at full clock. A dedicated sweep retired it, which is
-why `throughput` reserves a core today instead of taking all eight.
-[`PRESETS.md`](llama.cpp/harness/PRESETS.md) keeps the retired version next to
-the one that replaced it.
+These are not the first numbers I got. The first matrices were collected with
+the clocks vendor-clamped to 850 MHz, and the rule I pulled out of them, that
+prefill wants *every* core, turned out to be an artifact of that clamp. A re-run
+at full clock retired it, which is why `throughput` reserves a core today.
+[`PRESETS.md`](llama.cpp/harness/PRESETS.md) keeps both versions.
 
 ---
 
@@ -83,17 +78,24 @@ the one that replaced it.
 
 ## Why this exists
 
-llama.cpp decides your default thread count in `common_cpu_get_num_math()`.
-There's a heuristic in there for heterogeneous CPUs, the kind with fast and
-slow cores mixed together. It's guarded like this:
+llama.cpp picks your default thread count in `common_cpu_get_num_math()`. It
+does have a heuristic for CPUs that mix fast and slow cores, but only for
+Intel:
 
 ```c
 #if defined(__x86_64__) && defined(__linux__) && !defined(__ANDROID__)
 ```
 
-That's for Intel's P and E cores. Android is explicitly excluded, so on a phone
-it falls through to "use every physical core." Arm's big.LITTLE is the most
-widely deployed heterogeneous CPU design on the planet and it gets nothing.
+It finds the slow cores with `CPUID`, which Arm doesn't have, so there is no Arm
+version of it. Your phone falls back to counting cores and uses all of them.
+big.LITTLE is the most widely deployed heterogeneous CPU design there is, and
+llama.cpp has nothing for it.
+
+Not a new complaint, either.
+[#7176](https://github.com/ggml-org/llama.cpp/issues/7176) reported the same
+cliff on an Orange Pi 5 back in 2024: 6.93 t/s down to 3.81, fixed by passing
+`-t 4`. It was closed as not planned. The rule below arrives at that same `-t 4`
+on its own.
 
 I expected this to cost maybe 10-20%. Then I counted instructions.
 
@@ -107,9 +109,8 @@ out of `simpleperf`:
 | 6 | 205–302 M | 299–383 M |
 | **8 — the default** | **365–705 M** | **1053–1231 M** |
 
-<sub>Full spread across every counter arm at that thread count, not a mean:
-two event sets per configuration, and at 8 threads they disagree by nearly 2×.
-The spread is part of the finding, so nothing is averaged away.</sub>
+<sub>Full spread across every counter arm at that thread count, not a mean.
+Nothing is averaged away.</sub>
 
 ![Instructions per generated token against thread count: near-flat from 2 to 6 threads, then rising steeply at 8 on both binaries](assets/hero_instructions.png)
 
@@ -192,13 +193,10 @@ clusters; pinning usually tightens that, though not always. Speed versus
 predictability is a real choice. I could have invented a thread-count difference
 to make the presets look more distinct, and that would have been a lie.
 
-**On decode the three are within noise of each other** at n=5 and one batch:
-`balanced` is the fastest on stock and the slowest on KleidiAI, so this data
-does not pick a decode winner and neither will I. `balanced` is the
-recommendation because it wins *prefill* on both builds (+12.1% stock, +8.3%
-KleidiAI over `throughput`) and never throttled there, not because it generates
-tokens fastest. [`PRESETS.md`](llama.cpp/harness/PRESETS.md) has the arm-by-arm
-version, including the one decode arm where `balanced` did throttle.
+**On decode the three are within noise** at n=5: `balanced` is fastest on stock
+and slowest on KleidiAI, so this data doesn't pick a decode winner and neither
+will I. It's the recommendation because it wins *prefill* on both builds
+(+12.1% stock, +8.3% KleidiAI), not because it generates tokens fastest.
 
 ## Other runtimes
 
@@ -339,11 +337,9 @@ cd llama.cpp/harness
 .venv/bin/python analyze.py out/presets_stock
 ```
 
-`--bench` names the binary on the phone and defaults to `llama-bench`, the stock
-one. For the other half of the A/B, run it again with `--bench llama-bench-kai
---out out/presets_kai`. One run directory holds one binary and `deploy.sh`
-refuses to mix them, because a directory with two implementations in it is not
-an A/B any more.
+`--bench` names the binary on the phone and defaults to `llama-bench`, the
+stock one. For the other half of the A/B, rerun with `--bench llama-bench-kai
+--out out/presets_kai`. One directory holds one binary; `deploy.sh` enforces it.
 
 You're looking for `tg_default` at the bottom of the throughput table, roughly
 2.6× below the presets on stock and 11× on KleidiAI.
@@ -415,19 +411,13 @@ submitted to the
 **[Mobile AI](https://arm-ai-optimization-challenge.devpost.com/details/trackdetails)**
 track: AI running locally on Arm-powered client devices.
 
-It fits that track on all three of its criteria. Inference is **fully
-on-device**, on retail hardware with no root and no vendor SDK. It is
-**optimised for mobile constraints** in the track's own terms, latency and
-battery, which is why energy per token sits next to throughput in every table
-here rather than being an afterthought. And the finding generalises across the
-track's device range, since the rules are a function of cluster topology, not
-of one part: the same script covers Windows-on-Arm laptops, which the track
-also names.
+Fully on-device inference on retail hardware, no root and no vendor SDK, tuned
+for the constraints that track names: latency and battery. That's why energy
+per token sits beside throughput throughout.
 
-Not the Cloud AI track, despite that track listing llama.cpp. The bug is
-specific to **heterogeneous** CPUs. Graviton, Cobalt and Axion are homogeneous
-Neoverse parts with no big.LITTLE split, so `common_cpu_get_num_math()`
-returning "every core" is the right answer there and the wrong one on a phone.
+Not the Cloud AI track, despite that one listing llama.cpp. The bug needs a
+**heterogeneous** CPU. Graviton, Cobalt and Axion are homogeneous Neoverse, so
+"use every core" is the right answer there and the wrong one on a phone.
 
 ## License
 
