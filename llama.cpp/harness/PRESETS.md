@@ -207,7 +207,7 @@ interpolated cells remain.
 **The clamp was gone for this run.** `freq_policy0_max` came back 1,500,000 kHz
 against 850,000 in the original matrices, and policy6 1,532,000. So the 850 MHz
 clamp recorded in `HANDOFF.md` was state-dependent, not permanent vendor policy.
-Every absolute number below is therefore ~40–70% above the original matrices and
+Every absolute number below is therefore 26–86% above the original matrices and
 **is not comparable to them**; the comparisons within this section are all
 same-run, same-binary.
 
@@ -369,8 +369,9 @@ free upgrade — and it makes getting `-t` right *more* important, not less.
 - **n=5, 1 batch** in the validation. Enough to establish a 2.6–11.3× gap;
   nowhere near enough to rank the presets against each other.
 - **Never compare across runs.** The clamp difference alone moves absolute t/s
-  by 40–70%. Every claim here is same-run, same-binary; a preset check must
-  baseline the default from the *same* binary in the *same* session.
+  by 26–86% across the twelve arms that match on (threads, mask, test). Every
+  claim here is same-run, same-binary; a preset check must baseline the default
+  from the *same* binary in the *same* session.
 - **Non-llama output formats are inferred, not measured** — see below.
 
 ## Other runtimes — `--format`
