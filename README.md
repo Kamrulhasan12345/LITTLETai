@@ -76,6 +76,7 @@ the one that replaced it.
 - [Tests](#tests)
 - [What I don't know yet](#what-i-dont-know-yet)
 - [Layout](#layout)
+- [Arm Create: AI Optimization Challenge](#arm-create-ai-optimization-challenge)
 - [License](#license)
 
 ---
@@ -406,6 +407,27 @@ llama.cpp/harness/
 `llama.cpp/harness/` stands alone. Reading or running `cpupreset.sh` and its
 tests needs nothing from the `llama.cpp/src` submodule; that's only there to
 build benchmark binaries.
+
+## Arm Create: AI Optimization Challenge
+
+Built for the [Arm Create: AI Optimization Challenge](https://arm-ai-optimization-challenge.devpost.com),
+submitted to the
+**[Mobile AI](https://arm-ai-optimization-challenge.devpost.com/details/trackdetails)**
+track: AI running locally on Arm-powered client devices.
+
+It fits that track on all three of its criteria. Inference is **fully
+on-device**, on retail hardware with no root and no vendor SDK. It is
+**optimised for mobile constraints** in the track's own terms, latency and
+battery, which is why energy per token sits next to throughput in every table
+here rather than being an afterthought. And the finding generalises across the
+track's device range, since the rules are a function of cluster topology, not
+of one part: the same script covers Windows-on-Arm laptops, which the track
+also names.
+
+Not the Cloud AI track, despite that track listing llama.cpp. The bug is
+specific to **heterogeneous** CPUs. Graviton, Cobalt and Axion are homogeneous
+Neoverse parts with no big.LITTLE split, so `common_cpu_get_num_math()`
+returning "every core" is the right answer there and the wrong one on a phone.
 
 ## License
 
