@@ -78,7 +78,7 @@
          scheduler's. Saying so keeps the picture from claiming a pinning the
          measurement did not use. -->
     <text x="0" y="384" font-size="14" fill="#3f3e3b">
-      Qwen2 1B Q4_0 · KleidiAI build · realme RMX5020 · same binary, same prompt
+      Qwen2 1B Q4_0 · KleidiAI build · Helio G81 Ultra · same binary, same prompt
     </text>
     <text x="0" y="408" font-size="14" fill="#3f3e3b">
       cells show thread count, not a pinned mask

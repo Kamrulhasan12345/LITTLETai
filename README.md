@@ -248,8 +248,8 @@ Unrooted retail Android, shell uid, nothing special.
 |---|---|
 | CPU | 6× **Arm Cortex-A55** @ 1.7 GHz + 2× **Arm Cortex-A75** @ 2.0 GHz, DynamIQ big.LITTLE |
 | ISA | ARMv8.2-A, NEON, `asimddp`, `fphp`/`asimdhp` — no `i8mm`, no SVE, no SME2 |
-| SoC | MediaTek Helio G85 (`ro.board.platform=mt6768`, `ro.soc.model=MT6769`) |
-| Device | realme RMX5020, Android 16, kernel 6.6.118, 5.6 GB RAM |
+| SoC | MediaTek Helio G81 Ultra (`ro.board.platform=mt6768`, `ro.soc.model=MT6769`) |
+| Device | Android 16, kernel 6.6.118, 5.6 GB RAM |
 | Access | no root, no Shizuku, `/data/local/tmp` |
 | Model | Qwen2 1B Q4_0, `pp512` / `tg128` |
 

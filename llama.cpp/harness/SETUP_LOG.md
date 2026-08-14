@@ -1,4 +1,4 @@
-# lbench bring-up log — RMX5020 (mt6768, Android 16)
+# lbench bring-up log — Helio G81 Ultra (mt6768, Android 16)
 
 Chronological record of getting the harness from a fresh checkout to a
 completed, validated control run on the device, including every crash, its
@@ -7,7 +7,7 @@ Recorded 2026-08-07→10 (through §14).
 
 ## 0. Starting state
 
-- Device: `RMX5020`, SoC `mt6768` (6× Cortex-A55 @1.7 GHz + 2× Cortex-A75
+- Device: MediaTek Helio G81 Ultra, SoC `mt6768` (6× Cortex-A55 @1.7 GHz + 2× Cortex-A75
   @2.0 GHz), Android 16 (SDK 36), kernel `6.6.118-android15-...`
 - `llama-bench` (17.5 MB), `model.gguf` (491 MB, qwen2 1B Q4_K),
   `libssl.so.3`/`libcrypto.so.3` already staged in `/data/local/tmp`
@@ -349,7 +349,7 @@ Output: `out/run_20260808_194215` (UTC `2026-08-08T13:42:16Z`).
 | aspect | value |
 |---|---|
 | passes | Pass A only — 11 configs × 3 batches, seed 1234 |
-| device | RMX5020 / mt6768, battery **100% Discharging**, airplane **1** |
+| device | Helio G81 Ultra / mt6768, battery **100% Discharging**, airplane **1** |
 | coverage | **33/33 arms completed** — all valid, zero thermal timeouts, zero throttled reps (0/3 everywhere) |
 | duration | ~6.1 h device-clock (first `t_start` → last `t_end`), ~4.9 h in `wall_s` bench time |
 | energy | `energy_j` 0.41–1.20 kJ per arm, **26 269** telemetry samples total |
@@ -404,7 +404,7 @@ decode only).
 | aspect | value |
 |---|---|
 | configs | 8 tg configs × 2 event sets = 16 arms, seed 1234 |
-| device | RMX5020 / mt6768, battery 100% Discharging, airplane 1 |
+| device | Helio G81 Ultra / mt6768, battery 100% Discharging, airplane 1 |
 | schema | v3 (attempt IDs, per-rep `samples_are_per_rep`, `bench_json/` archive) |
 | events | 4-event sets: `cpu-cycles`, `instructions`, `raw-stall-backend`, `raw-ll-cache-miss-rd` (core) and A55 stall events (a55) |
 
@@ -577,7 +577,7 @@ Estimated duration: Pass A ~6 h, Pass B ~1 h, Pass C ~40 min per arm
 
 ### Status at time of writing
 
-- device: RMX5020, battery 74% Discharging, airplane 1, screen Asleep
+- device: Helio G81 Ultra, battery 74% Discharging, airplane 1, screen Asleep
 - `-rwxr-xr-x llama-bench` / `-rwxrwx--x llama-bench-kai` / `model.gguf`
   (429 MB) staged in `/data/local/tmp`
 - S1 outdirs intact: `out/run_20260807_233110` (control),

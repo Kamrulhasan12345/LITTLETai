@@ -31,7 +31,8 @@ wrong only for decode, which is the half a user waits on.
 
 ## Device under measurement
 
-RMX5020 / MT6768, 6× Cortex-A55 (policy0) + 2× Cortex-A75 (policy6), Android 16.
+MediaTek Helio G81 Ultra (MT6768), 6× Cortex-A55 (policy0) + 2× Cortex-A75
+(policy6), Android 16.
 Model Qwen2 1B Q4_0, `poll=50`, masking via `taskset`, seed 1234, 3 batches,
 20 reps. Both cpufreq policies were **vendor-clamped to 850 MHz** against rated
 1.7 / 2.0 GHz (`preflight.kv`: `freq_policy0_max=850000`,

@@ -61,7 +61,7 @@ TRACE_FREE_MB="${TRACE_FREE_MB:-3000}"
 # through to an unsupported-platform stub. Fixed upstream in llama.cpp
 # PR #26838 (merged 2026-08-10); binaries built before that discard the mask.
 #
-# Measured here on RMX5020 with a 2-thread decode, A75 share of cycles:
+# Measured here on the Helio G81 Ultra with a 2-thread decode, A75 share of cycles:
 #     no mask                  98.8%
 #     -C 0x03 --cpu-strict 1   99.5%   <- indistinguishable from no mask
 #     taskset 03                0.1%   <- correct

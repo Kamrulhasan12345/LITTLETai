@@ -77,7 +77,7 @@ expect() {
 
 # The device the rules were measured on. These three lines are the regression
 # oracle: if they change, the presets no longer match PRESETS.md.
-t_6plus2_rmx5020() {
+t_6plus2_g81ultra() {
   SCEN="6+2 (MT6768, the measured device)"
   hdr "$SCEN"
   mk_tree "6:1700000:$MIDR_A55" "2:2000000:$MIDR_A75"
@@ -375,7 +375,7 @@ t_core_names() {
 
 # -------------------------------------------------------------------- main
 
-for t in t_6plus2_rmx5020 t_1plus3plus4 t_2plus2plus4 t_4plus4_same_freq \
+for t in t_6plus2_g81ultra t_1plus3plus4 t_2plus2plus4 t_4plus4_same_freq \
          t_8_identical t_4_core_budget t_dual_core t_12_core t_offline_cpus \
          t_no_cpufreq t_policy_only_layout t_per_cpu_policies \
          t_llama_bench_drops_tb t_cpumask_mode t_bad_preset \

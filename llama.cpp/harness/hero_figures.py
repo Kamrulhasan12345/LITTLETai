@@ -257,7 +257,7 @@ def main():
     instructions_figure()
     figure(0,
            "llama.cpp's default thread count is its worst one",
-           "Token generation, Qwen2 1B Q4_0, realme RMX5020 (6× Cortex-A55 + 2× Cortex-A75). "
+           "Token generation, Qwen2 1B Q4_0, MediaTek Helio G81 Ultra (6× Cortex-A55 + 2× Cortex-A75). "
            "Median of 5 reps. Higher is better.",
            lambda v: f"{v:.2f} t/s", False,
            "tokens / second", "hero_decode.png")
